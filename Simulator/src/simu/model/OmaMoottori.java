@@ -58,7 +58,7 @@ public class OmaMoottori extends Moottori{
 				} else {
 					if (apteekki.missedCustomerChance() > 0.5) {
 						apteekki.addMissedCustomer();
-						System.out.println("Asiakasta vitutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
+						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
 						System.out.println("Asiakas, " + a.getId() + " päätti pysyä jonossa");
