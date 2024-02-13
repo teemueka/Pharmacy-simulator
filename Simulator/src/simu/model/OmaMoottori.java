@@ -16,7 +16,7 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet = new Palvelupiste[5];
 
 		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);
-		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal(10,10), tapahtumalista, TapahtumanTyyppi.INFO_P);
+		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal(10,10), tapahtumalista, TapahtumanTyyppi.ASPA_P);
 		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal(5,3), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
 		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal(10, 5), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
 		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(10, 5), tapahtumalista, TapahtumanTyyppi.KASSA_P);
@@ -71,14 +71,14 @@ public class OmaMoottori extends Moottori{
 				a = (Asiakas)palvelupisteet[0].otaJonosta();
 				palvelupisteet[1].lisaaJonoon(a);
 				break;
-			case RESEPTI_P: a = (Asiakas)palvelupisteet[1].otaJonosta();
+			case ASPA_P: a = (Asiakas)palvelupisteet[1].otaJonosta();
 				palvelupisteet[2].lisaaJonoon(a);
 				break;
 
 			case KAUPPA_P: a = (Asiakas)palvelupisteet[2].otaJonosta();
 						palvelupisteet[3].lisaaJonoon(a);
 				break;
-			case INFO_P: a = (Asiakas)palvelupisteet[3].otaJonosta();
+			case RESEPTI_P: a = (Asiakas)palvelupisteet[3].otaJonosta();
 						palvelupisteet[4].lisaaJonoon(a);
 				break;
 			case KASSA_P:
