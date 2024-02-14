@@ -5,6 +5,9 @@ import simu.framework.ITapahtumanTyyppi;
 // TODO:
 // Tapahtumien tyypit määritellään simulointimallin vaatimusten perusteella
 public enum TapahtumanTyyppi implements ITapahtumanTyyppi{
-	ARR1, DEP1, DEP2, DEP3;
+
+	//S = Saapuminen, P = Poistuminen
+	AULA_S, AULA_P, ASPA_P, KAUPPA_P, RESEPTI_P, KASSA_P;
+
 
 }
