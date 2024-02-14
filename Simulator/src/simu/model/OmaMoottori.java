@@ -58,7 +58,7 @@ public class OmaMoottori extends Moottori{
 				} else {
 					if (apteekki.missedCustomerChance() > 0.5) {
 						apteekki.addMissedCustomer();
-						System.out.println("Asiakasta vitutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
+						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
 						System.out.println("Asiakas, " + a.getId() + " päätti pysyä jonossa");
@@ -71,23 +71,32 @@ public class OmaMoottori extends Moottori{
 				a = (Asiakas)palvelupisteet[0].otaJonosta();
 				palvelupisteet[1].lisaaJonoon(a);
 				break;
-			case ASPA_P: a = (Asiakas)palvelupisteet[1].otaJonosta();
+			case ASPA_P:
+				a = (Asiakas)palvelupisteet[1].otaJonosta();
+				a.setAspaKäyty();
+				palvelupisteet[1].aspaCounter();
 				palvelupisteet[2].lisaaJonoon(a);
 				break;
 
-			case KAUPPA_P: a = (Asiakas)palvelupisteet[2].otaJonosta();
-						palvelupisteet[3].lisaaJonoon(a);
+			case KAUPPA_P:
+				a = (Asiakas)palvelupisteet[2].otaJonosta();
+				a.setKauppatKäyty();
+				palvelupisteet[2].kauppaCounter();
+				palvelupisteet[3].lisaaJonoon(a);
 				break;
-			case RESEPTI_P: a = (Asiakas)palvelupisteet[3].otaJonosta();
-						palvelupisteet[4].lisaaJonoon(a);
+			case RESEPTI_P:
+				a = (Asiakas)palvelupisteet[3].otaJonosta();
+				a.setReseptiKäyty();
+				palvelupisteet[3].reseptiCounter();
+				palvelupisteet[4].lisaaJonoon(a);
 				break;
 			case KASSA_P:
-				       a = (Asiakas)palvelupisteet[4].otaJonosta();
+				a = (Asiakas)palvelupisteet[4].otaJonosta();
 
-					   a.setPoistumisaika(Kello.getInstance().getAika());
-			           a.raportti();
-					   System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
-					   apteekki.customerOut();
+				a.setPoistumisaika(Kello.getInstance().getAika());
+				a.raportti();
+				System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
+				apteekki.customerOut();
 
 		}
 	}
@@ -106,7 +115,8 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
 		System.out.println("Tulokset ... puuttuvat vielä");
 		apteekki.displayResults();
+		System.out.println(palvelupisteet[0].displayServiceUsage());
 	}
 
-	
+
 }

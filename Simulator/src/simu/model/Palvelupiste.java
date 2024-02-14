@@ -12,7 +12,16 @@ public class Palvelupiste {
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
+	//this is not yet used for anything other than naming the services
 	private final String palvelupisteenNimi;
+
+	//added counters for every service, not sure if we use them yet for anything
+	//currently just incrementing every time customer enters service
+	private static int kauppaUsage = 0;
+	private static int reseptiUsage = 0;
+	private static int aspaUsage = 0;
+
+	//TODO: adding new line for every service. / is new line even needed?
 	
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
 	
@@ -58,6 +67,31 @@ public class Palvelupiste {
 
 	public boolean onJonossa(){
 		return jono.size() != 0;
+	}
+	//counters for all the services
+	public void aspaCounter() {
+		aspaUsage++;
+	}
+	public void kauppaCounter() {
+		kauppaUsage++;
+	}
+	public void reseptiCounter() {
+		reseptiUsage++;
+	}
+	public int getAspaUsage() {
+		return aspaUsage;
+	}
+
+	public int getKauppaUsage() {
+		return kauppaUsage;
+	}
+
+	public int getReseptiUsage() {
+		return reseptiUsage;
+	}
+	//this is just here to help us better understand the simulation during the run
+	public String displayServiceUsage() {
+		return "Served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage();
 	}
 
 }
