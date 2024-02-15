@@ -69,27 +69,58 @@ public class OmaMoottori extends Moottori{
 
 			case AULA_P:
 				a = (Asiakas)palvelupisteet[0].otaJonosta();
-				palvelupisteet[1].lisaaJonoon(a);
-				break;
-			case ASPA_P:
-				a = (Asiakas)palvelupisteet[1].otaJonosta();
-				a.setAspaKäyty();
-				palvelupisteet[1].aspaCounter();
-				palvelupisteet[2].lisaaJonoon(a);
+				if (a.hasMoreServices()) {
+					String nextService = a.getNextService();
+					switch (nextService) {
+						case "Asiakaspalvelu":
+							palvelupisteet[1].lisaaJonoon(a);
+							break;
+						case "Hyllyt":
+							palvelupisteet[2].lisaaJonoon(a);
+							break;
+						case "Resepti":
+							palvelupisteet[3].lisaaJonoon(a);
+							break;
+					}
+				} else {
+					palvelupisteet[4].lisaaJonoon(a);
+				}
 				break;
 
+			case ASPA_P:
 			case KAUPPA_P:
-				a = (Asiakas)palvelupisteet[2].otaJonosta();
-				a.setKauppatKäyty();
-				palvelupisteet[2].kauppaCounter();
-				palvelupisteet[3].lisaaJonoon(a);
-				break;
 			case RESEPTI_P:
-				a = (Asiakas)palvelupisteet[3].otaJonosta();
-				a.setReseptiKäyty();
-				palvelupisteet[3].reseptiCounter();
-				palvelupisteet[4].lisaaJonoon(a);
+				int index = 0;
+				switch ((TapahtumanTyyppi)t.getTyyppi()) {
+					case ASPA_P:
+						index = 1;
+						break;
+					case KAUPPA_P:
+						index = 2;
+						break;
+					case RESEPTI_P:
+						index = 3;
+						break;
+				}
+				a = (Asiakas)palvelupisteet[index].otaJonosta();
+				if (a.hasMoreServices()) {
+					String nextService = a.getNextService();
+					switch (nextService) {
+						case "Asiakaspalvelu":
+							palvelupisteet[1].lisaaJonoon(a);
+							break;
+						case "Hyllyt":
+							palvelupisteet[2].lisaaJonoon(a);
+							break;
+						case "Resepti":
+							palvelupisteet[3].lisaaJonoon(a);
+							break;
+					}
+				} else {
+					palvelupisteet[4].lisaaJonoon(a);
+				}
 				break;
+
 			case KASSA_P:
 				a = (Asiakas)palvelupisteet[4].otaJonosta();
 

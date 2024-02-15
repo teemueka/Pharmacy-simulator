@@ -49,13 +49,41 @@ public class Palvelupiste {
 
 
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
-		
+
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
 		
 		varattu = true;
 		double palveluaika = generator.sample();
+		//get the time the customer has been served
+		//this is non-essential, just for testing
+		Asiakas asiakas = jono.peek();
+		asiakas.setKokonaisPalveluaika(palveluaika);
+
+		//Determine the service point based on the event type
+		String servicePoint = "";
+		switch (skeduloitavanTapahtumanTyyppi) {
+			case AULA_P:
+				servicePoint = "Aula";
+				break;
+			case ASPA_P:
+				servicePoint = "Aspa";
+				break;
+			case KAUPPA_P:
+				servicePoint = "Kauppa";
+				break;
+			case RESEPTI_P:
+				servicePoint = "Resepti";
+				break;
+			case KASSA_P:
+				servicePoint = "Kassa";
+				break;
+		}
+		//Set service time for the specific service point
+		asiakas.setPalveluaika(servicePoint, palveluaika);
+
 		tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
 	}
+
 
 
 
@@ -66,7 +94,7 @@ public class Palvelupiste {
 
 
 	public boolean onJonossa(){
-		return jono.size() != 0;
+		return !jono.isEmpty();
 	}
 	//counters for all the services
 	public void aspaCounter() {
