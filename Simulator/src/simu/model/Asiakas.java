@@ -2,14 +2,18 @@ package simu.model;
 
 import simu.framework.*;
 
+
 // TODO:
 // Asiakas koodataan simulointimallin edellyttämällä tavalla (data!)
+
 public class Asiakas {
 	private double saapumisaika;
 	private double poistumisaika;
 	private int id;
 	private static int i = 1;
 	private static long sum = 0;
+
+	//private ArrayList<boolean> visited = new ArrayList<boolean>();
 	
 	public Asiakas(){
 	    id = i++;
