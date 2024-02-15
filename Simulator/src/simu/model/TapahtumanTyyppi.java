@@ -7,6 +7,7 @@ import simu.framework.ITapahtumanTyyppi;
 public enum TapahtumanTyyppi implements ITapahtumanTyyppi{
 
 	//S = Saapuminen, P = Poistuminen
-	AULA_S, AULA_P, INFO_P, KAUPPA_P, RESEPTI_P, KASSA_P;
+	AULA_S, AULA_P, ASPA_P, KAUPPA_P, RESEPTI_P, KASSA_P;
+
 
 }
