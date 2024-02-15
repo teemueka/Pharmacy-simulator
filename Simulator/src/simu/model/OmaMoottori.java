@@ -45,6 +45,8 @@ public class OmaMoottori extends Moottori{
 
 			//asiakkaan saapuminen, generoi uuden saapumisen, katsoo onko tilaa apteekissa
 			case AULA_S:
+
+
 				a = new Asiakas();
 				saapumisprosessi.generoiSeuraava();
 				apteekki.addToPharmacyque(a);
@@ -57,11 +59,17 @@ public class OmaMoottori extends Moottori{
 					System.out.println("Asiakas pääsi sisään, asiakkaita sisällä: " + apteekki.getCurrent_customers());
 					palvelupisteet[0].lisaaJonoon(a);
 
+
+					kontrolleri.visualisoiUusiAsiakas(); // Tämä lisää SINISEN visuaalisen pisteen asiakkaan saapuessa
+
 					//jos ei, mahdollisuus poistua
 				} else {
 					if (apteekki.missedCustomerChance() > 0.5) {
 						apteekki.addMissedCustomer();
 						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
+
+						kontrolleri.visualisoiMenetettyAsiakas();//Tämä lisää PUNAISEN visuaalisen pisteen asiakkaan poistuessa
+						kontrolleri.naytaMenetetty(Apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
 						System.out.println("Asiakas, " + a.getId() + " päätti pysyä jonossa");
@@ -92,6 +100,9 @@ public class OmaMoottori extends Moottori{
 					   System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 					   apteekki.customerOut();
 
+					   //Päivittää palveltun asiakkaan määrän
+					   kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
+
 		}
 	}
 
@@ -112,6 +123,7 @@ public class OmaMoottori extends Moottori{
 
 		// UUTTA graafista
 		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
+
 	}
 
 	
