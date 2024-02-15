@@ -70,17 +70,19 @@ public class OmaMoottori extends Moottori{
 			case AULA_P:
 				a = (Asiakas)palvelupisteet[0].otaJonosta();
 				palvelupisteet[1].lisaaJonoon(a);
+
 				break;
 			case ASPA_P:
 				a = (Asiakas)palvelupisteet[1].otaJonosta();
 				a.setAspaKäyty();
 				palvelupisteet[1].aspaCounter();
 				palvelupisteet[2].lisaaJonoon(a);
+
 				break;
 
 			case KAUPPA_P:
 				a = (Asiakas)palvelupisteet[2].otaJonosta();
-				a.setKauppatKäyty();
+				a.setKauppaKäyty();
 				palvelupisteet[2].kauppaCounter();
 				palvelupisteet[3].lisaaJonoon(a);
 				break;
