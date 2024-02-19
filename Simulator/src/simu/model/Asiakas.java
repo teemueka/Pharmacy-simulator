@@ -27,6 +27,9 @@ public class Asiakas {
 	private double aikaReseptissä;
 	private double aikaKaupassa;
 	private double aikaKassalla;
+	private static int satisfied;
+	private static int dissatisfied;
+	private int numOfServices;
 	private List<String> services = Arrays.asList("Asiakaspalvelu", "Hyllyt", "Resepti");
 
 	public Asiakas(){
@@ -35,6 +38,7 @@ public class Asiakas {
 		Trace.out(Trace.Level.INFO, "Uusi asiakas nro " + id + " saapui klo "+ saapumisaika);
 		//17/02 testing the random services the customer wants, ensuring at least 1 service
 		int numOfServices = 1 + (int) (Math.random() * (services.size()));
+		this.numOfServices = numOfServices;
 		//randomize the order
 		Collections.shuffle(services);
 		//trim the list to the desired number of services
@@ -62,6 +66,22 @@ public class Asiakas {
 	}
 	public void setKokonaisPalveluaika(double palveluaika) {
 		this.aikaPalveluissa += palveluaika;
+	}
+	public void setTyytyväisyys() {
+		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > 50) {
+			dissatisfied++;
+		} else {
+			satisfied++;
+		}
+	}
+	public String getInfo() {
+		return "jonotus: " + (poistumisaika-saapumisaika-aikaPalveluissa) + ", palvelujen määrä: " + numOfServices;
+	}
+	public int getSatisfied() {
+		return satisfied;
+	}
+	public int getDissatisfied() {
+		return dissatisfied;
 	}
 	//adds service time for each service point
 	public void setPalveluaika(String servicePoint, double palveluaika) {
@@ -145,6 +165,8 @@ public class Asiakas {
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi jonottamassa: " +(poistumisaika-saapumisaika-aikaPalveluissa));
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi palveluissa: " + aikaPalveluissa);
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi palveluissa (onko sama?): " + getKaikkiPalveluAjat());
+		Trace.out(Trace.Level.INFO,getInfo());
+
 
 		//added display for every customer to see functionality of booleans
 		Trace.out(Trace.Level.INFO, "Asiakas " + id + " " + displayUsedServices());

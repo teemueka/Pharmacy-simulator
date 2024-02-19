@@ -125,6 +125,7 @@ public class OmaMoottori extends Moottori{
 				a = (Asiakas)palvelupisteet[4].otaJonosta();
 
 				a.setPoistumisaika(Kello.getInstance().getAika());
+				a.setTyytyväisyys();
 				a.raportti();
 				System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 				apteekki.customerOut();
@@ -147,6 +148,8 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Tulokset ... puuttuvat vielä");
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
+		Asiakas result = new Asiakas();
+		System.out.println("dissatisfied customers: " + result.getDissatisfied() + ", satisfied customers: " + result.getSatisfied());
 	}
 
 

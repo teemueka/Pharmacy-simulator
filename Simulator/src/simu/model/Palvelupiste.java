@@ -88,6 +88,7 @@ public class Palvelupiste {
 
 		tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
 	}
+	//asiakas tyytyväisyys
 
 
 
