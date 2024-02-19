@@ -27,6 +27,11 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     private IKontrolleriForV kontrolleri;
 
     // Käyttöliittymäkomponentit:
+
+    private Spinner a_staff;
+    private Spinner h_staff;
+    private Spinner r_staff;
+    private Spinner k_staff;
     private TextField aika;
     private TextField viive;
     private Label tulos;
@@ -79,6 +84,12 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
                 }
             });
 
+            a_staff = new Spinner(1, 99, 1);
+            h_staff = new Spinner(1, 99, 1);
+            r_staff = new Spinner(1, 99, 1);
+            k_staff = new Spinner(1, 99, 1);
+
+
             hidastaButton = new Button();
             hidastaButton.setText("Hidasta");
             hidastaButton.setOnAction(e -> kontrolleri.hidasta());
@@ -118,6 +129,11 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             menetetty.setPrefWidth(150);
 
 
+            VBox staff_bar = new VBox();
+            staff_bar.setPadding(new Insets(10, 10, 10, 10)); // marginaalit ylÃ¤, oikea, ala, vasen
+            staff_bar.setSpacing(10);   // komponenttien vÃ¤limatka 10 pikseliÃ¤
+
+            staff_bar.getChildren().addAll(new Label("Apteekin henkilökunta"), a_staff, new Label("Hyllyjen henkilökunta"), h_staff, new Label("Reseptin henkilökunta"), r_staff, new Label("Kassan henkilökunta"), k_staff);
 
             HBox hBox = new HBox();
             hBox.setPadding(new Insets(15, 12, 15, 12)); // marginaalit ylÃ¤, oikea, ala, vasen
@@ -145,7 +161,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             naytto = new Visualisointi(800, 400);
 
             // TÃ¤ytetÃ¤Ã¤n boxi:
-            hBox.getChildren().addAll(grid, (Canvas) naytto);
+            hBox.getChildren().addAll(staff_bar, grid, (Canvas) naytto);
 
             Scene scene = new Scene(hBox);
             primaryStage.setScene(scene);
@@ -169,6 +185,27 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     public long getViive() {
         return Long.parseLong(viive.getText());
     }
+
+    @Override
+    public int getA_staff() {
+        return (int) a_staff.getValue();
+    }
+
+    @Override
+    public int getH_staff() {
+        return (int) h_staff.getValue();
+    }
+
+    @Override
+    public int getR_staff() {
+        return (int) r_staff.getValue();
+    }
+
+    @Override
+    public int getK_staff() {
+        return (int) k_staff.getValue();
+    }
+
 
     @Override
     public void setLoppuaika(double aika) {
