@@ -3,6 +3,7 @@ package simu.model;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
+import controller.IKontrolleriForM;
 
 public class OmaMoottori extends Moottori{
 	
@@ -11,7 +12,9 @@ public class OmaMoottori extends Moottori{
 	Apteekki apteekki = new Apteekki();
 
 
-	public OmaMoottori(){
+	public OmaMoottori(IKontrolleriForM kontrolleri){
+
+		super(kontrolleri);
 
 		palvelupisteet = new Palvelupiste[5];
 
@@ -147,7 +150,10 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Tulokset ... puuttuvat vielä");
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
+
+		// UUTTA graafista
+		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
 	}
 
-
+	
 }
