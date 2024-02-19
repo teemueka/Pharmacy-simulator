@@ -30,9 +30,13 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     private TextField aika;
     private TextField viive;
     private Label tulos;
+    private Label palveltu;
+    private Label menetetty;
     private Label aikaLabel;
     private Label viiveLabel;
     private Label tulosLabel;
+    private Label palveltuLabel;
+    private Label menetettyLabel;
 
     private Button kaynnistaButton;
     private Button hidastaButton;
@@ -101,6 +105,20 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             tulos.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             tulos.setPrefWidth(150);
 
+            palveltuLabel = new Label("Palveltu:");
+            palveltuLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            palveltu = new Label();
+            palveltu.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            palveltu.setPrefWidth(150);
+
+            menetettyLabel = new Label("Menetetty:");
+            menetettyLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            menetetty = new Label();
+            menetetty.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            menetetty.setPrefWidth(150);
+
+
+
             HBox hBox = new HBox();
             hBox.setPadding(new Insets(15, 12, 15, 12)); // marginaalit ylÃ¤, oikea, ala, vasen
             hBox.setSpacing(10);   // noodien välimatka 10 pikseliä
@@ -116,11 +134,15 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             grid.add(viive, 1, 1);           // sarake, rivi
             grid.add(tulosLabel, 0, 2);      // sarake, rivi
             grid.add(tulos, 1, 2);           // sarake, rivi
-            grid.add(kaynnistaButton, 0, 3);  // sarake, rivi
-            grid.add(nopeutaButton, 0, 4);   // sarake, rivi
-            grid.add(hidastaButton, 1, 4);   // sarake, rivi
+            grid.add(palveltuLabel, 0, 3);      // sarake, rivi
+            grid.add(palveltu, 1, 3);           // sarake, rivi
+            grid.add(menetettyLabel, 0, 4);      // sarake, rivi
+            grid.add(menetetty, 1, 4);           // sarake, rivi
+            grid.add(kaynnistaButton, 0, 5);  // sarake, rivi
+            grid.add(nopeutaButton, 0, 6);   // sarake, rivi
+            grid.add(hidastaButton, 1, 6);   // sarake, rivi
 
-            naytto = new Visualisointi(400, 200);
+            naytto = new Visualisointi2(800, 400);
 
             // TÃ¤ytetÃ¤Ã¤n boxi:
             hBox.getChildren().addAll(grid, (Canvas) naytto);
@@ -153,6 +175,19 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
         DecimalFormat formatter = new DecimalFormat("#0.00");
         this.tulos.setText(formatter.format(aika));
     }
+
+    @Override
+    public void setPalveltu(int asiakas) {
+        this.palveltu.setText(Integer.toString(asiakas));
+    }
+
+    @Override
+    public void setMenetetty(int asiakas) {
+        this.menetetty.setText(Integer.toString(asiakas));
+    }
+
+
+
 
 
     @Override

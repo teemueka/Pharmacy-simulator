@@ -48,9 +48,28 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 		Platform.runLater(()->ui.setLoppuaika(aika)); 
 	}
 
-	
 	@Override
-	public void visualisoiAsiakas() {
+	public void naytaPalveltu(int asiakas) {
+		Platform.runLater(()->ui.setPalveltu(asiakas));
+	}
+
+	@Override
+	public void naytaMenetetty(int asiakas) {
+		Platform.runLater(()->ui.setMenetetty(asiakas));
+	}
+
+
+	@Override
+	public void visualisoiMenetettyAsiakas() {
+		Platform.runLater(new Runnable(){
+			public void run(){
+				ui.getVisualisointi().menetettyAsiakas();
+			}
+		});
+	}
+
+	@Override
+	public void visualisoiUusiAsiakas() {
 		Platform.runLater(new Runnable(){
 			public void run(){
 				ui.getVisualisointi().uusiAsiakas();
