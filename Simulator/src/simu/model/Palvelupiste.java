@@ -20,6 +20,7 @@ public class Palvelupiste {
 	private static int kauppaUsage = 0;
 	private static int reseptiUsage = 0;
 	private static int aspaUsage = 0;
+	private static int kassaUsage = 0;
 
 	//TODO: adding new line for every service. / is new line even needed?
 	
@@ -67,15 +68,19 @@ public class Palvelupiste {
 				break;
 			case ASPA_P:
 				servicePoint = "Aspa";
+				aspaCounter();
 				break;
 			case KAUPPA_P:
 				servicePoint = "Kauppa";
+				kauppaCounter();
 				break;
 			case RESEPTI_P:
 				servicePoint = "Resepti";
+				reseptiCounter();
 				break;
 			case KASSA_P:
 				servicePoint = "Kassa";
+				kassaCounter();
 				break;
 		}
 		//Set service time for the specific service point
@@ -106,6 +111,12 @@ public class Palvelupiste {
 	public void reseptiCounter() {
 		reseptiUsage++;
 	}
+	public void kassaCounter() {
+		kassaUsage++;
+	}
+	public int getKassaUsage() {
+		return kassaUsage;
+	}
 	public int getAspaUsage() {
 		return aspaUsage;
 	}
@@ -119,7 +130,7 @@ public class Palvelupiste {
 	}
 	//this is just here to help us better understand the simulation during the run
 	public String displayServiceUsage() {
-		return "Served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage();
+		return "Served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage() + ", served customers at kassa: " + getKassaUsage();
 	}
 
 }

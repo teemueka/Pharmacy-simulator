@@ -77,7 +77,7 @@ public class OmaMoottori extends Moottori{
 							break;
 						case "Hyllyt":
 							palvelupisteet[2].lisaaJonoon(a);
-							break;
+								break;
 						case "Resepti":
 							palvelupisteet[3].lisaaJonoon(a);
 							break;
