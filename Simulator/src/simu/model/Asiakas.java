@@ -30,7 +30,9 @@ public class Asiakas {
 	private static int satisfied;
 	private static int dissatisfied;
 	private int numOfServices;
+	private static int customerAmount;
 	private List<String> services = Arrays.asList("Asiakaspalvelu", "Hyllyt", "Resepti");
+
 
 	public Asiakas(){
 	    id = i++;
@@ -70,17 +72,22 @@ public class Asiakas {
 	public void setTyytyväisyys() {
 		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > 50) {
 			dissatisfied++;
+			customerAmount++;
 		} else {
 			satisfied++;
+			customerAmount++;
 		}
+	}
+	public static int getCustomerAmount() {
+		return customerAmount;
 	}
 	public String getInfo() {
 		return "jonotus: " + (poistumisaika-saapumisaika-aikaPalveluissa) + ", palvelujen määrä: " + numOfServices;
 	}
-	public int getSatisfied() {
+	public static int getSatisfied() {
 		return satisfied;
 	}
-	public int getDissatisfied() {
+	public static int getDissatisfied() {
 		return dissatisfied;
 	}
 	//adds service time for each service point

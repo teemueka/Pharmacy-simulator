@@ -148,8 +148,8 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Tulokset ... puuttuvat vielä");
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
-		Asiakas result = new Asiakas();
-		System.out.println("dissatisfied customers: " + result.getDissatisfied() + ", satisfied customers: " + result.getSatisfied());
+		System.out.println("dissatisfied customers: " + Asiakas.getDissatisfied() + ", satisfied customers: " + Asiakas.getSatisfied());
+		System.out.printf("Asiakastyytyväisyys: %.1f%%", ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
 	}
 
 
