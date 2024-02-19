@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 // TODO:
 // Asiakas koodataan simulointimallin edellyttämällä tavalla (data!)
@@ -31,6 +32,12 @@ public class Asiakas {
 	private static int dissatisfied;
 	private int numOfServices;
 	private static int customerAmount;
+	//spending per service + all spending
+	private int kauppaSpent;
+	private int reseptiSpent;
+	private int totalSpent;
+	//spending by all the customers
+	private static int totalSpentAllCustomers;
 	private List<String> services = Arrays.asList("Asiakaspalvelu", "Hyllyt", "Resepti");
 
 
@@ -55,9 +62,11 @@ public class Asiakas {
 				break;
 			case "Hyllyt":
 				setKauppaKäyty();
+				setKauppaSpent();
 				break;
 			case "Resepti":
 				setReseptiKäyty();
+				setReseptiSpent();
 				break;
 		}
 		return services.remove(0);
@@ -161,7 +170,33 @@ public class Asiakas {
 	public String displayUsedServices() {
 		return "Used aspa: " + getAspaKäyty() + ", used kauppa: " + getKauppaKäyty() + ", used resepti: " + getReseptiKäyty();
 	}
+	//save customer spending and total spending
+	public void setKauppaSpent() {
+		int save = ThreadLocalRandom.current().nextInt(10, 50);
+		this.kauppaSpent = save;
+		this.totalSpent += save;
+		totalSpentAllCustomers += save;
+	}
+	public void setReseptiSpent() {
+		int save = ThreadLocalRandom.current().nextInt(30,100);
+		this.reseptiSpent = save;
+		this.totalSpent += save;
+		totalSpentAllCustomers += save;
+	}
 
+	public int getReseptiSpent() {
+		return reseptiSpent;
+	}
+
+	public int getKauppaSpent() {
+		return kauppaSpent;
+	}
+	public int getTotalSpent() {
+		return totalSpent;
+	}
+	public static int getTotalSpentAllCustomers() {
+		return totalSpentAllCustomers;
+	}
 
 	public void raportti(){
 		Trace.out(Trace.Level.INFO, "\nAsiakas "+id+ " valmis! ");
@@ -171,7 +206,7 @@ public class Asiakas {
 		//added few extra prints for display
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi jonottamassa: " +(poistumisaika-saapumisaika-aikaPalveluissa));
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi palveluissa: " + aikaPalveluissa);
-		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi palveluissa (onko sama?): " + getKaikkiPalveluAjat());
+		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi kulutti: " + getTotalSpent() + " €");
 		Trace.out(Trace.Level.INFO,getInfo());
 
 

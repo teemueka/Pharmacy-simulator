@@ -150,6 +150,8 @@ public class OmaMoottori extends Moottori{
 		System.out.println(palvelupisteet[0].displayServiceUsage());
 		System.out.println("dissatisfied customers: " + Asiakas.getDissatisfied() + ", satisfied customers: " + Asiakas.getSatisfied());
 		System.out.printf("Asiakastyytyväisyys: %.1f%%", ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+		System.out.println();
+		System.out.println("Asiakkaat kuluttivat: " + Asiakas.getTotalSpentAllCustomers() + " €");
 	}
 
 
