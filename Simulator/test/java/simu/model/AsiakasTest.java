@@ -10,23 +10,23 @@ class AsiakasTest {
     void getNextService() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void hasMoreServices() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setKokonaisPalveluaika() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setPalveluaika() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getKaikkiPalveluAjat() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getPoistumisaika() {
     }
 
