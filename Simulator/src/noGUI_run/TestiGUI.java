@@ -1,4 +1,4 @@
-package view;
+package noGUI_run;
 
 
 import java.text.DecimalFormat;
@@ -18,10 +18,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
+import view.ISimulaattorinUI;
+import view.IVisualisointi;
+import view.Visualisointi;
 
 
-
-public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
+public class TestiGUI extends Application implements ISimulaattorinUI {
 
     //Kontrollerin esittely (tarvitaan käyttöliittymässä)
     private IKontrolleriForV kontrolleri;
@@ -74,7 +76,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             kaynnistaButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    kontrolleri.kaynnistaSimulointi();
+
                     kaynnistaButton.setDisable(true);
                 }
             });
@@ -89,13 +91,13 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
 
             aikaLabel = new Label("Simulointiaika:");
             aikaLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-            aika = new TextField("Syötä aika");
+            aika = new TextField("100000");
             aika.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             aika.setPrefWidth(150);
 
             viiveLabel = new Label("Viive:");
             viiveLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-            viive = new TextField("1");
+            viive = new TextField("0");
             viive.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             viive.setPrefWidth(150);
 
@@ -149,7 +151,10 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
 
             Scene scene = new Scene(hBox);
             primaryStage.setScene(scene);
-            primaryStage.show();
+
+            //Add in comments to hide the visualisation
+            //primaryStage.show();
+            kontrolleri.kaynnistaSimulointi();
 
 
         } catch (Exception e) {
