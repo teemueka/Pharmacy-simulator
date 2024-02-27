@@ -117,7 +117,7 @@ public class OmaMoottori extends Moottori{
 							break;
 					}
 				} else {
-					if (a.getSpent() != 0) {
+					if (a.getSpent() != 0 && !a.onlyAspa()) {
 						palvelupisteet[4].lisaaJonoon(a);
 					}
 					else {
