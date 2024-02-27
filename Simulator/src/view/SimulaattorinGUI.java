@@ -33,11 +33,19 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     private Label tulos;
     private Label palveltu;
     private Label menetetty;
+    private Label tyytyvaisyys;
+    private Label average;
+    private Label tulot;
+    private Label menot;
     private Label aikaLabel;
     private Label viiveLabel;
     private Label tulosLabel;
     private Label palveltuLabel;
     private Label menetettyLabel;
+    private Label tyytyvaisyysLabel;
+    private Label averageLabel;
+    private Label tulotLabel;
+    private Label menotLabel;
 
     private Button kaynnistaButton;
     private Button hidastaButton;
@@ -121,6 +129,30 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             menetetty.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             menetetty.setPrefWidth(150);
 
+            tyytyvaisyysLabel = new Label("Tyytyväisyys:");
+            tyytyvaisyysLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            tyytyvaisyys = new Label();
+            tyytyvaisyys.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            tyytyvaisyys.setPrefWidth(150);
+
+            averageLabel = new Label("Ajan keskiarvo:");
+            averageLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            average = new Label();
+            average.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            average.setPrefWidth(150);
+
+            tulotLabel = new Label("Tuotettu raha:");
+            tulotLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            tulot = new Label();
+            tulot.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            tulot.setPrefWidth(150);
+
+            menotLabel = new Label("Menetetty raha:");
+            menotLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            menot = new Label();
+            menot.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            menot.setPrefWidth(150);
+
 
 
             HBox hBox = new HBox();
@@ -142,9 +174,17 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             grid.add(palveltu, 1, 3);           // sarake, rivi
             grid.add(menetettyLabel, 0, 4);      // sarake, rivi
             grid.add(menetetty, 1, 4);           // sarake, rivi
-            grid.add(kaynnistaButton, 0, 5);  // sarake, rivi
-            grid.add(nopeutaButton, 0, 6);   // sarake, rivi
-            grid.add(hidastaButton, 1, 6);   // sarake, rivi
+            grid.add(tyytyvaisyysLabel, 0, 5);
+            grid.add(tyytyvaisyys, 1, 5);
+            grid.add(averageLabel, 0, 6);
+            grid.add(average, 1, 6);
+            grid.add(tulotLabel, 0, 7);
+            grid.add(tulot, 1, 7);
+            grid.add(menotLabel, 0, 8);
+            grid.add(menot, 1, 8);
+            grid.add(kaynnistaButton, 0, 9);  // sarake, rivi
+            grid.add(nopeutaButton, 0, 10);   // sarake, rivi
+            grid.add(hidastaButton, 1, 10);   // sarake, rivi
 
             naytto = new Visualisointi(800, 400);
 
