@@ -9,6 +9,12 @@ import eduni.distributions.ContinuousGenerator;
 public class Palvelupiste {
 
 	private final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> aulaJono = new LinkedList<>();
+	private final LinkedList<Asiakas> aspaJono = new LinkedList<>();
+	private final LinkedList<Asiakas> respaJono = new LinkedList<>();
+	private final LinkedList<Asiakas> kauppaJono = new LinkedList<>();
+	private final LinkedList<Asiakas> KassaJono = new LinkedList<>();
+
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
@@ -36,9 +42,23 @@ public class Palvelupiste {
     }
 
 
-	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
-		jono.add(a);
-		
+	public void lisaaJonoon(Asiakas a, String servicePoint) { // Jonon 1. asiakas aina palvelussa
+		switch (servicePoint) {
+			case "aula":
+				aulaJono.add(a);
+			case "aspa":
+				aspaJono.add(a);
+				break;
+			case "respa":
+				respaJono.add(a);
+				break;
+			case "kauppa":
+				kauppaJono.add(a);
+				break;
+			case "kassa":
+				KassaJono.add(a);
+				break;
+		}
 	}
 
 

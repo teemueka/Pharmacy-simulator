@@ -52,7 +52,7 @@ public class OmaMoottori extends Moottori{
 					a = apteekki.getFromPharmacyque();
 					apteekki.customerIn();
 					System.out.println("Asiakas pääsi sisään, asiakkaita sisällä: " + apteekki.getCurrent_customers());
-					palvelupisteet[0].lisaaJonoon(a);
+					palvelupisteet[0].lisaaJonoon(a, "aula");
 
 					//jos ei, mahdollisuus poistua
 				} else {
@@ -68,22 +68,22 @@ public class OmaMoottori extends Moottori{
 
 
 			case AULA_P:
-				a = (Asiakas)palvelupisteet[0].otaJonosta();
+				a = palvelupisteet[0].otaJonosta();
 				if (a.hasMoreServices()) {
 					String nextService = a.getNextService();
 					switch (nextService) {
 						case "Asiakaspalvelu":
-							palvelupisteet[1].lisaaJonoon(a);
+							palvelupisteet[1].lisaaJonoon(a, "aspa");
 							break;
 						case "Hyllyt":
-							palvelupisteet[2].lisaaJonoon(a);
+							palvelupisteet[2].lisaaJonoon(a, "kauppa");
 								break;
 						case "Resepti":
-							palvelupisteet[3].lisaaJonoon(a);
+							palvelupisteet[3].lisaaJonoon(a, "respa");
 							break;
 					}
 				} else {
-					palvelupisteet[4].lisaaJonoon(a);
+					palvelupisteet[4].lisaaJonoon(a, "kassa");
 				}
 				break;
 
@@ -107,18 +107,18 @@ public class OmaMoottori extends Moottori{
 					String nextService = a.getNextService();
 					switch (nextService) {
 						case "Asiakaspalvelu":
-							palvelupisteet[1].lisaaJonoon(a);
+							palvelupisteet[1].lisaaJonoon(a, "aspa");
 							break;
 						case "Hyllyt":
-							palvelupisteet[2].lisaaJonoon(a);
+							palvelupisteet[2].lisaaJonoon(a, "kauppa");
 							break;
 						case "Resepti":
-							palvelupisteet[3].lisaaJonoon(a);
+							palvelupisteet[3].lisaaJonoon(a, "respa");
 							break;
 					}
 				} else {
 					if (a.getSpent() != 0 && !a.onlyAspa()) {
-						palvelupisteet[4].lisaaJonoon(a);
+						palvelupisteet[4].lisaaJonoon(a, "kassa");
 					}
 					else {
 						a.usedOnlyAspa();
