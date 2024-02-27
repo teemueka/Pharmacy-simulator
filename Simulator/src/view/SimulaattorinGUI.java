@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import simu.framework.Trace;
@@ -43,6 +44,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     private Button nopeutaButton;
 
     private IVisualisointi naytto;
+    private Image image = new Image("file:Simulator/Logo.png");
 
 
     @Override
@@ -68,6 +70,8 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
 
 
             primaryStage.setTitle("Simulaattori");
+            primaryStage.getIcons().add(image);
+
 
             kaynnistaButton = new Button();
             kaynnistaButton.setText("Käynnistä simulointi");
