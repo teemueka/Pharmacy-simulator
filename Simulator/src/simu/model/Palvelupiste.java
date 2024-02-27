@@ -13,7 +13,7 @@ public class Palvelupiste {
 	private final LinkedList<Asiakas> aspaJono = new LinkedList<>(); // Tietorakennetoteutus
 	private final LinkedList<Asiakas> hyllyJono = new LinkedList<>(); // Tietorakennetoteutus
 	private final LinkedList<Asiakas> reseptiJono = new LinkedList<>(); // Tietorakennetoteutus
-	private final LinkedList<Asiakas> KassaJono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> kassaJono = new LinkedList<>(); // Tietorakennetoteutus
 
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
@@ -34,6 +34,7 @@ public class Palvelupiste {
 	private boolean varattu = false;
 
 
+
 	public Palvelupiste(String palvelupisteenNimi, ContinuousGenerator generator, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi){
 		this.tapahtumalista = tapahtumalista;
 		this.generator = generator;
@@ -43,49 +44,63 @@ public class Palvelupiste {
 
 
 	public void lisaaJonoon(Asiakas a){// Jonon 1. asiakas aina palvelussa
-		String nextService = a.nextService();
-		switch (nextService) {
-			case "Asiakaspalvelu":
-				aspaJono.add(a);
-				System.out.println("CUSTOMER ADDED TO ASPAJONO");
-				break;
-			case "Hyllyt":
-				hyllyJono.add(a);
-				System.out.println("CUSTOMER ADDED TO HYLLYJONO");
-				break;
-			case "Resepti":
-				reseptiJono.add(a);
-				System.out.println("CUSTOMER ADDED TO RESEPTIJONO");
-				break;
-
+		a.setAulaState();
+		if (a.getAulaState() == 1) {
+			aulaJono.add(a);
+			System.out.println("CUSTOMER ADDED TO AULAJONO");
 		}
-	}
+		else {
+			String nextService = a.nextService();
+			switch (nextService) {
+				//PRINTS FOR DEBUGGING
+				case "Asiakaspalvelu":
+					aspaJono.add(a);
+					System.out.println("CUSTOMER ADDED TO ASPAJONO");
+					break;
+				case "Hyllyt":
+					hyllyJono.add(a);
+					System.out.println("CUSTOMER ADDED TO HYLLYJONO");
+					break;
+				case "Resepti":
+					reseptiJono.add(a);
+					System.out.println("CUSTOMER ADDED TO RESEPTIJONO");
+					break;
+
+			}
+		}
+		}
+
 
 
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
 		varattu = false;
-		Asiakas asiakas = jono.poll();
+		Asiakas asiakas = null;
 		//Determine the service point based on the event type
 		switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:
 				aulaCounter();
+				//asiakas = aulaJono.poll();
 				break;
 			case ASPA_P:
 				aspaCounter();
 				asiakas.setAspaKäyty();
+				//asiakas = aspaJono.poll();
 				break;
 			case KAUPPA_P:
 				kauppaCounter();
 				asiakas.setKauppaKäyty();
 				asiakas.setKauppaSpent();
+				//asiakas = hyllyJono.poll();
 				break;
 			case RESEPTI_P:
 				reseptiCounter();
 				asiakas.setReseptiKäyty();
 				asiakas.setReseptiSpent();
+				//asiakas = reseptiJono.poll();
 				break;
 			case KASSA_P:
 				kassaCounter();
+				//asiakas = kassaJono.poll();
 				break;
 		}
 		return asiakas;
@@ -93,39 +108,69 @@ public class Palvelupiste {
 
 
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
-
-		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
-
-		varattu = true;
-		double palveluaika = generator.sample();
-		//get the time the customer has been served
-		Asiakas asiakas = jono.peek();
-		asiakas.setKokonaisPalveluaika(palveluaika);
-
+		Asiakas asiakas = null;
 		//Determine the service point based on the event type
-		String servicePoint = "";
 		switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:
-				servicePoint = "Aula";
+				if(!aulaJono.isEmpty()){
+					asiakas = aulaJono.peek();
+				}
 				break;
 			case ASPA_P:
-				servicePoint = "Aspa";
+				if(!aspaJono.isEmpty()){
+					asiakas = aspaJono.peek();
+				}
 				break;
 			case KAUPPA_P:
-				servicePoint = "Kauppa";
+				if(!hyllyJono.isEmpty()){
+					asiakas = hyllyJono.peek();
+				}
 				break;
 			case RESEPTI_P:
-				servicePoint = "Resepti";
+				if(!reseptiJono.isEmpty()){
+					asiakas = reseptiJono.peek();
+				}
 				break;
 			case KASSA_P:
-				servicePoint = "Kassa";
+				if(!kassaJono.isEmpty()){
+					asiakas = kassaJono.peek();
+				}
 				break;
 		}
-		//Set service time for the specific service point
-		asiakas.setPalveluaika(servicePoint, palveluaika);
 
-		tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
+		if(asiakas != null){
+			Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + asiakas.getId());
+
+			varattu = true;
+			double palveluaika = generator.sample();
+			//get the time the customer has been served
+			asiakas.setKokonaisPalveluaika(palveluaika);
+
+			//Set service time for the specific service point
+			String servicePoint = "";
+			switch (skeduloitavanTapahtumanTyyppi) {
+				case AULA_P:
+					servicePoint = "Aula";
+					break;
+				case ASPA_P:
+					servicePoint = "Aspa";
+					break;
+				case KAUPPA_P:
+					servicePoint = "Kauppa";
+					break;
+				case RESEPTI_P:
+					servicePoint = "Resepti";
+					break;
+				case KASSA_P:
+					servicePoint = "Kassa";
+					break;
+			}
+			asiakas.setPalveluaika(servicePoint, palveluaika);
+
+			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
+		}
 	}
+
 
 	public boolean onVarattu(){
 		return varattu;
