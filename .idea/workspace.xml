@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="Merge Henkilökunta to main" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/Henkilökunta" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Henkilökunta" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2c2Mc4jnulaCA8ueoGyrZhUXLrs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Simulaattori.executor": "Run",
+    "Application.SimulaattorinGUI.executor": "Debug",
+    "Application.testMain.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.Main" />
+      <module name="G_6_Simulation_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulaattorinGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.SimulaattorinGUI" />
+      <module name="G_6_Simulation_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="noGUI_run.testMain" />
+      <module name="G_6_Simulation_project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.testMain" />
+        <item itemvalue="Application.SimulaattorinGUI" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.testMain" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="" />
+      <created>1707305295620</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707305295620</updated>
+      <workItem from="1707305296677" duration="628000" />
+      <workItem from="1707562373941" duration="592000" />
+      <workItem from="1707917343488" duration="15469000" />
+      <workItem from="1708256819041" duration="597000" />
+      <workItem from="1708264607551" duration="87000" />
+      <workItem from="1708333579001" duration="18321000" />
+      <workItem from="1709031841976" duration="337000" />
+      <workItem from="1709032191151" duration="705000" />
+      <workItem from="1709032958994" duration="650000" />
+    </task>
+    <task id="LOCAL-00001" summary="com to pull">
+      <option name="closed" value="true" />
+      <created>1707917412403</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707917412403</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Maven and JavaFx implementation.&#10;&#10;START CODE FROM src/view/Main.java">
+      <option name="closed" value="true" />
+      <created>1707997745339</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707997745339</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Interface:&#10;IKontrolleriForM:&#10;visualisoiAsiakas oli jaettu kahteen metodiin. Menetetty ja Uusi. &#10;Lisätty 2 metodia tuloksia varten. näytäpalveltu ja menetetty.&#10;&#10;ISimulaattorinUI:&#10;setPalvelut ja menetetty. Asettaa ne valueet näytölle. &#10;&#10;IVisualisointi:&#10;Lisätty menetettyAsiakas.&#10;&#10;Classit:&#10;&#10;Kontrolleri:&#10;Eli tämän kautta ne visualiset arvot menee näytölle&#10;&#10;Lisätty: palveltu, menetetty. Annetaan arvot INT muodossa.&#10;Muutettu vosualisoiAsiakas -&gt; palveltu, menetetty. Pitää vain kutsua. &#10;&#10;OmaMoottori:&#10;Lisätty kontrollerin metodit. päivitääkseen UI&#10;&#10;&#10;SimulaattorinGUI:&#10;Lisätty uudet muuttujat. Laitettu tyylit ja lisätty gridiin.&#10;&#10;Visualisointi:&#10;Tämä on tää piste versio. &#10;Lisättiin UusAsiakas mikä generoi sinisen pisteen&#10;Lisättiin menetettyAsiakas mikä generoi punaisen pisteen&#10;&#10;Visualisointi2:&#10;teksti versio: Roskaa mutta myös hoidetu.&#10;&#10;&#10;Apteekki.java:&#10;Lisätty  getServedCustomers() ja getMissedCustomers() visualisointia varten,">
+      <option name="closed" value="true" />
+      <created>1708002528608</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708002528608</updated>
+    </task>
+    <task id="LOCAL-00004" summary="cleanup">
+      <option name="closed" value="true" />
+      <created>1708335211286</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708335211286</updated>
+    </task>
+    <task id="LOCAL-00005" summary="cleanup">
+      <option name="closed" value="true" />
+      <created>1708337143319</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708337143319</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Test runMain&#10;was made to run code without visual element. Good for testing base stuff.">
+      <option name="closed" value="true" />
+      <created>1708341006473</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708341006473</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Test runMain&#10;was made to run code without visual element. Good for testing base stuff.">
+      <option name="closed" value="true" />
+      <created>1708341175942</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708341175942</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Henkilökunta (Staff)&#10;Henkilökunnan määarä palvelupisteellä vaikuttaa palvelupisteenpalveluaikaan. more = faster. &#10;for test. In TestGUI at row 88-92 you can increase staff amount, by changing &quot;i&quot; value from 1 to something else.">
+      <option name="closed" value="true" />
+      <created>1708364203213</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708364203213</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Nothing special&#10;&#10;JavaFX updated to from 20.0 to 21.0&#10;  security update">
+      <option name="closed" value="true" />
+      <created>1709023026243</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709023026243</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Not sus logo">
+      <option name="closed" value="true" />
+      <created>1709023321914</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709023321914</updated>
+    </task>
+    <task id="LOCAL-00011" summary="JavaFX update to 21.0&#10;security update">
+      <option name="closed" value="true" />
+      <created>1709024058073</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1709024058073</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Merge Teemun-kikkailut">
+      <option name="closed" value="true" />
+      <created>1709032303651</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709032303651</updated>
+    </task>
+    <task id="LOCAL-00013" summary="-">
+      <option name="closed" value="true" />
+      <created>1709033216695</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709033216695</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge Henkilökunta to main">
+      <option name="closed" value="true" />
+      <created>1709033616925</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709033616925</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="com to pull" />
+    <MESSAGE value="Maven and JavaFx implementation.&#10;&#10;START CODE FROM src/view/Main.java" />
+    <MESSAGE value="Interface:&#10;IKontrolleriForM:&#10;visualisoiAsiakas oli jaettu kahteen metodiin. Menetetty ja Uusi. &#10;Lisätty 2 metodia tuloksia varten. näytäpalveltu ja menetetty.&#10;&#10;ISimulaattorinUI:&#10;setPalvelut ja menetetty. Asettaa ne valueet näytölle. &#10;&#10;IVisualisointi:&#10;Lisätty menetettyAsiakas.&#10;&#10;Classit:&#10;&#10;Kontrolleri:&#10;Eli tämän kautta ne visualiset arvot menee näytölle&#10;&#10;Lisätty: palveltu, menetetty. Annetaan arvot INT muodossa.&#10;Muutettu vosualisoiAsiakas -&gt; palveltu, menetetty. Pitää vain kutsua. &#10;&#10;OmaMoottori:&#10;Lisätty kontrollerin metodit. päivitääkseen UI&#10;&#10;&#10;SimulaattorinGUI:&#10;Lisätty uudet muuttujat. Laitettu tyylit ja lisätty gridiin.&#10;&#10;Visualisointi:&#10;Tämä on tää piste versio. &#10;Lisättiin UusAsiakas mikä generoi sinisen pisteen&#10;Lisättiin menetettyAsiakas mikä generoi punaisen pisteen&#10;&#10;Visualisointi2:&#10;teksti versio: Roskaa mutta myös hoidetu.&#10;&#10;&#10;Apteekki.java:&#10;Lisätty  getServedCustomers() ja getMissedCustomers() visualisointia varten," />
+    <MESSAGE value="cleanup" />
+    <MESSAGE value="Merge to main." />
+    <MESSAGE value="Test runMain&#10;was made to run code without visual element. Good for testing base stuff." />
+    <MESSAGE value="Henkilökunta (Staff)&#10;Henkilökunnan määarä palvelupisteellä vaikuttaa palvelupisteenpalveluaikaan. more = faster. &#10;for test. In TestGUI at row 88-92 you can increase staff amount, by changing &quot;i&quot; value from 1 to something else." />
+    <MESSAGE value="Nothing special&#10;&#10;JavaFX updated to from 20.0 to 21.0&#10;  security update" />
+    <MESSAGE value="Not sus logo" />
+    <MESSAGE value="JavaFX update to 21.0&#10;security update" />
+    <MESSAGE value="Merge Teemun-kikkailut" />
+    <MESSAGE value="-" />
+    <MESSAGE value="Merge Henkilökunta to main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge Henkilökunta to main" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+</project>

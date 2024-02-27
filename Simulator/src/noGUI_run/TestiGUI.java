@@ -29,6 +29,10 @@ public class TestiGUI extends Application implements ISimulaattorinUI {
     private IKontrolleriForV kontrolleri;
 
     // Käyttöliittymäkomponentit:
+    private Spinner a_staff;
+    private Spinner h_staff;
+    private Spinner r_staff;
+    private Spinner k_staff;
     private TextField aika;
     private TextField viive;
     private Label tulos;
@@ -80,6 +84,11 @@ public class TestiGUI extends Application implements ISimulaattorinUI {
                     kaynnistaButton.setDisable(true);
                 }
             });
+
+            a_staff = new Spinner(1, 99, 1);
+            h_staff = new Spinner(1, 99, 1);
+            r_staff = new Spinner(1, 99, 1);
+            k_staff = new Spinner(1, 99, 1);
 
             hidastaButton = new Button();
             hidastaButton.setText("Hidasta");
@@ -191,8 +200,25 @@ public class TestiGUI extends Application implements ISimulaattorinUI {
         this.menetetty.setText(Integer.toString(asiakas));
     }
 
+    @Override
+    public int getA_staff() {
+        return (int) a_staff.getValue();
+    }
 
+    @Override
+    public int getH_staff() {
+        return (int) h_staff.getValue();
+    }
 
+    @Override
+    public int getR_staff() {
+        return (int) r_staff.getValue();
+    }
+
+    @Override
+    public int getK_staff() {
+        return (int) k_staff.getValue();
+    }
 
 
     @Override
