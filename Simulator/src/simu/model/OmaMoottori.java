@@ -60,7 +60,7 @@ public class OmaMoottori extends Moottori{
 	protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
 
 		Asiakas a;
-		switch ((TapahtumanTyyppi)t.getTyyppi()){
+		switch (t.getTyyppi()){
 
 
 			//asiakkaan saapuminen, generoi uuden saapumisen, katsoo onko tilaa apteekissa
@@ -77,7 +77,7 @@ public class OmaMoottori extends Moottori{
 					a = apteekki.getFromPharmacyque();
 					apteekki.customerIn();
 					System.out.println("Asiakas pääsi sisään, asiakkaita sisällä: " + apteekki.getCurrent_customers());
-					palvelupisteet[0].lisaaJonoon(a, "aula");
+					palvelupisteet[0].lisaaJonoon(a);
 
 
 					kontrolleri.visualisoiUusiAsiakas(); // Tämä lisää SINISEN visuaalisen pisteen asiakkaan saapuessa
@@ -104,17 +104,17 @@ public class OmaMoottori extends Moottori{
 					String nextService = a.getNextService();
 					switch (nextService) {
 						case "Asiakaspalvelu":
-							palvelupisteet[1].lisaaJonoon(a, "aspa");
+							palvelupisteet[1].lisaaJonoon(a);
 							break;
 						case "Hyllyt":
-							palvelupisteet[2].lisaaJonoon(a, "kauppa");
+							palvelupisteet[2].lisaaJonoon(a);
 								break;
 						case "Resepti":
-							palvelupisteet[3].lisaaJonoon(a, "respa");
+							palvelupisteet[3].lisaaJonoon(a);
 							break;
 					}
 				} else {
-					palvelupisteet[4].lisaaJonoon(a, "kassa");
+					palvelupisteet[4].lisaaJonoon(a);
 				}
 				break;
 
@@ -138,18 +138,18 @@ public class OmaMoottori extends Moottori{
 					String nextService = a.getNextService();
 					switch (nextService) {
 						case "Asiakaspalvelu":
-							palvelupisteet[1].lisaaJonoon(a, "aspa");
+							palvelupisteet[1].lisaaJonoon(a);
 							break;
 						case "Hyllyt":
-							palvelupisteet[2].lisaaJonoon(a, "kauppa");
+							palvelupisteet[2].lisaaJonoon(a);
 							break;
 						case "Resepti":
-							palvelupisteet[3].lisaaJonoon(a, "respa");
+							palvelupisteet[3].lisaaJonoon(a);
 							break;
 					}
 				} else {
 					if (a.getSpent() != 0 && !a.onlyAspa()) {
-						palvelupisteet[4].lisaaJonoon(a, "kassa");
+						palvelupisteet[4].lisaaJonoon(a);
 					}
 					else {
 						a.usedOnlyAspa();

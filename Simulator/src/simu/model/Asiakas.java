@@ -53,6 +53,9 @@ public class Asiakas {
 		//trim the list to the desired number of services
 		services = new ArrayList<>(services.subList(0, numOfServices));
 	}
+	public String nextService() {
+		return services.get(0);
+	}
 	public String getNextService() {
 		return services.remove(0);
 	}

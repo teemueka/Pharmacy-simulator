@@ -9,11 +9,11 @@ import eduni.distributions.ContinuousGenerator;
 public class Palvelupiste {
 
 	private final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus
-	private final LinkedList<Asiakas> aulaJono = new LinkedList<>();
-	private final LinkedList<Asiakas> aspaJono = new LinkedList<>();
-	private final LinkedList<Asiakas> respaJono = new LinkedList<>();
-	private final LinkedList<Asiakas> kauppaJono = new LinkedList<>();
-	private final LinkedList<Asiakas> KassaJono = new LinkedList<>();
+	private final LinkedList<Asiakas> aulaJono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> aspaJono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> hyllyJono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> reseptiJono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> KassaJono = new LinkedList<>(); // Tietorakennetoteutus
 
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
@@ -30,7 +30,7 @@ public class Palvelupiste {
 	private static int kassaUsage = 0;
 
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
-	
+
 	private boolean varattu = false;
 
 
@@ -38,26 +38,26 @@ public class Palvelupiste {
 		this.tapahtumalista = tapahtumalista;
 		this.generator = generator;
 		this.skeduloitavanTapahtumanTyyppi = tyyppi;
-        this.palvelupisteenNimi = palvelupisteenNimi;
-    }
+		this.palvelupisteenNimi = palvelupisteenNimi;
+	}
 
 
-	public void lisaaJonoon(Asiakas a, String servicePoint) { // Jonon 1. asiakas aina palvelussa
-		switch (servicePoint) {
-			case "aula":
-				aulaJono.add(a);
-			case "aspa":
+	public void lisaaJonoon(Asiakas a){// Jonon 1. asiakas aina palvelussa
+		String nextService = a.nextService();
+		switch (nextService) {
+			case "Asiakaspalvelu":
 				aspaJono.add(a);
+				System.out.println("CUSTOMER ADDED TO ASPAJONO");
 				break;
-			case "respa":
-				respaJono.add(a);
+			case "Hyllyt":
+				hyllyJono.add(a);
+				System.out.println("CUSTOMER ADDED TO HYLLYJONO");
 				break;
-			case "kauppa":
-				kauppaJono.add(a);
+			case "Resepti":
+				reseptiJono.add(a);
+				System.out.println("CUSTOMER ADDED TO RESEPTIJONO");
 				break;
-			case "kassa":
-				KassaJono.add(a);
-				break;
+
 		}
 	}
 
@@ -66,26 +66,26 @@ public class Palvelupiste {
 		varattu = false;
 		Asiakas asiakas = jono.poll();
 		//Determine the service point based on the event type
-        switch (skeduloitavanTapahtumanTyyppi) {
+		switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:
-                aulaCounter();
+				aulaCounter();
 				break;
 			case ASPA_P:
-                aspaCounter();
+				aspaCounter();
 				asiakas.setAspaKäyty();
 				break;
 			case KAUPPA_P:
-                kauppaCounter();
+				kauppaCounter();
 				asiakas.setKauppaKäyty();
 				asiakas.setKauppaSpent();
 				break;
 			case RESEPTI_P:
-                reseptiCounter();
+				reseptiCounter();
 				asiakas.setReseptiKäyty();
 				asiakas.setReseptiSpent();
 				break;
 			case KASSA_P:
-                kassaCounter();
+				kassaCounter();
 				break;
 		}
 		return asiakas;
@@ -95,7 +95,7 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
-		
+
 		varattu = true;
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
