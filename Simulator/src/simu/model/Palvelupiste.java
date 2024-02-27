@@ -46,36 +46,28 @@ public class Palvelupiste {
 		varattu = false;
 		Asiakas asiakas = jono.poll();
 		//Determine the service point based on the event type
-		String servicePoint = "";
-		switch (skeduloitavanTapahtumanTyyppi) {
+        switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:
-				servicePoint = "Aula";
-				aulaCounter();
+                aulaCounter();
 				break;
 			case ASPA_P:
-				servicePoint = "Aspa";
-				aspaCounter();
+                aspaCounter();
 				asiakas.setAspaKäyty();
 				break;
 			case KAUPPA_P:
-				servicePoint = "Kauppa";
-				kauppaCounter();
+                kauppaCounter();
 				asiakas.setKauppaKäyty();
 				asiakas.setKauppaSpent();
 				break;
 			case RESEPTI_P:
-				servicePoint = "Resepti";
-				reseptiCounter();
+                reseptiCounter();
 				asiakas.setReseptiKäyty();
 				asiakas.setReseptiSpent();
 				break;
 			case KASSA_P:
-				servicePoint = "Kassa";
-				kassaCounter();
+                kassaCounter();
 				break;
 		}
-		//Set service time for the specific service point
-		//asiakas.setPalveluaika(servicePoint, palveluaika);
 		return asiakas;
 	}
 
@@ -87,7 +79,6 @@ public class Palvelupiste {
 		varattu = true;
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
-		//this is non-essential, just for testing
 		Asiakas asiakas = jono.peek();
 		asiakas.setKokonaisPalveluaika(palveluaika);
 
