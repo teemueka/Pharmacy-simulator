@@ -117,7 +117,17 @@ public class OmaMoottori extends Moottori{
 							break;
 					}
 				} else {
-					palvelupisteet[4].lisaaJonoon(a);
+					if (a.getSpent() != 0) {
+						palvelupisteet[4].lisaaJonoon(a);
+					}
+					else {
+						a.usedOnlyAspa();
+						a.setPoistumisaika(Kello.getInstance().getAika());
+						a.setTyytyväisyys();
+						a.raportti();
+						System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
+						apteekki.customerOut();
+					}
 				}
 				break;
 
@@ -148,6 +158,7 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Tulokset ... puuttuvat vielä");
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
+		System.out.println(Asiakas.getUsedOnlyAspa() + " asiakasta kävi vain asiakaspalvelussa.");
 		System.out.println("dissatisfied customers: " + Asiakas.getDissatisfied() + ", satisfied customers: " + Asiakas.getSatisfied());
 		System.out.printf("Asiakastyytyväisyys: %.1f%%", ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
 		System.out.println();

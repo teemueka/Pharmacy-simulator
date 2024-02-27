@@ -1,7 +1,6 @@
 package simu.model;
 
 import simu.framework.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -30,8 +29,9 @@ public class Asiakas {
 	private double aikaKassalla;
 	private static int satisfied;
 	private static int dissatisfied;
-	private int numOfServices;
+	private final int numOfServices;
 	private static int customerAmount;
+	private static int usedOnlyAspa;
 	//spending per service + all spending
 	private int kauppaSpent;
 	private int reseptiSpent;
@@ -45,7 +45,7 @@ public class Asiakas {
 	    id = i++;
 		saapumisaika = Kello.getInstance().getAika();
 		Trace.out(Trace.Level.INFO, "Uusi asiakas nro " + id + " saapui klo "+ saapumisaika);
-		//17/02 testing the random services the customer wants, ensuring at least 1 service
+		//random services the customer wants, ensuring at least 1 service
 		int numOfServices = 1 + (int) (Math.random() * (services.size()));
 		this.numOfServices = numOfServices;
 		//randomize the order
@@ -53,23 +53,23 @@ public class Asiakas {
 		//trim the list to the desired number of services
 		services = new ArrayList<>(services.subList(0, numOfServices));
 	}
-	//marks service as completed
 	public String getNextService() {
-		String service = services.get(0);
-		switch (service) {
-			case "Asiakaspalvelu":
-				setAspaKäyty();
-				break;
-			case "Hyllyt":
-				setKauppaKäyty();
-				setKauppaSpent();
-				break;
-			case "Resepti":
-				setReseptiKäyty();
-				setReseptiSpent();
-				break;
-		}
 		return services.remove(0);
+	}
+	public int getSpent() {
+		return totalSpent;
+	}
+	public boolean onlyAspa() {
+		return !kauppaKäyty && !reseptiKäyty && asiakaspalveluKäyty;
+	}
+	public void usedOnlyAspa() {
+		if (onlyAspa()) {
+			usedOnlyAspa++;
+			System.out.println("Asiakas: " + id + " used aspa: " + getAspaKäyty() + ", used kauppa: " + getKauppaKäyty() + ", used resepti: " + getReseptiKäyty());
+		}
+	}
+	public static int getUsedOnlyAspa() {
+		return usedOnlyAspa;
 	}
 
 	public boolean hasMoreServices() {
@@ -208,6 +208,7 @@ public class Asiakas {
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi palveluissa: " + aikaPalveluissa);
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi kulutti: " + getTotalSpent() + " €");
 		Trace.out(Trace.Level.INFO,getInfo());
+		Trace.out(Trace.Level.INFO,"Asiakas kävi vain aspassa: " + onlyAspa());
 
 
 		//added display for every customer to see functionality of booleans
