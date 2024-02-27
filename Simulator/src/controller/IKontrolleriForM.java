@@ -4,6 +4,21 @@ public interface IKontrolleriForM {
 
     // Rajapinta, joka tarjotaan moottorille:
 
+
+    // Visualliset teksi osuudet
     public void naytaLoppuaika(double aika);
-    public void visualisoiAsiakas();
+    void naytaPalveltu(int servedCustomers);
+
+    void naytaMenetetty(int missedCustomers);
+
+
+
+
+
+    //Näytöllä olevat osuudet
+    public void visualisoiMenetettyAsiakas();
+
+    public void visualisoiUusiAsiakas();
+
+
 }

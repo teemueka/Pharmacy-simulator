@@ -17,6 +17,14 @@ public class Apteekki {
         return current_customers;
     }
 
+    public static int getServedCustomers() {
+        return servedCustomers;
+    }
+
+    public static int getMissedCustomers() {
+        return missedCustomers;
+    }
+
     public int getCapacity() {
         return capacity;
     }
@@ -55,5 +63,4 @@ public class Apteekki {
         }
         return null;
     }
-
 }

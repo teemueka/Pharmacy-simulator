@@ -1,4 +1,4 @@
-package view;
+package noGUI_run;
 
 
 import java.text.DecimalFormat;
@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import simu.framework.Trace;
@@ -19,16 +18,17 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
+import view.ISimulaattorinUI;
+import view.IVisualisointi;
+import view.Visualisointi;
 
 
-
-public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
+public class TestiGUI extends Application implements ISimulaattorinUI {
 
     //Kontrollerin esittely (tarvitaan käyttöliittymässä)
     private IKontrolleriForV kontrolleri;
 
     // Käyttöliittymäkomponentit:
-
     private Spinner a_staff;
     private Spinner h_staff;
     private Spinner r_staff;
@@ -49,7 +49,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     private Button nopeutaButton;
 
     private IVisualisointi naytto;
-    private Image image = new Image("file:Simulator/Logo.png");
 
 
     @Override
@@ -75,15 +74,13 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
 
 
             primaryStage.setTitle("Simulaattori");
-            primaryStage.getIcons().add(image);
-
 
             kaynnistaButton = new Button();
             kaynnistaButton.setText("Käynnistä simulointi");
             kaynnistaButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    kontrolleri.kaynnistaSimulointi();
+
                     kaynnistaButton.setDisable(true);
                 }
             });
@@ -92,7 +89,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             h_staff = new Spinner(1, 99, 1);
             r_staff = new Spinner(1, 99, 1);
             k_staff = new Spinner(1, 99, 1);
-
 
             hidastaButton = new Button();
             hidastaButton.setText("Hidasta");
@@ -104,13 +100,13 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
 
             aikaLabel = new Label("Simulointiaika:");
             aikaLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-            aika = new TextField("Syötä aika");
+            aika = new TextField("100000");
             aika.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             aika.setPrefWidth(150);
 
             viiveLabel = new Label("Viive:");
             viiveLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-            viive = new TextField("1");
+            viive = new TextField("0");
             viive.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             viive.setPrefWidth(150);
 
@@ -133,11 +129,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             menetetty.setPrefWidth(150);
 
 
-            VBox staff_bar = new VBox();
-            staff_bar.setPadding(new Insets(10, 10, 10, 10)); // marginaalit ylÃ¤, oikea, ala, vasen
-            staff_bar.setSpacing(10);   // komponenttien vÃ¤limatka 10 pikseliÃ¤
-
-            staff_bar.getChildren().addAll(new Label("Apteekin henkilökunta"), a_staff, new Label("Hyllyjen henkilökunta"), h_staff, new Label("Reseptin henkilökunta"), r_staff, new Label("Kassan henkilökunta"), k_staff);
 
             HBox hBox = new HBox();
             hBox.setPadding(new Insets(15, 12, 15, 12)); // marginaalit ylÃ¤, oikea, ala, vasen
@@ -165,11 +156,14 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             naytto = new Visualisointi(800, 400);
 
             // TÃ¤ytetÃ¤Ã¤n boxi:
-            hBox.getChildren().addAll(staff_bar, grid, (Canvas) naytto);
+            hBox.getChildren().addAll(grid, (Canvas) naytto);
 
             Scene scene = new Scene(hBox);
             primaryStage.setScene(scene);
-            primaryStage.show();
+
+            //Add in comments to hide the visualisation
+            //primaryStage.show();
+            kontrolleri.kaynnistaSimulointi();
 
 
         } catch (Exception e) {
@@ -191,6 +185,22 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     }
 
     @Override
+    public void setLoppuaika(double aika) {
+        DecimalFormat formatter = new DecimalFormat("#0.00");
+        this.tulos.setText(formatter.format(aika));
+    }
+
+    @Override
+    public void setPalveltu(int asiakas) {
+        this.palveltu.setText(Integer.toString(asiakas));
+    }
+
+    @Override
+    public void setMenetetty(int asiakas) {
+        this.menetetty.setText(Integer.toString(asiakas));
+    }
+
+    @Override
     public int getA_staff() {
         return (int) a_staff.getValue();
     }
@@ -209,26 +219,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     public int getK_staff() {
         return (int) k_staff.getValue();
     }
-
-
-    @Override
-    public void setLoppuaika(double aika) {
-        DecimalFormat formatter = new DecimalFormat("#0.00");
-        this.tulos.setText(formatter.format(aika));
-    }
-
-    @Override
-    public void setPalveltu(int asiakas) {
-        this.palveltu.setText(Integer.toString(asiakas));
-    }
-
-    @Override
-    public void setMenetetty(int asiakas) {
-        this.menetetty.setText(Integer.toString(asiakas));
-    }
-
-
-
 
 
     @Override

@@ -20,7 +20,12 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 		
 	@Override
 	public void kaynnistaSimulointi() {
-		moottori = new OmaMoottori(this); // luodaan uusi moottorisäie jokaista simulointia varten
+		int a = (int) ui.getA_staff();
+		int h = (int) ui.getH_staff();
+		int r = (int) ui.getR_staff();
+		int k = (int) ui.getK_staff();
+
+		moottori = new OmaMoottori(this, a, h, r, k); // luodaan uusi moottorisäie jokaista simulointia varten
 		moottori.setSimulointiaika(ui.getAika());
 		moottori.setViive(ui.getViive());
 		ui.getVisualisointi().tyhjennaNaytto();
@@ -48,9 +53,28 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 		Platform.runLater(()->ui.setLoppuaika(aika)); 
 	}
 
-	
 	@Override
-	public void visualisoiAsiakas() {
+	public void naytaPalveltu(int asiakas) {
+		Platform.runLater(()->ui.setPalveltu(asiakas));
+	}
+
+	@Override
+	public void naytaMenetetty(int asiakas) {
+		Platform.runLater(()->ui.setMenetetty(asiakas));
+	}
+
+
+	@Override
+	public void visualisoiMenetettyAsiakas() {
+		Platform.runLater(new Runnable(){
+			public void run(){
+				ui.getVisualisointi().menetettyAsiakas();
+			}
+		});
+	}
+
+	@Override
+	public void visualisoiUusiAsiakas() {
 		Platform.runLater(new Runnable(){
 			public void run(){
 				ui.getVisualisointi().uusiAsiakas();
