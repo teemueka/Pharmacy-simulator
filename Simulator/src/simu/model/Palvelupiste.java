@@ -32,6 +32,11 @@ public class Palvelupiste {
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
 
 	private boolean varattu = false;
+	private boolean aulaVarattu = false;
+	private boolean kauppaVarattu = false;
+	private boolean reseptiVarattu = false;
+	private boolean aspaVarattu = false;
+	private boolean kassaVarattu = false;
 
 
 
@@ -115,26 +120,36 @@ public class Palvelupiste {
 		//Set service time for the specific service point
 		String servicePoint = "";
 		switch (skeduloitavanTapahtumanTyyppi) {
-			case AULA_P -> {
+			case AULA_P:
 				servicePoint = "Aula";
 				asiakas = aulaJono.peek();
-			}
-			case ASPA_P -> {
+				aulaVarattu = true;
+				break;
+
+			case ASPA_P:
 				servicePoint = "Aspa";
 				asiakas = aspaJono.peek();
-			}
-			case KAUPPA_P -> {
+				aspaVarattu = true;
+				break;
+
+			case KAUPPA_P:
 				servicePoint = "Kauppa";
 				asiakas = hyllyJono.peek();
-			}
-			case RESEPTI_P -> {
+				kauppaVarattu = true;
+				break;
+
+			case RESEPTI_P:
 				servicePoint = "Resepti";
 				asiakas = reseptiJono.peek();
-			}
-			case KASSA_P -> {
+				reseptiVarattu = true;
+				break;
+
+			case KASSA_P:
 				servicePoint = "Kassa";
 				asiakas = kassaJono.peek();
-			}
+				kassaVarattu = true;
+				break;
+
 		}
 		if (asiakas != null) {
 			asiakas.setPalveluaika(servicePoint, palveluaika);
@@ -150,8 +165,15 @@ public class Palvelupiste {
 
 
 	public boolean onVarattu(){
-		return varattu;
-	}
+		boolean varattu = switch (skeduloitavanTapahtumanTyyppi) {
+            case ASPA_P -> aspaVarattu;
+            case KAUPPA_P -> kauppaVarattu;
+            case RESEPTI_P -> reseptiVarattu;
+            case KASSA_P -> kassaVarattu;
+            default -> false;
+        };
+        return varattu;
+    }
 
 
 
