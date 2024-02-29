@@ -9,6 +9,7 @@ import eduni.distributions.ContinuousGenerator;
 public class Palvelupiste {
 
 	private final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> palvelussa = new LinkedList<>();
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
@@ -38,7 +39,6 @@ public class Palvelupiste {
 
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
 		jono.add(a);
-		
 	}
 
 
@@ -75,7 +75,7 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
-		
+
 		varattu = true;
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
