@@ -1,5 +1,6 @@
-package view;
+package simu.view;
 
+import controller.PaneelitController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -51,6 +52,8 @@ public class MainApp extends Application {
             // Ladataan Paneelit
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Paneelit.fxml"));
+
+
             AnchorPane paneelit = (AnchorPane) fxmlLoader.load();
             	                   
             // Sijoitetaan keskelle root-näkymää
@@ -65,7 +68,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-    
+
        
 	/**
 	 * Returns the main stage.

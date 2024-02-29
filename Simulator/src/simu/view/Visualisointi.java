@@ -1,4 +1,4 @@
-package view;
+package simu.view;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -38,7 +38,7 @@ public class Visualisointi implements IVisualisointi{
 	}
 	public void menetettyAsiakas() {
 		gc.setFill(Color.RED);
-		gc.fillOval(i,j,5,5);
+		gc.fillOval(i,j,10,10);
 
 		i = (i + 10) % cnv.getWidth();
 		//j = (j + 12) % this.getHeight();

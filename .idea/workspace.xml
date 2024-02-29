@@ -4,21 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulator/resources/RootLayout.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulator/src/view/MainApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulator/src/view/PaneelitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_1.xml" afterDir="false" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI 2.0&#10;Scene builder implementation">
+      <change afterPath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G_6_Simulation_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/G_6_Simulation_project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/resources/RootLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/RootLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/Kontrolleri.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/Kontrolleri.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/src/noGUI_run/TestiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/noGUI_run/TestiGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/framework/Trace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/framework/Trace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/ISimulaattorinUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/ISimulaattorinUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/IVisualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/IVisualisointi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/PaneelitController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/SimulaattorinGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/Visualisointi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/Visualisointi2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +41,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Henkilökunta_2_0" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,7 +70,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Henkilökunta__2__0",
+    "git-widget-placeholder": "UI__2__0",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
@@ -81,7 +82,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "two.files.diff.last.used.file": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
     "vue.rearranger.settings.migration": "true"
   }
@@ -98,11 +99,11 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.Main" />
+      <option name="MAIN_CLASS_NAME" value="simu.view.Main" />
       <module name="G_6_Simulation_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,11 +112,11 @@
       </method>
     </configuration>
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainApp" />
+      <option name="MAIN_CLASS_NAME" value="simu.view.MainApp" />
       <module name="G_6_Simulation_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,11 +125,11 @@
       </method>
     </configuration>
     <configuration name="SimulaattorinGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.SimulaattorinGUI" />
+      <option name="MAIN_CLASS_NAME" value="simu.view.SimulaattorinGUI" />
       <module name="G_6_Simulation_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -179,7 +180,7 @@
       <workItem from="1709031841976" duration="337000" />
       <workItem from="1709032191151" duration="705000" />
       <workItem from="1709032958994" duration="10764000" />
-      <workItem from="1709192984918" duration="9661000" />
+      <workItem from="1709192984918" duration="17075000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -325,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709199005166</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="UI 2.0&#10;Scene builder implementation">
+      <option name="closed" value="true" />
+      <created>1709209143242</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1709209143242</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +357,8 @@
     <MESSAGE value="GitIgnore updated&#10;.idea is ignored :)" />
     <MESSAGE value="Henkilökunta toimii???" />
     <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="UI 2.0&#10;Scene builder implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI 2.0&#10;Scene builder implementation" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">

@@ -1,4 +1,4 @@
-package view;
+package simu.view;
 
 public class Main {
 

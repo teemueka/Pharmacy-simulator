@@ -3,7 +3,7 @@ package controller;
 import javafx.application.Platform;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
-import view.ISimulaattorinUI;
+import simu.view.ISimulaattorinUI;
 
 public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUSI
 	

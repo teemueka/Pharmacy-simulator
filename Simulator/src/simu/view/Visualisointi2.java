@@ -1,4 +1,4 @@
-package view;
+package simu.view;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;

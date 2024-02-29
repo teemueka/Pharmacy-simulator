@@ -18,9 +18,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
-import view.ISimulaattorinUI;
-import view.IVisualisointi;
-import view.Visualisointi;
+import simu.view.ISimulaattorinUI;
+import simu.view.IVisualisointi;
 
 
 public class TestiGUI extends Application implements ISimulaattorinUI {
