@@ -53,6 +53,7 @@ public class Asiakas {
 		Collections.shuffle(services);
 		//trim the list to the desired number of services
 		services = new ArrayList<>(services.subList(0, numOfServices));
+		Trace.out(Trace.Level.INFO, "Asiakas " + id + " aikoo käydä palveluissa: " + services);
 	}
 	public String nextService() {
 		return services.get(0);
