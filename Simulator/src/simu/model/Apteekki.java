@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Apteekki {
     //Apteekin kapasiteetti, tätä käytetään ehtona pääseekä asiakas sisään apteekkiin vai jonottaako ulkona
-    private final int capacity = 3;
+    private final int capacity = 10;
     //tällä pidetään yllä ketkä ovat päässeet sisään, sisälle tultaessa ++ poistuessaan --
     private static int current_customers = 0;
     private static int missedCustomers = 0;

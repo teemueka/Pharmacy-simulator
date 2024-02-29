@@ -28,23 +28,30 @@ public class Palvelupiste {
 	
 	private boolean varattu = false;
 
+	private int staff;
+	private int palveltavat = 0;
 
-	public Palvelupiste(String palvelupisteenNimi, ContinuousGenerator generator, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi){
+
+
+	public Palvelupiste(String palvelupisteenNimi, ContinuousGenerator generator, int staff, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi){
 		this.tapahtumalista = tapahtumalista;
 		this.generator = generator;
 		this.skeduloitavanTapahtumanTyyppi = tyyppi;
         this.palvelupisteenNimi = palvelupisteenNimi;
+		this.staff = staff;
     }
 
 
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
 		jono.add(a);
+		
 	}
 
 
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
+		palveltavat--;
 		varattu = false;
-		Asiakas asiakas = jono.poll();
+		Asiakas asiakas = palvelussa.poll();
 		//Determine the service point based on the event type
         switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:
@@ -75,11 +82,18 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
-		
-		varattu = true;
+		palveltavat++;
+		if (palveltavat < staff){
+			varattu = false;
+
+		}else {
+			varattu = true;
+		}
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
+		palvelussa.add(jono.peek());
 		Asiakas asiakas = jono.peek();
+		jono.poll();
 		asiakas.setKokonaisPalveluaika(palveluaika);
 
 		//Set service time for the specific service point

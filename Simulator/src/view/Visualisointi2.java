@@ -46,6 +46,11 @@ public class Visualisointi2 extends Canvas implements IVisualisointi{
 		gc.setFont(new Font(20));
 		gc.fillText("Menetetty asiakas " + menetettyLkm, 200, 200);
 	}
-	
+
+	@Override
+	public void reset() {
+
+	}
+
 
 }
