@@ -20,35 +20,20 @@ public class OmaMoottori extends Moottori{
 
 		palvelupisteet = new Palvelupiste[5];
 
-		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);
-		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal((int)(1000/a_staff),100), tapahtumalista, TapahtumanTyyppi.ASPA_P);
-		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal((int)(500/h_staff),300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
-		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal((int)(1000/r_staff), 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
-		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal((int)(1000/k_staff), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);
+		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1),1, tapahtumalista, TapahtumanTyyppi.AULA_P);
 
 
-		saapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal(100,10), a_staff, tapahtumalista, TapahtumanTyyppi.ASPA_P);
+		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal(50,30),	h_staff , tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
+		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal(100, 50),	r_staff ,tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
+		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(100, 50),	k_staff ,tapahtumalista, TapahtumanTyyppi.KASSA_P);
 
 
-	}
-
-	//Default konstruktori
-	public OmaMoottori(IKontrolleriForM kontrolleri) {
-		super(kontrolleri);
-
-		palvelupisteet = new Palvelupiste[5];
-
-		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);
-		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal((1000),100), tapahtumalista, TapahtumanTyyppi.ASPA_P);
-		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal((500),300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
-		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal((1000), 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
-		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal((1000), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);
-
-
-		saapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+		saapumisprosessi = new Saapumisprosessi(new Negexp(150,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
 
 
 	}
+
 
 
 	@Override

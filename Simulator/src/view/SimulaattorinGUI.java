@@ -65,6 +65,9 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
         // Käyttöliittymän rakentaminen
         try {
 
+            naytto = new Visualisointi(800, 400);
+
+
             primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent t) {
@@ -85,6 +88,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
                 public void handle(ActionEvent event) {
                     kontrolleri.kaynnistaSimulointi();
                     kaynnistaButton.setDisable(true);
+
                 }
             });
 
@@ -162,7 +166,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             grid.add(nopeutaButton, 0, 6);   // sarake, rivi
             grid.add(hidastaButton, 1, 6);   // sarake, rivi
 
-            naytto = new Visualisointi(800, 400);
+
 
             // TÃ¤ytetÃ¤Ã¤n boxi:
             hBox.getChildren().addAll(staff_bar, grid, (Canvas) naytto);

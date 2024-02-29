@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="Merge Henkilökunta to main" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="GitIgnore updated&#10;.idea is ignored :)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/Apteekki.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/Apteekki.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/Palvelupiste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/Palvelupiste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/IVisualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/IVisualisointi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/Visualisointi2.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +33,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Henkilökunta" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,33 +49,33 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.Simulaattori.executor": "Run",
-    "Application.SimulaattorinGUI.executor": "Debug",
-    "Application.testMain.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Simulaattori.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SimulaattorinGUI.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.testMain.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Henkilökunta__2__0&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator" />
@@ -144,7 +153,8 @@
       <workItem from="1708333579001" duration="18321000" />
       <workItem from="1709031841976" duration="337000" />
       <workItem from="1709032191151" duration="705000" />
-      <workItem from="1709032958994" duration="650000" />
+      <workItem from="1709032958994" duration="10764000" />
+      <workItem from="1709192984918" duration="2856000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -258,7 +268,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709033616925</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Main returned">
+      <option name="closed" value="true" />
+      <created>1709033958310</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709033958310</updated>
+    </task>
+    <task id="LOCAL-00016" summary="GitIgnore updated&#10;.idea is ignored :)">
+      <option name="closed" value="true" />
+      <created>1709034713803</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709034713803</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +304,20 @@
     <MESSAGE value="Merge Teemun-kikkailut" />
     <MESSAGE value="-" />
     <MESSAGE value="Merge Henkilökunta to main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge Henkilökunta to main" />
+    <MESSAGE value="Main returned" />
+    <MESSAGE value="GitIgnore updated&#10;.idea is ignored :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="GitIgnore updated&#10;.idea is ignored :)" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java</url>
+          <line>167</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -40,5 +40,10 @@ public class Visualisointi extends Canvas implements IVisualisointi{
 		//j = (j + 12) % this.getHeight();
 		if (i==0) j+=10;
 	}
+
+	public void reset() {
+		i = 0;
+		j = 10;
+	}
 	
 }
