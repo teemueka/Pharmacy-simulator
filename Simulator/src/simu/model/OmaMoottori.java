@@ -182,6 +182,7 @@ public class OmaMoottori extends Moottori{
 		System.out.printf("Asiakastyytyväisyys: %.1f%%", ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
 		System.out.println();
 		System.out.println("Asiakkaat kuluttivat: " + Asiakas.getTotalSpentAllCustomers() + " €");
+		System.out.println("Asiakkaiden keskiarvo kulutus: " + Asiakas.getTotalSpentAllCustomers() / Apteekki.getServedCustomers() + " €");
 
 		// UUTTA graafista
 		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
