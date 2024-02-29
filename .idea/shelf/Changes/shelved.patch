@@ -1,0 +1,203 @@
+Index: .idea/libraries/Maven__org_openjfx_javafx_base_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_base_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_base_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_base_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-base:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-base" version="20.0.1" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_base_win_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_base_win_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_base_win_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_base_win_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-base:win:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-base" version="20.0.1" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_controls_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_controls_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_controls_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_controls_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-controls:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-controls" version="20.0.1" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_controls_win_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_controls_win_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_controls_win_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_controls_win_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-controls:win:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-controls" version="20.0.1" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_fxml_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_fxml_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_fxml_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_fxml_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-fxml:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-fxml" version="20.0.1" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_fxml_win_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-fxml:win:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-fxml" version="20.0.1" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_graphics_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_graphics_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_graphics_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_graphics_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-graphics:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-graphics" version="20.0.1" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_graphics_win_20_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_20_0_1.xml b/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_20_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_20_0_1.xml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ /dev/null	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-graphics:win:20.0.1" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-graphics" version="20.0.1" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: G_6_Simulation_project.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module external.linked.project.id=\"$MODULE_DIR$/pom.xml\" external.system.module.type=\"SINGLE_MODULE\" external.system.module.version=\"223-2\" org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"AdditionalModuleElements\">\r\n    <content url=\"file://$MODULE_DIR$\" dumb=\"true\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/resources\" type=\"java-test-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/Simulator/src\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/G_6_Simulation_project.iml b/G_6_Simulation_project.iml
+--- a/G_6_Simulation_project.iml	(revision dea8484f658f6513b3638ced522b65d5c1547cb1)
++++ b/G_6_Simulation_project.iml	(date 1709033651373)
+@@ -1,14 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id="$MODULE_DIR$/pom.xml" external.system.module.type="SINGLE_MODULE" external.system.module.version="223-2" org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
++<module version="4">
+   <component name="AdditionalModuleElements">
+     <content url="file://$MODULE_DIR$" dumb="true">
+-      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+       <sourceFolder url="file://$MODULE_DIR$/Simulator/src" isTestSource="false" />
+       <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
+-      <excludeFolder url="file://$MODULE_DIR$/target" />
+     </content>
+   </component>
+ </module>
+\ No newline at end of file

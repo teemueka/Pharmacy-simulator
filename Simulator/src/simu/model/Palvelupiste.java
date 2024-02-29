@@ -8,8 +8,8 @@ import eduni.distributions.ContinuousGenerator;
 // Palvelupistekohtaiset toiminnallisuudet, laskutoimitukset (+ tarvittavat muuttujat) ja raportointi koodattava
 public class Palvelupiste {
 
-	private final LinkedList<Asiakas> jono = new LinkedList<>();
-	private LinkedList<Asiakas> palvelussa = new LinkedList<>();
+	private final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus
+	private final LinkedList<Asiakas> palvelussa = new LinkedList<>();
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
@@ -81,7 +81,7 @@ public class Palvelupiste {
 
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
-		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
+		Trace.out(Trace.Level.INFO, "Aloitetaan uusi " + getPalvelupisteenNimi() + " palvelu asiakkaalle " + jono.peek().getId());
 		palveltavat++;
 		if (palveltavat < staff){
 			varattu = false;
@@ -89,6 +89,7 @@ public class Palvelupiste {
 		}else {
 			varattu = true;
 		}
+		Trace.out(Trace.Level.INFO, getPalvelupisteenNimi() + ", henkilökunnan määrä: " + getStaff() + " palvelussa tällä hetkellä: " + getPalveltavat());
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
 		palvelussa.add(jono.peek());
@@ -96,7 +97,7 @@ public class Palvelupiste {
 		jono.poll();
 		asiakas.setKokonaisPalveluaika(palveluaika);
 
-		//Determine the service point based on the event type
+		//Set service time for the specific service point
 		String servicePoint = "";
 		switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:
@@ -129,6 +130,15 @@ public class Palvelupiste {
 
 	public boolean onJonossa(){
 		return !jono.isEmpty();
+	}
+	public int getPalveltavat() {
+		return palveltavat;
+	}
+	public int getStaff() {
+		return staff;
+	}
+	public String getPalvelupisteenNimi() {
+		return palvelupisteenNimi;
 	}
 	//counters for all the services
 	public void aulaCounter() {

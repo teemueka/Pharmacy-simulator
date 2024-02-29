@@ -45,7 +45,7 @@ public class OmaMoottori extends Moottori{
 	protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
 
 		Asiakas a;
-		switch ((TapahtumanTyyppi)t.getTyyppi()){
+		switch (t.getTyyppi()){
 
 
 			//asiakkaan saapuminen, generoi uuden saapumisen, katsoo onko tilaa apteekissa
@@ -84,7 +84,7 @@ public class OmaMoottori extends Moottori{
 
 
 			case AULA_P:
-				a = (Asiakas)palvelupisteet[0].otaJonosta();
+				a = palvelupisteet[0].otaJonosta();
 				if (a.hasMoreServices()) {
 					String nextService = a.getNextService();
 					switch (nextService) {
@@ -107,7 +107,7 @@ public class OmaMoottori extends Moottori{
 			case KAUPPA_P:
 			case RESEPTI_P:
 				int index = 0;
-				switch ((TapahtumanTyyppi)t.getTyyppi()) {
+				switch (t.getTyyppi()) {
 					case ASPA_P:
 						index = 1;
 						break;
@@ -118,7 +118,7 @@ public class OmaMoottori extends Moottori{
 						index = 3;
 						break;
 				}
-				a = (Asiakas)palvelupisteet[index].otaJonosta();
+				a = palvelupisteet[index].otaJonosta();
 				if (a.hasMoreServices()) {
 					String nextService = a.getNextService();
 					switch (nextService) {

@@ -1,0 +1,183 @@
+Index: Simulator/src/simu/model/Palvelupiste.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package simu.model;\r\n\r\nimport simu.framework.*;\r\nimport java.util.LinkedList;\r\nimport eduni.distributions.ContinuousGenerator;\r\n\r\n// TODO:\r\n// Palvelupistekohtaiset toiminnallisuudet, laskutoimitukset (+ tarvittavat muuttujat) ja raportointi koodattava\r\npublic class Palvelupiste {\r\n\r\n\tprivate final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus\r\n\tprivate final ContinuousGenerator generator;\r\n\tprivate final Tapahtumalista tapahtumalista;\r\n\tprivate final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;\r\n\t//this is not yet used for anything other than naming the services\r\n\tprivate final String palvelupisteenNimi;\r\n\r\n\t//added counters for every service, not sure if we use them yet for anything\r\n\t//currently just incrementing every time customer enters service\r\n\tprivate static int aulaUsage = 0;\r\n\tprivate static int kauppaUsage = 0;\r\n\tprivate static int reseptiUsage = 0;\r\n\tprivate static int aspaUsage = 0;\r\n\tprivate static int kassaUsage = 0;\r\n\r\n\t//JonoStartegia strategia; //optio: asiakkaiden järjestys\r\n\t\r\n\tprivate boolean varattu = false;\r\n\r\n\r\n\tpublic Palvelupiste(String palvelupisteenNimi, ContinuousGenerator generator, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi){\r\n\t\tthis.tapahtumalista = tapahtumalista;\r\n\t\tthis.generator = generator;\r\n\t\tthis.skeduloitavanTapahtumanTyyppi = tyyppi;\r\n        this.palvelupisteenNimi = palvelupisteenNimi;\r\n    }\r\n\r\n\r\n\tpublic void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa\r\n\t\tjono.add(a);\r\n\t\t\r\n\t}\r\n\r\n\r\n\tpublic Asiakas otaJonosta(){  // Poistetaan palvelussa ollut\r\n\t\tvarattu = false;\r\n\t\tAsiakas asiakas = jono.poll();\r\n\t\t//Determine the service point based on the event type\r\n        switch (skeduloitavanTapahtumanTyyppi) {\r\n\t\t\tcase AULA_P:\r\n                aulaCounter();\r\n\t\t\t\tbreak;\r\n\t\t\tcase ASPA_P:\r\n                aspaCounter();\r\n\t\t\t\tasiakas.setAspaKäyty();\r\n\t\t\t\tbreak;\r\n\t\t\tcase KAUPPA_P:\r\n                kauppaCounter();\r\n\t\t\t\tasiakas.setKauppaKäyty();\r\n\t\t\t\tasiakas.setKauppaSpent();\r\n\t\t\t\tbreak;\r\n\t\t\tcase RESEPTI_P:\r\n                reseptiCounter();\r\n\t\t\t\tasiakas.setReseptiKäyty();\r\n\t\t\t\tasiakas.setReseptiSpent();\r\n\t\t\t\tbreak;\r\n\t\t\tcase KASSA_P:\r\n                kassaCounter();\r\n\t\t\t\tbreak;\r\n\t\t}\r\n\t\treturn asiakas;\r\n\t}\r\n\r\n\r\n\tpublic void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana\r\n\r\n\t\tTrace.out(Trace.Level.INFO, \"Aloitetaan uusi palvelu asiakkaalle \" + jono.peek().getId());\r\n\t\t\r\n\t\tvarattu = true;\r\n\t\tdouble palveluaika = generator.sample();\r\n\t\t//get the time the customer has been served\r\n\t\tAsiakas asiakas = jono.peek();\r\n\t\tasiakas.setKokonaisPalveluaika(palveluaika);\r\n\r\n\t\t//Determine the service point based on the event type\r\n\t\tString servicePoint = \"\";\r\n\t\tswitch (skeduloitavanTapahtumanTyyppi) {\r\n\t\t\tcase AULA_P:\r\n\t\t\t\tservicePoint = \"Aula\";\r\n\t\t\t\tbreak;\r\n\t\t\tcase ASPA_P:\r\n\t\t\t\tservicePoint = \"Aspa\";\r\n\t\t\t\tbreak;\r\n\t\t\tcase KAUPPA_P:\r\n\t\t\t\tservicePoint = \"Kauppa\";\r\n\t\t\t\tbreak;\r\n\t\t\tcase RESEPTI_P:\r\n\t\t\t\tservicePoint = \"Resepti\";\r\n\t\t\t\tbreak;\r\n\t\t\tcase KASSA_P:\r\n\t\t\t\tservicePoint = \"Kassa\";\r\n\t\t\t\tbreak;\r\n\t\t}\r\n\t\t//Set service time for the specific service point\r\n\t\tasiakas.setPalveluaika(servicePoint, palveluaika);\r\n\r\n\t\ttapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));\r\n\t}\r\n\r\n\tpublic boolean onVarattu(){\r\n\t\treturn varattu;\r\n\t}\r\n\r\n\r\n\r\n\tpublic boolean onJonossa(){\r\n\t\treturn !jono.isEmpty();\r\n\t}\r\n\t//counters for all the services\r\n\tpublic void aulaCounter() {\r\n\t\taulaUsage++;\r\n\t}\r\n\tpublic void aspaCounter() {\r\n\t\taspaUsage++;\r\n\t}\r\n\tpublic void kauppaCounter() {\r\n\t\tkauppaUsage++;\r\n\t}\r\n\tpublic void reseptiCounter() {\r\n\t\treseptiUsage++;\r\n\t}\r\n\tpublic void kassaCounter() {\r\n\t\tkassaUsage++;\r\n\t}\r\n\tpublic int getKassaUsage() {\r\n\t\treturn kassaUsage;\r\n\t}\r\n\tpublic int getAspaUsage() {\r\n\t\treturn aspaUsage;\r\n\t}\r\n\r\n\tpublic int getKauppaUsage() {\r\n\t\treturn kauppaUsage;\r\n\t}\r\n\r\n\tpublic int getReseptiUsage() {\r\n\t\treturn reseptiUsage;\r\n\t}\r\n\tpublic int getAulaUsage() {\r\n\t\treturn aulaUsage;\r\n\t}\r\n\t//this is just here to help us better understand the simulation during the run\r\n\tpublic String displayServiceUsage() {\r\n\t\treturn \"served customers at aula: \" + getAulaUsage() + \", served customers at aspa: \" + getAspaUsage() + \", served customers at kauppa: \" + getKauppaUsage() + \", served customers at resepti: \" + getReseptiUsage() + \", served customers at kassa: \" + getKassaUsage();\r\n\t}\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Simulator/src/simu/model/Palvelupiste.java b/Simulator/src/simu/model/Palvelupiste.java
+--- a/Simulator/src/simu/model/Palvelupiste.java	
++++ b/Simulator/src/simu/model/Palvelupiste.java	
+@@ -24,6 +24,16 @@
+ 	private static int kassaUsage = 0;
+ 
+ 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
++	private int kassaKunta;
++	private int aspaKunta;
++	private int reseptiKunta;
++	private int kauppaKunta;
++	private boolean kassaFull;
++	private boolean aspaFull;
++	private boolean reseptiFull;
++	private boolean kauppaFull;
++
++	private int henkKuntaVapaana = 1;
+ 	
+ 	private boolean varattu = false;
+ 
+@@ -38,11 +48,11 @@
+ 
+ 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
+ 		jono.add(a);
+-		
++
+ 	}
+ 
+ 
+-	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
++	public Asiakas otaJonosta() { // Poistetaan palvelussa ollut
+ 		varattu = false;
+ 		Asiakas asiakas = jono.poll();
+ 		//Determine the service point based on the event type
+@@ -53,19 +63,23 @@
+ 			case ASPA_P:
+                 aspaCounter();
+ 				asiakas.setAspaKäyty();
++				aspaKunta--;
+ 				break;
+ 			case KAUPPA_P:
+                 kauppaCounter();
+ 				asiakas.setKauppaKäyty();
+ 				asiakas.setKauppaSpent();
++				kauppaKunta--;
+ 				break;
+ 			case RESEPTI_P:
+                 reseptiCounter();
+ 				asiakas.setReseptiKäyty();
+ 				asiakas.setReseptiSpent();
++				reseptiKunta--;
+ 				break;
+ 			case KASSA_P:
+                 kassaCounter();
++				kassaKunta--;
+ 				break;
+ 		}
+ 		return asiakas;
+@@ -76,7 +90,7 @@
+ 
+ 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
+ 		
+-		varattu = true;
++		varattu = false;
+ 		double palveluaika = generator.sample();
+ 		//get the time the customer has been served
+ 		Asiakas asiakas = jono.peek();
+@@ -90,15 +104,19 @@
+ 				break;
+ 			case ASPA_P:
+ 				servicePoint = "Aspa";
++				aspaKunta++;
+ 				break;
+ 			case KAUPPA_P:
+ 				servicePoint = "Kauppa";
++				kauppaKunta++;
+ 				break;
+ 			case RESEPTI_P:
+ 				servicePoint = "Resepti";
++				reseptiKunta++;
+ 				break;
+ 			case KASSA_P:
+ 				servicePoint = "Kassa";
++				kassaKunta++;
+ 				break;
+ 		}
+ 		//Set service time for the specific service point
+Index: Simulator/src/simu/model/OmaMoottori.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package simu.model;\r\n\r\nimport simu.framework.*;\r\nimport eduni.distributions.Negexp;\r\nimport eduni.distributions.Normal;\r\nimport controller.IKontrolleriForM;\r\n\r\npublic class OmaMoottori extends Moottori{\r\n\t\r\n\tprivate Saapumisprosessi saapumisprosessi;\r\n\tprivate Palvelupiste[] palvelupisteet;\r\n\tApteekki apteekki = new Apteekki();\r\n\r\n\r\n\tpublic OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {\r\n\r\n\t\tsuper(kontrolleri);\r\n\r\n\t\tSystem.out.println(a_staff + \" \" + h_staff + \" \" + r_staff + \" \" + k_staff);\r\n\r\n\t\tpalvelupisteet = new Palvelupiste[5];\r\n\r\n\t\tpalvelupisteet[0]=new Palvelupiste(\"Sisäänkäynti\", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);\r\n\t\tpalvelupisteet[1]=new Palvelupiste(\"Asiakaspalvelu\" , new Normal((int)(1000/a_staff),100), tapahtumalista, TapahtumanTyyppi.ASPA_P);\r\n\t\tpalvelupisteet[2]=new Palvelupiste(\"Hyllyt\" , new Normal((int)(500/h_staff),300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);\r\n\t\tpalvelupisteet[3]=new Palvelupiste(\"Resepti\", new Normal((int)(1000/r_staff), 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);\r\n\t\tpalvelupisteet[4]=new Palvelupiste(\"Kassa\", new Normal((int)(1000/k_staff), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);\r\n\r\n\r\n\t\tsaapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);\r\n\r\n\r\n\t}\r\n\r\n\t//Default konstruktori\r\n\tpublic OmaMoottori(IKontrolleriForM kontrolleri) {\r\n\t\tsuper(kontrolleri);\r\n\r\n\t\tpalvelupisteet = new Palvelupiste[5];\r\n\r\n\t\tpalvelupisteet[0]=new Palvelupiste(\"Sisäänkäynti\", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);\r\n\t\tpalvelupisteet[1]=new Palvelupiste(\"Asiakaspalvelu\" , new Normal((1000),100), tapahtumalista, TapahtumanTyyppi.ASPA_P);\r\n\t\tpalvelupisteet[2]=new Palvelupiste(\"Hyllyt\" , new Normal((500),300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);\r\n\t\tpalvelupisteet[3]=new Palvelupiste(\"Resepti\", new Normal((1000), 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);\r\n\t\tpalvelupisteet[4]=new Palvelupiste(\"Kassa\", new Normal((1000), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);\r\n\r\n\r\n\t\tsaapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);\r\n\r\n\r\n\t}\r\n\r\n\r\n\t@Override\r\n\tprotected void alustukset() {\r\n\t\tsaapumisprosessi.generoiSeuraava(); // Ensimmäinen saapuminen järjestelmään\r\n\t}\r\n\r\n\t@Override\r\n\tprotected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat\r\n\r\n\t\tAsiakas a;\r\n\t\tswitch ((TapahtumanTyyppi)t.getTyyppi()){\r\n\r\n\r\n\t\t\t//asiakkaan saapuminen, generoi uuden saapumisen, katsoo onko tilaa apteekissa\r\n\t\t\tcase AULA_S:\r\n\r\n\r\n\t\t\t\ta = new Asiakas();\r\n\t\t\t\tsaapumisprosessi.generoiSeuraava();\r\n\t\t\t\tapteekki.addToPharmacyque(a);\r\n\t\t\t\tSystem.out.println(\"Asiakas \" + a.getId() + \" lisätty apteekkijonoon. Jonon pituus: \" + apteekki.displayApteekkijono());\r\n\t\t\t\t//jos on tilaa, jatka normaalisti\r\n\t\t\t\tif (apteekki.getCurrent_customers() < apteekki.getCapacity()) {\r\n\r\n\t\t\t\t\ta = apteekki.getFromPharmacyque();\r\n\t\t\t\t\tapteekki.customerIn();\r\n\t\t\t\t\tSystem.out.println(\"Asiakas pääsi sisään, asiakkaita sisällä: \" + apteekki.getCurrent_customers());\r\n\t\t\t\t\tpalvelupisteet[0].lisaaJonoon(a);\r\n\r\n\r\n\t\t\t\t\tkontrolleri.visualisoiUusiAsiakas(); // Tämä lisää SINISEN visuaalisen pisteen asiakkaan saapuessa\r\n\r\n\t\t\t\t\t//jos ei, mahdollisuus poistua\r\n\t\t\t\t} else {\r\n\t\t\t\t\tif (apteekki.missedCustomerChance() > 0.5) {\r\n\t\t\t\t\t\tapteekki.addMissedCustomer();\r\n\t\t\t\t\t\tSystem.out.println(\"Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: \" + apteekki.displayMissedCustomers());\r\n\r\n\t\t\t\t\t\tkontrolleri.visualisoiMenetettyAsiakas();//Tämä lisää PUNAISEN visuaalisen pisteen asiakkaan poistuessa\r\n\t\t\t\t\t\tkontrolleri.naytaMenetetty(Apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän\r\n\t\t\t\t\t} else {\r\n\t\t\t\t\t\t//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu\r\n\t\t\t\t\t\tSystem.out.println(\"Asiakas, \" + a.getId() + \" päätti pysyä jonossa\");\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tbreak;\r\n\r\n\r\n\t\t\tcase AULA_P:\r\n\t\t\t\ta = (Asiakas)palvelupisteet[0].otaJonosta();\r\n\t\t\t\tif (a.hasMoreServices()) {\r\n\t\t\t\t\tString nextService = a.getNextService();\r\n\t\t\t\t\tswitch (nextService) {\r\n\t\t\t\t\t\tcase \"Asiakaspalvelu\":\r\n\t\t\t\t\t\t\tpalvelupisteet[1].lisaaJonoon(a);\r\n\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t\tcase \"Hyllyt\":\r\n\t\t\t\t\t\t\tpalvelupisteet[2].lisaaJonoon(a);\r\n\t\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t\tcase \"Resepti\":\r\n\t\t\t\t\t\t\tpalvelupisteet[3].lisaaJonoon(a);\r\n\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t}\r\n\t\t\t\t} else {\r\n\t\t\t\t\tpalvelupisteet[4].lisaaJonoon(a);\r\n\t\t\t\t}\r\n\t\t\t\tbreak;\r\n\r\n\t\t\tcase ASPA_P:\r\n\t\t\tcase KAUPPA_P:\r\n\t\t\tcase RESEPTI_P:\r\n\t\t\t\tint index = 0;\r\n\t\t\t\tswitch ((TapahtumanTyyppi)t.getTyyppi()) {\r\n\t\t\t\t\tcase ASPA_P:\r\n\t\t\t\t\t\tindex = 1;\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase KAUPPA_P:\r\n\t\t\t\t\t\tindex = 2;\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase RESEPTI_P:\r\n\t\t\t\t\t\tindex = 3;\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t}\r\n\t\t\t\ta = (Asiakas)palvelupisteet[index].otaJonosta();\r\n\t\t\t\tif (a.hasMoreServices()) {\r\n\t\t\t\t\tString nextService = a.getNextService();\r\n\t\t\t\t\tswitch (nextService) {\r\n\t\t\t\t\t\tcase \"Asiakaspalvelu\":\r\n\t\t\t\t\t\t\tpalvelupisteet[1].lisaaJonoon(a);\r\n\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t\tcase \"Hyllyt\":\r\n\t\t\t\t\t\t\tpalvelupisteet[2].lisaaJonoon(a);\r\n\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t\tcase \"Resepti\":\r\n\t\t\t\t\t\t\tpalvelupisteet[3].lisaaJonoon(a);\r\n\t\t\t\t\t\t\tbreak;\r\n\t\t\t\t\t}\r\n\t\t\t\t} else {\r\n\t\t\t\t\tif (a.getSpent() != 0 && !a.onlyAspa()) {\r\n\t\t\t\t\t\tpalvelupisteet[4].lisaaJonoon(a);\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse {\r\n\t\t\t\t\t\ta.usedOnlyAspa();\r\n\t\t\t\t\t\ta.setPoistumisaika(Kello.getInstance().getAika());\r\n\t\t\t\t\t\ta.setTyytyväisyys();\r\n\t\t\t\t\t\ta.raportti();\r\n\t\t\t\t\t\tSystem.out.println(\"Asiakas poistuu... asiakkaita sisällä: \" + apteekki.getCurrent_customers());\r\n\t\t\t\t\t\tapteekki.customerOut();\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tbreak;\r\n\r\n\t\t\tcase KASSA_P:\r\n\t\t\t\ta = (Asiakas)palvelupisteet[4].otaJonosta();\r\n\r\n\t\t\t\ta.setPoistumisaika(Kello.getInstance().getAika());\r\n\t\t\t\ta.setTyytyväisyys();\r\n\t\t\t\ta.raportti();\r\n\t\t\t\tSystem.out.println(\"Asiakas poistuu... asiakkaita sisällä: \" + apteekki.getCurrent_customers());\r\n\t\t\t\tapteekki.customerOut();\r\n\r\n\t\t\t\t\t   //Päivittää palveltun asiakkaan määrän\r\n\t\t\t\t\t   kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());\r\n\r\n\t\t}\r\n\t}\r\n\r\n\t@Override\r\n\tprotected void yritaCTapahtumat(){\r\n\t\tfor (Palvelupiste p: palvelupisteet){\r\n\t\t\tif (!p.onVarattu() && p.onJonossa()){\r\n\t\t\t\tp.aloitaPalvelu();\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t@Override\r\n\tprotected void tulokset() {\r\n\t\tSystem.out.println(\"Simulointi päättyi kello \" + Kello.getInstance().getAika());\r\n\t\tSystem.out.println(\"Tulokset ... puuttuvat vielä\");\r\n\t\tapteekki.displayResults();\r\n\t\tSystem.out.println(palvelupisteet[0].displayServiceUsage());\r\n\t\tSystem.out.println(Asiakas.getUsedOnlyAspa() + \" asiakasta kävi vain asiakaspalvelussa.\");\r\n\t\tSystem.out.println(\"dissatisfied customers: \" + Asiakas.getDissatisfied() + \", satisfied customers: \" + Asiakas.getSatisfied());\r\n\t\tSystem.out.printf(\"Asiakastyytyväisyys: %.1f%%\", ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);\r\n\t\tSystem.out.println();\r\n\t\tSystem.out.println(\"Asiakkaat kuluttivat: \" + Asiakas.getTotalSpentAllCustomers() + \" €\");\r\n\r\n\t\t// UUTTA graafista\r\n\t\tkontrolleri.naytaLoppuaika(Kello.getInstance().getAika());\r\n\r\n\t}\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Simulator/src/simu/model/OmaMoottori.java b/Simulator/src/simu/model/OmaMoottori.java
+--- a/Simulator/src/simu/model/OmaMoottori.java	
++++ b/Simulator/src/simu/model/OmaMoottori.java	
+@@ -21,13 +21,13 @@
+ 		palvelupisteet = new Palvelupiste[5];
+ 
+ 		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);
+-		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal((int)(1000/a_staff),100), tapahtumalista, TapahtumanTyyppi.ASPA_P);
+-		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal((int)(500/h_staff),300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
+-		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal((int)(1000/r_staff), 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
+-		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal((int)(1000/k_staff), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);
++		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal(10,10), tapahtumalista, TapahtumanTyyppi.ASPA_P);
++		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal(5,3), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
++		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal(10, 5), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
++		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(10, 5), tapahtumalista, TapahtumanTyyppi.KASSA_P);
+ 
+ 
+-		saapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
++		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+ 
+ 
+ 	}
+@@ -45,7 +45,7 @@
+ 		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal((1000), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);
+ 
+ 
+-		saapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
++		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+ 
+ 
+ 	}
+Index: Simulator/src/view/SimulaattorinGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view;\r\n\r\n\r\nimport java.text.DecimalFormat;\r\nimport controller.*;\r\nimport javafx.application.Application;\r\nimport javafx.application.Platform;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.event.EventHandler;\r\nimport javafx.geometry.Insets;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.image.Image;\r\nimport javafx.stage.Stage;\r\nimport javafx.stage.WindowEvent;\r\nimport simu.framework.Trace;\r\nimport simu.framework.Trace.Level;\r\nimport javafx.scene.*;\r\nimport javafx.scene.canvas.Canvas;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.layout.*;\r\nimport javafx.scene.text.*;\r\n\r\n\r\n\r\npublic class SimulaattorinGUI extends Application implements ISimulaattorinUI {\r\n\r\n    //Kontrollerin esittely (tarvitaan käyttöliittymässä)\r\n    private IKontrolleriForV kontrolleri;\r\n\r\n    // Käyttöliittymäkomponentit:\r\n\r\n    private Spinner a_staff;\r\n    private Spinner h_staff;\r\n    private Spinner r_staff;\r\n    private Spinner k_staff;\r\n    private TextField aika;\r\n    private TextField viive;\r\n    private Label tulos;\r\n    private Label palveltu;\r\n    private Label menetetty;\r\n    private Label aikaLabel;\r\n    private Label viiveLabel;\r\n    private Label tulosLabel;\r\n    private Label palveltuLabel;\r\n    private Label menetettyLabel;\r\n\r\n    private Button kaynnistaButton;\r\n    private Button hidastaButton;\r\n    private Button nopeutaButton;\r\n\r\n    private IVisualisointi naytto;\r\n    private Image image = new Image(\"file:Simulator/Logo.png\");\r\n\r\n\r\n    @Override\r\n    public void init() {\r\n\r\n        Trace.setTraceLevel(Level.INFO);\r\n\r\n        kontrolleri = new Kontrolleri(this);\r\n    }\r\n\r\n    @Override\r\n    public void start(Stage primaryStage) {\r\n        // Käyttöliittymän rakentaminen\r\n        try {\r\n\r\n            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {\r\n                @Override\r\n                public void handle(WindowEvent t) {\r\n                    Platform.exit();\r\n                    System.exit(0);\r\n                }\r\n            });\r\n\r\n\r\n            primaryStage.setTitle(\"Simulaattori\");\r\n            primaryStage.getIcons().add(image);\r\n\r\n\r\n            kaynnistaButton = new Button();\r\n            kaynnistaButton.setText(\"Käynnistä simulointi\");\r\n            kaynnistaButton.setOnAction(new EventHandler<ActionEvent>() {\r\n                @Override\r\n                public void handle(ActionEvent event) {\r\n                    kontrolleri.kaynnistaSimulointi();\r\n                    kaynnistaButton.setDisable(true);\r\n                }\r\n            });\r\n\r\n            a_staff = new Spinner(1, 99, 1);\r\n            h_staff = new Spinner(1, 99, 1);\r\n            r_staff = new Spinner(1, 99, 1);\r\n            k_staff = new Spinner(1, 99, 1);\r\n\r\n\r\n            hidastaButton = new Button();\r\n            hidastaButton.setText(\"Hidasta\");\r\n            hidastaButton.setOnAction(e -> kontrolleri.hidasta());\r\n\r\n            nopeutaButton = new Button();\r\n            nopeutaButton.setText(\"Nopeuta\");\r\n            nopeutaButton.setOnAction(e -> kontrolleri.nopeuta());\r\n\r\n            aikaLabel = new Label(\"Simulointiaika:\");\r\n            aikaLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            aika = new TextField(\"Syötä aika\");\r\n            aika.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            aika.setPrefWidth(150);\r\n\r\n            viiveLabel = new Label(\"Viive:\");\r\n            viiveLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            viive = new TextField(\"1\");\r\n            viive.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            viive.setPrefWidth(150);\r\n\r\n            tulosLabel = new Label(\"Kokonaisaika:\");\r\n            tulosLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            tulos = new Label();\r\n            tulos.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            tulos.setPrefWidth(150);\r\n\r\n            palveltuLabel = new Label(\"Palveltu:\");\r\n            palveltuLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            palveltu = new Label();\r\n            palveltu.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            palveltu.setPrefWidth(150);\r\n\r\n            menetettyLabel = new Label(\"Menetetty:\");\r\n            menetettyLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            menetetty = new Label();\r\n            menetetty.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            menetetty.setPrefWidth(150);\r\n\r\n\r\n            VBox staff_bar = new VBox();\r\n            staff_bar.setPadding(new Insets(10, 10, 10, 10)); // marginaalit ylÃ¤, oikea, ala, vasen\r\n            staff_bar.setSpacing(10);   // komponenttien vÃ¤limatka 10 pikseliÃ¤\r\n\r\n            staff_bar.getChildren().addAll(new Label(\"Apteekin henkilökunta\"), a_staff, new Label(\"Hyllyjen henkilökunta\"), h_staff, new Label(\"Reseptin henkilökunta\"), r_staff, new Label(\"Kassan henkilökunta\"), k_staff);\r\n\r\n            HBox hBox = new HBox();\r\n            hBox.setPadding(new Insets(15, 12, 15, 12)); // marginaalit ylÃ¤, oikea, ala, vasen\r\n            hBox.setSpacing(10);   // noodien välimatka 10 pikseliä\r\n\r\n            GridPane grid = new GridPane();\r\n            grid.setAlignment(Pos.CENTER);\r\n            grid.setVgap(10);\r\n            grid.setHgap(5);\r\n\r\n            grid.add(aikaLabel, 0, 0);   // sarake, rivi\r\n            grid.add(aika, 1, 0);          // sarake, rivi\r\n            grid.add(viiveLabel, 0, 1);      // sarake, rivi\r\n            grid.add(viive, 1, 1);           // sarake, rivi\r\n            grid.add(tulosLabel, 0, 2);      // sarake, rivi\r\n            grid.add(tulos, 1, 2);           // sarake, rivi\r\n            grid.add(palveltuLabel, 0, 3);      // sarake, rivi\r\n            grid.add(palveltu, 1, 3);           // sarake, rivi\r\n            grid.add(menetettyLabel, 0, 4);      // sarake, rivi\r\n            grid.add(menetetty, 1, 4);           // sarake, rivi\r\n            grid.add(kaynnistaButton, 0, 5);  // sarake, rivi\r\n            grid.add(nopeutaButton, 0, 6);   // sarake, rivi\r\n            grid.add(hidastaButton, 1, 6);   // sarake, rivi\r\n\r\n            naytto = new Visualisointi(800, 400);\r\n\r\n            // TÃ¤ytetÃ¤Ã¤n boxi:\r\n            hBox.getChildren().addAll(staff_bar, grid, (Canvas) naytto);\r\n\r\n            Scene scene = new Scene(hBox);\r\n            primaryStage.setScene(scene);\r\n            primaryStage.show();\r\n\r\n\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n    //Käyttöliittymän rajapintametodit (kutsutaan kontrollerista)\r\n\r\n    @Override\r\n    public double getAika() {\r\n        return Double.parseDouble(aika.getText());\r\n    }\r\n\r\n    @Override\r\n    public long getViive() {\r\n        return Long.parseLong(viive.getText());\r\n    }\r\n\r\n    @Override\r\n    public int getA_staff() {\r\n        return (int) a_staff.getValue();\r\n    }\r\n\r\n    @Override\r\n    public int getH_staff() {\r\n        return (int) h_staff.getValue();\r\n    }\r\n\r\n    @Override\r\n    public int getR_staff() {\r\n        return (int) r_staff.getValue();\r\n    }\r\n\r\n    @Override\r\n    public int getK_staff() {\r\n        return (int) k_staff.getValue();\r\n    }\r\n\r\n\r\n    @Override\r\n    public void setLoppuaika(double aika) {\r\n        DecimalFormat formatter = new DecimalFormat(\"#0.00\");\r\n        this.tulos.setText(formatter.format(aika));\r\n    }\r\n\r\n    @Override\r\n    public void setPalveltu(int asiakas) {\r\n        this.palveltu.setText(Integer.toString(asiakas));\r\n    }\r\n\r\n    @Override\r\n    public void setMenetetty(int asiakas) {\r\n        this.menetetty.setText(Integer.toString(asiakas));\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n    @Override\r\n    public IVisualisointi getVisualisointi() {\r\n        return naytto;\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Simulator/src/view/SimulaattorinGUI.java b/Simulator/src/view/SimulaattorinGUI.java
+--- a/Simulator/src/view/SimulaattorinGUI.java	
++++ b/Simulator/src/view/SimulaattorinGUI.java	
+@@ -43,6 +43,7 @@
+     private Label tulosLabel;
+     private Label palveltuLabel;
+     private Label menetettyLabel;
++    private Label apteekkiJonoLabel;
+ 
+     private Button kaynnistaButton;
+     private Button hidastaButton;
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/target/\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	
++++ b/.gitignore	
+@@ -1,1 +1,3 @@
+ /target/
++/.idea/
++/out/
+Index: Simulator/src/noGUI_run/TestiGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package noGUI_run;\r\n\r\n\r\nimport java.text.DecimalFormat;\r\nimport controller.*;\r\nimport javafx.application.Application;\r\nimport javafx.application.Platform;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.event.EventHandler;\r\nimport javafx.geometry.Insets;\r\nimport javafx.geometry.Pos;\r\nimport javafx.stage.Stage;\r\nimport javafx.stage.WindowEvent;\r\nimport simu.framework.Trace;\r\nimport simu.framework.Trace.Level;\r\nimport javafx.scene.*;\r\nimport javafx.scene.canvas.Canvas;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.layout.*;\r\nimport javafx.scene.text.*;\r\nimport view.ISimulaattorinUI;\r\nimport view.IVisualisointi;\r\nimport view.Visualisointi;\r\n\r\n\r\npublic class TestiGUI extends Application implements ISimulaattorinUI {\r\n\r\n    //Kontrollerin esittely (tarvitaan käyttöliittymässä)\r\n    private IKontrolleriForV kontrolleri;\r\n\r\n    // Käyttöliittymäkomponentit:\r\n    private Spinner a_staff;\r\n    private Spinner h_staff;\r\n    private Spinner r_staff;\r\n    private Spinner k_staff;\r\n    private TextField aika;\r\n    private TextField viive;\r\n    private Label tulos;\r\n    private Label palveltu;\r\n    private Label menetetty;\r\n    private Label aikaLabel;\r\n    private Label viiveLabel;\r\n    private Label tulosLabel;\r\n    private Label palveltuLabel;\r\n    private Label menetettyLabel;\r\n\r\n    private Button kaynnistaButton;\r\n    private Button hidastaButton;\r\n    private Button nopeutaButton;\r\n\r\n    private IVisualisointi naytto;\r\n\r\n\r\n    @Override\r\n    public void init() {\r\n\r\n        Trace.setTraceLevel(Level.INFO);\r\n\r\n        kontrolleri = new Kontrolleri(this);\r\n    }\r\n\r\n    @Override\r\n    public void start(Stage primaryStage) {\r\n        // Käyttöliittymän rakentaminen\r\n        try {\r\n\r\n            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {\r\n                @Override\r\n                public void handle(WindowEvent t) {\r\n                    Platform.exit();\r\n                    System.exit(0);\r\n                }\r\n            });\r\n\r\n\r\n            primaryStage.setTitle(\"Simulaattori\");\r\n\r\n            kaynnistaButton = new Button();\r\n            kaynnistaButton.setText(\"Käynnistä simulointi\");\r\n            kaynnistaButton.setOnAction(new EventHandler<ActionEvent>() {\r\n                @Override\r\n                public void handle(ActionEvent event) {\r\n\r\n                    kaynnistaButton.setDisable(true);\r\n                }\r\n            });\r\n\r\n            a_staff = new Spinner(1, 99, 1);\r\n            h_staff = new Spinner(1, 99, 1);\r\n            r_staff = new Spinner(1, 99, 1);\r\n            k_staff = new Spinner(1, 99, 1);\r\n\r\n            hidastaButton = new Button();\r\n            hidastaButton.setText(\"Hidasta\");\r\n            hidastaButton.setOnAction(e -> kontrolleri.hidasta());\r\n\r\n            nopeutaButton = new Button();\r\n            nopeutaButton.setText(\"Nopeuta\");\r\n            nopeutaButton.setOnAction(e -> kontrolleri.nopeuta());\r\n\r\n            aikaLabel = new Label(\"Simulointiaika:\");\r\n            aikaLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            aika = new TextField(\"100000\");\r\n            aika.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            aika.setPrefWidth(150);\r\n\r\n            viiveLabel = new Label(\"Viive:\");\r\n            viiveLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            viive = new TextField(\"0\");\r\n            viive.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            viive.setPrefWidth(150);\r\n\r\n            tulosLabel = new Label(\"Kokonaisaika:\");\r\n            tulosLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            tulos = new Label();\r\n            tulos.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            tulos.setPrefWidth(150);\r\n\r\n            palveltuLabel = new Label(\"Palveltu:\");\r\n            palveltuLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            palveltu = new Label();\r\n            palveltu.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            palveltu.setPrefWidth(150);\r\n\r\n            menetettyLabel = new Label(\"Menetetty:\");\r\n            menetettyLabel.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            menetetty = new Label();\r\n            menetetty.setFont(Font.font(\"Tahoma\", FontWeight.NORMAL, 20));\r\n            menetetty.setPrefWidth(150);\r\n\r\n\r\n\r\n            HBox hBox = new HBox();\r\n            hBox.setPadding(new Insets(15, 12, 15, 12)); // marginaalit ylÃ¤, oikea, ala, vasen\r\n            hBox.setSpacing(10);   // noodien välimatka 10 pikseliä\r\n\r\n            GridPane grid = new GridPane();\r\n            grid.setAlignment(Pos.CENTER);\r\n            grid.setVgap(10);\r\n            grid.setHgap(5);\r\n\r\n            grid.add(aikaLabel, 0, 0);   // sarake, rivi\r\n            grid.add(aika, 1, 0);          // sarake, rivi\r\n            grid.add(viiveLabel, 0, 1);      // sarake, rivi\r\n            grid.add(viive, 1, 1);           // sarake, rivi\r\n            grid.add(tulosLabel, 0, 2);      // sarake, rivi\r\n            grid.add(tulos, 1, 2);           // sarake, rivi\r\n            grid.add(palveltuLabel, 0, 3);      // sarake, rivi\r\n            grid.add(palveltu, 1, 3);           // sarake, rivi\r\n            grid.add(menetettyLabel, 0, 4);      // sarake, rivi\r\n            grid.add(menetetty, 1, 4);           // sarake, rivi\r\n            grid.add(kaynnistaButton, 0, 5);  // sarake, rivi\r\n            grid.add(nopeutaButton, 0, 6);   // sarake, rivi\r\n            grid.add(hidastaButton, 1, 6);   // sarake, rivi\r\n\r\n            naytto = new Visualisointi(800, 400);\r\n\r\n            // TÃ¤ytetÃ¤Ã¤n boxi:\r\n            hBox.getChildren().addAll(grid, (Canvas) naytto);\r\n\r\n            Scene scene = new Scene(hBox);\r\n            primaryStage.setScene(scene);\r\n\r\n            //Add in comments to hide the visualisation\r\n            //primaryStage.show();\r\n            kontrolleri.kaynnistaSimulointi();\r\n\r\n\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n    //Käyttöliittymän rajapintametodit (kutsutaan kontrollerista)\r\n\r\n    @Override\r\n    public double getAika() {\r\n        return Double.parseDouble(aika.getText());\r\n    }\r\n\r\n    @Override\r\n    public long getViive() {\r\n        return Long.parseLong(viive.getText());\r\n    }\r\n\r\n    @Override\r\n    public void setLoppuaika(double aika) {\r\n        DecimalFormat formatter = new DecimalFormat(\"#0.00\");\r\n        this.tulos.setText(formatter.format(aika));\r\n    }\r\n\r\n    @Override\r\n    public void setPalveltu(int asiakas) {\r\n        this.palveltu.setText(Integer.toString(asiakas));\r\n    }\r\n\r\n    @Override\r\n    public void setMenetetty(int asiakas) {\r\n        this.menetetty.setText(Integer.toString(asiakas));\r\n    }\r\n\r\n    @Override\r\n    public int getA_staff() {\r\n        return (int) a_staff.getValue();\r\n    }\r\n\r\n    @Override\r\n    public int getH_staff() {\r\n        return (int) h_staff.getValue();\r\n    }\r\n\r\n    @Override\r\n    public int getR_staff() {\r\n        return (int) r_staff.getValue();\r\n    }\r\n\r\n    @Override\r\n    public int getK_staff() {\r\n        return (int) k_staff.getValue();\r\n    }\r\n\r\n\r\n    @Override\r\n    public IVisualisointi getVisualisointi() {\r\n        return naytto;\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Simulator/src/noGUI_run/TestiGUI.java b/Simulator/src/noGUI_run/TestiGUI.java
+--- a/Simulator/src/noGUI_run/TestiGUI.java	
++++ b/Simulator/src/noGUI_run/TestiGUI.java	
+@@ -100,7 +100,7 @@
+ 
+             aikaLabel = new Label("Simulointiaika:");
+             aikaLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+-            aika = new TextField("100000");
++            aika = new TextField("1000");
+             aika.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+             aika.setPrefWidth(150);
+ 
