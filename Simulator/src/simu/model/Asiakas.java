@@ -16,7 +16,6 @@ public class Asiakas {
 	private static int i = 1;
 	private static long sum = 0;
 	//14/02 testaan toimiiko booleaneilla asiakkaiden käyttäytymisen määrittely
-	private int aulaKäyty = 0;
 	private boolean kauppaKäyty = false;
 	private boolean reseptiKäyty = false;
 	private boolean asiakaspalveluKäyty = false;
@@ -39,6 +38,10 @@ public class Asiakas {
 	private int totalSpent;
 	//spending by all the customers
 	private static int totalSpentAllCustomers;
+	//this is a value that determines the satisfaction of the customers
+	//VERY IMPORTANT TO SET THIS TO REASONABLE VALUE
+	//this is in straight correlation with palvelupiste servicetime distributions
+	private final int tavoiteJonotus = 50;
 	private List<String> services = Arrays.asList("Asiakaspalvelu", "Hyllyt", "Resepti");
 
 
@@ -88,7 +91,7 @@ public class Asiakas {
 		this.aikaPalveluissa += palveluaika;
 	}
 	public void setTyytyväisyys() {
-		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > 50) {
+		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > tavoiteJonotus) {
 			dissatisfied++;
 			customerAmount++;
 		} else {
@@ -194,12 +197,6 @@ public class Asiakas {
 		this.totalSpent += save;
 		totalSpentAllCustomers += save;
 	}
-	public void setAulaState() {
-		this.aulaKäyty += 1;
-    }
-	public int getAulaState() {
-		return aulaKäyty;
-	}
 
 	public int getReseptiSpent() {
 		return reseptiSpent;
@@ -231,7 +228,7 @@ public class Asiakas {
 		//added display for every customer to see functionality of booleans
 		Trace.out(Trace.Level.INFO, "Asiakas " + id + " " + displayUsedServices());
 		sum += (poistumisaika-saapumisaika);
-		double keskiarvo = sum / id - Apteekki.getMissedCustomers();
+		double keskiarvo = (double) sum / Apteekki.getServedCustomers();
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti "+ keskiarvo);
 	}
 
