@@ -9,6 +9,7 @@ public class Apteekki {
     private static int current_customers = 0;
     private static int missedCustomers = 0;
     private static int servedCustomers = 0;
+    private static int lostRevenue = 0;
     LinkedList<Asiakas> apteekkijono = new LinkedList<>();
 
     public Apteekki() {}
@@ -40,6 +41,10 @@ public class Apteekki {
     }
     public void addMissedCustomer() {
         missedCustomers++;
+        lostRevenue += 62; //62 is the average spending we got on a large sample size
+    }
+    public static int getLostRevenue() {
+        return lostRevenue;
     }
     public int displayMissedCustomers() {
         return missedCustomers;
