@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="GitIgnore updated&#10;.idea is ignored :)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/Apteekki.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/Apteekki.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/Palvelupiste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/Palvelupiste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/IVisualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/IVisualisointi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/view/Visualisointi2.java" afterDir="false" />
-    </list>
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="Henkilökunta toimii???" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +145,7 @@
       <workItem from="1709031841976" duration="337000" />
       <workItem from="1709032191151" duration="705000" />
       <workItem from="1709032958994" duration="10764000" />
-      <workItem from="1709192984918" duration="2856000" />
+      <workItem from="1709192984918" duration="4003000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -284,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709034713803</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Henkilökunta toimii???">
+      <option name="closed" value="true" />
+      <created>1709197513727</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1709197513727</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +305,8 @@
     <MESSAGE value="Merge Henkilökunta to main" />
     <MESSAGE value="Main returned" />
     <MESSAGE value="GitIgnore updated&#10;.idea is ignored :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="GitIgnore updated&#10;.idea is ignored :)" />
+    <MESSAGE value="Henkilökunta toimii???" />
+    <option name="LAST_COMMIT_MESSAGE" value="Henkilökunta toimii???" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
