@@ -231,7 +231,7 @@ public class Asiakas {
 		//added display for every customer to see functionality of booleans
 		Trace.out(Trace.Level.INFO, "Asiakas " + id + " " + displayUsedServices());
 		sum += (poistumisaika-saapumisaika);
-		double keskiarvo = sum/id;
+		double keskiarvo = sum / id - Apteekki.getMissedCustomers();
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti "+ keskiarvo);
 	}
 
