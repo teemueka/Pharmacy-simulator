@@ -75,14 +75,14 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
-
+		
 		varattu = true;
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
 		Asiakas asiakas = jono.peek();
 		asiakas.setKokonaisPalveluaika(palveluaika);
 
-		//Determine the service point based on the event type
+		//Set service time for the specific service point
 		String servicePoint = "";
 		switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:

@@ -16,6 +16,7 @@ public class Asiakas {
 	private static int i = 1;
 	private static long sum = 0;
 	//14/02 testaan toimiiko booleaneilla asiakkaiden käyttäytymisen määrittely
+	private int aulaKäyty = 0;
 	private boolean kauppaKäyty = false;
 	private boolean reseptiKäyty = false;
 	private boolean asiakaspalveluKäyty = false;
@@ -52,6 +53,9 @@ public class Asiakas {
 		Collections.shuffle(services);
 		//trim the list to the desired number of services
 		services = new ArrayList<>(services.subList(0, numOfServices));
+	}
+	public String nextService() {
+		return services.get(0);
 	}
 	public String getNextService() {
 		return services.remove(0);
@@ -184,6 +188,12 @@ public class Asiakas {
 		this.reseptiSpent = save;
 		this.totalSpent += save;
 		totalSpentAllCustomers += save;
+	}
+	public void setAulaState() {
+		this.aulaKäyty += 1;
+    }
+	public int getAulaState() {
+		return aulaKäyty;
 	}
 
 	public int getReseptiSpent() {
