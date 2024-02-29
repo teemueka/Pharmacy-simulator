@@ -73,7 +73,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
         // Käyttöliittymän rakentaminen
         try {
 
-            naytto = new Visualisointi(800, 400);
+            //naytto = new Visualisointi(800, 400);
 
 
             primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {

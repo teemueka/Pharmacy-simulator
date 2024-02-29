@@ -153,7 +153,7 @@ public class TestiGUI extends Application implements ISimulaattorinUI {
             grid.add(nopeutaButton, 0, 6);   // sarake, rivi
             grid.add(hidastaButton, 1, 6);   // sarake, rivi
 
-            naytto = new Visualisointi(800, 400);
+            //naytto = new Visualisointi(800, 400);
 
             // TÃ¤ytetÃ¤Ã¤n boxi:
             hBox.getChildren().addAll(grid, (Canvas) naytto);
