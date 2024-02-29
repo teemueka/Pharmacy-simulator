@@ -54,9 +54,13 @@ public class Asiakas {
 		//trim the list to the desired number of services
 		services = new ArrayList<>(services.subList(0, numOfServices));
 		Trace.out(Trace.Level.INFO, "Asiakas " + id + " aikoo käydä palveluissa: " + services);
+		System.out.println(getServices());
 	}
 	public String nextService() {
 		return services.get(0);
+	}
+	public List<String> getServices() {
+		return services;
 	}
 	public String getNextService() {
 		return services.remove(0);

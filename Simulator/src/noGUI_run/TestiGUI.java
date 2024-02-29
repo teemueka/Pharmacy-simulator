@@ -85,10 +85,10 @@ public class TestiGUI extends Application implements ISimulaattorinUI {
                 }
             });
 
-            a_staff = new Spinner(1, 99, 1);
-            h_staff = new Spinner(1, 99, 1);
-            r_staff = new Spinner(1, 99, 1);
-            k_staff = new Spinner(1, 99, 1);
+            a_staff = new Spinner(3, 99, 1);
+            h_staff = new Spinner(3, 99, 1);
+            r_staff = new Spinner(3, 99, 1);
+            k_staff = new Spinner(3, 99, 1);
 
             hidastaButton = new Button();
             hidastaButton.setText("Hidasta");
@@ -100,7 +100,7 @@ public class TestiGUI extends Application implements ISimulaattorinUI {
 
             aikaLabel = new Label("Simulointiaika:");
             aikaLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-            aika = new TextField("100000");
+            aika = new TextField("10000");
             aika.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             aika.setPrefWidth(150);
 
