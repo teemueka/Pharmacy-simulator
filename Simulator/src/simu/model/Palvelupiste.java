@@ -28,7 +28,7 @@ public class Palvelupiste {
 	
 	private boolean varattu = false;
 
-	private int staff;
+	private final int staff;
 	private int palveltavat = 0;
 
 
@@ -59,16 +59,16 @@ public class Palvelupiste {
 				break;
 			case ASPA_P:
                 aspaCounter();
-				asiakas.setAspaKäyty();
+				asiakas.setAspaKayty();
 				break;
 			case KAUPPA_P:
                 kauppaCounter();
-				asiakas.setKauppaKäyty();
+				asiakas.setKauppaKayty();
 				asiakas.setKauppaSpent();
 				break;
 			case RESEPTI_P:
                 reseptiCounter();
-				asiakas.setReseptiKäyty();
+				asiakas.setReseptiKayty();
 				asiakas.setReseptiSpent();
 				break;
 			case KASSA_P:
@@ -82,13 +82,14 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi " + getPalvelupisteenNimi() + " palvelu asiakkaalle " + jono.peek().getId());
+
 		palveltavat++;
 		if (palveltavat < staff){
 			varattu = false;
-
-		}else {
+		} else {
 			varattu = true;
 		}
+
 		Trace.out(Trace.Level.INFO, getPalvelupisteenNimi() + ", henkilökunnan määrä: " + getStaff() + " palvelussa tällä hetkellä: " + getPalveltavat());
 		double palveluaika = generator.sample();
 		//get the time the customer has been served

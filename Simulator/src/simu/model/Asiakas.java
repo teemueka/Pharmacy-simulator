@@ -12,19 +12,19 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Asiakas {
 	private double saapumisaika;
 	private double poistumisaika;
-	private int id;
+	private final int id;
 	private static int i = 1;
 	private static long sum = 0;
 	//14/02 testaan toimiiko booleaneilla asiakkaiden käyttäytymisen määrittely
-	private boolean kauppaKäyty = false;
-	private boolean reseptiKäyty = false;
-	private boolean asiakaspalveluKäyty = false;
+	private boolean kauppaKayty = false;
+	private boolean reseptiKayty = false;
+	private boolean asiakaspalveluKayty = false;
 	//time tracking all services
 	private double aikaPalveluissa;
 	//time tracking for each service on their own
 	private double aikaAulassa;
 	private double aikaAspassa;
-	private double aikaReseptissä;
+	private double aikaReseptissa;
 	private double aikaKaupassa;
 	private double aikaKassalla;
 	private static int satisfied;
@@ -72,12 +72,12 @@ public class Asiakas {
 		return totalSpent;
 	}
 	public boolean onlyAspa() {
-		return !kauppaKäyty && !reseptiKäyty && asiakaspalveluKäyty;
+		return !kauppaKayty && !reseptiKayty && asiakaspalveluKayty;
 	}
 	public void usedOnlyAspa() {
 		if (onlyAspa()) {
 			usedOnlyAspa++;
-			System.out.println("Asiakas: " + id + " used aspa: " + getAspaKäyty() + ", used kauppa: " + getKauppaKäyty() + ", used resepti: " + getReseptiKäyty());
+			System.out.println("Asiakas: " + id + " used aspa: " + getAspaKayty() + ", used kauppa: " + getKauppaKayty() + ", used resepti: " + getReseptiKayty());
 		}
 	}
 	public static int getUsedOnlyAspa() {
@@ -90,7 +90,7 @@ public class Asiakas {
 	public void setKokonaisPalveluaika(double palveluaika) {
 		this.aikaPalveluissa += palveluaika;
 	}
-	public void setTyytyväisyys() {
+	public void setTyytyvaisyys() {
 		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > tavoiteJonotus) {
 			dissatisfied++;
 			customerAmount++;
@@ -124,7 +124,7 @@ public class Asiakas {
 				aikaKaupassa = palveluaika;
 				break;
 			case "Resepti":
-				aikaReseptissä = palveluaika;
+				aikaReseptissa = palveluaika;
 				break;
 			case "Kassa":
 				aikaKassalla = palveluaika;
@@ -133,7 +133,7 @@ public class Asiakas {
 	}
 
 	public double getKaikkiPalveluAjat() {
-		return aikaAulassa + aikaAspassa + aikaKaupassa + aikaReseptissä + aikaKassalla;
+		return aikaAulassa + aikaAspassa + aikaKaupassa + aikaReseptissa + aikaKassalla;
 	}
 
 
@@ -159,30 +159,30 @@ public class Asiakas {
 		return id;
 	}
 	//getters for palvelupisteet, idea is to use this as a condition later on
-	public boolean getAspaKäyty() {
-		return asiakaspalveluKäyty;
+	public boolean getAspaKayty() {
+		return asiakaspalveluKayty;
 	}
 
-	public boolean getKauppaKäyty() {
-		return kauppaKäyty;
+	public boolean getKauppaKayty() {
+		return kauppaKayty;
 	}
 
-	public boolean getReseptiKäyty() {
-		return reseptiKäyty;
+	public boolean getReseptiKayty() {
+		return reseptiKayty;
 	}
 	//setters for palvelupisteet, set käyty = true kun palvelu saatu
-	public void setAspaKäyty() {
-		this.asiakaspalveluKäyty = true;
+	public void setAspaKayty() {
+		this.asiakaspalveluKayty = true;
 	}
-	public void setKauppaKäyty() {
-		this.kauppaKäyty = true;
+	public void setKauppaKayty() {
+		this.kauppaKayty = true;
 	}
-	public void setReseptiKäyty() {
-		this.reseptiKäyty = true;
+	public void setReseptiKayty() {
+		this.reseptiKayty = true;
 	}
 	//not essential method, just here for displaying results
 	public String displayUsedServices() {
-		return "Used aspa: " + getAspaKäyty() + ", used kauppa: " + getKauppaKäyty() + ", used resepti: " + getReseptiKäyty();
+		return "Used aspa: " + getAspaKayty() + ", used kauppa: " + getKauppaKayty() + ", used resepti: " + getReseptiKayty();
 	}
 	//save customer spending and total spending
 	public void setKauppaSpent() {
@@ -227,7 +227,7 @@ public class Asiakas {
 
 		//added display for every customer to see functionality of booleans
 		Trace.out(Trace.Level.INFO, "Asiakas " + id + " " + displayUsedServices());
-		sum += (poistumisaika-saapumisaika);
+		sum += (long) (poistumisaika-saapumisaika);
 		double keskiarvo = (double) sum / Apteekki.getServedCustomers();
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti "+ keskiarvo);
 	}

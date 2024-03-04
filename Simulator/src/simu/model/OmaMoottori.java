@@ -7,8 +7,8 @@ import controller.IKontrolleriForM;
 
 public class OmaMoottori extends Moottori{
 	
-	private Saapumisprosessi saapumisprosessi;
-	private Palvelupiste[] palvelupisteet;
+	private final Saapumisprosessi saapumisprosessi;
+	private final Palvelupiste[] palvelupisteet;
 	Apteekki apteekki = new Apteekki();
 
 
@@ -139,7 +139,7 @@ public class OmaMoottori extends Moottori{
 					else {
 						a.usedOnlyAspa();
 						a.setPoistumisaika(Kello.getInstance().getAika());
-						a.setTyytyväisyys();
+						a.setTyytyvaisyys();
 						a.raportti();
 						System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 						apteekki.customerOut();
@@ -151,7 +151,7 @@ public class OmaMoottori extends Moottori{
 				a = (Asiakas)palvelupisteet[4].otaJonosta();
 
 				a.setPoistumisaika(Kello.getInstance().getAika());
-				a.setTyytyväisyys();
+				a.setTyytyvaisyys();
 				a.raportti();
 				System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 				apteekki.customerOut();
