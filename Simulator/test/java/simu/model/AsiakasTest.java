@@ -1,13 +1,19 @@
 package simu.model;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AsiakasTest {
+    @BeforeAll
+    static void setUp() {
+        Asiakas asiakas = new Asiakas();
+    }
 
     @Test
     void getNextService() {
+
     }
 
     @Test
