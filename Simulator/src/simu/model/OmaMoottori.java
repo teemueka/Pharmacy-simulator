@@ -12,23 +12,28 @@ public class OmaMoottori extends Moottori{
 	Apteekki apteekki = new Apteekki();
 
 
-	public OmaMoottori(IKontrolleriForM kontrolleri){
+	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {
 
 		super(kontrolleri);
 
+		System.out.println(a_staff + " " + h_staff + " " + r_staff + " " + k_staff);
+
 		palvelupisteet = new Palvelupiste[5];
 
-		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);
-		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal(1000,100), tapahtumalista, TapahtumanTyyppi.ASPA_P);
-		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal(500,300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
-		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal(1000, 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
-		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(1000, 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);
+		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1),1, tapahtumalista, TapahtumanTyyppi.AULA_P);
 
 
-		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal(100,10), a_staff, tapahtumalista, TapahtumanTyyppi.ASPA_P);
+		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal(50,30),	h_staff , tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
+		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal(100, 50),	r_staff ,tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
+		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(100, 50),	k_staff ,tapahtumalista, TapahtumanTyyppi.KASSA_P);
+
+
+		saapumisprosessi = new Saapumisprosessi(new Negexp(150,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
 
 
 	}
+
 
 
 	@Override
@@ -40,7 +45,7 @@ public class OmaMoottori extends Moottori{
 	protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
 
 		Asiakas a;
-		switch ((TapahtumanTyyppi)t.getTyyppi()){
+		switch (t.getTyyppi()){
 
 
 			//asiakkaan saapuminen, generoi uuden saapumisen, katsoo onko tilaa apteekissa
@@ -79,7 +84,7 @@ public class OmaMoottori extends Moottori{
 
 
 			case AULA_P:
-				a = (Asiakas)palvelupisteet[0].otaJonosta();
+				a = palvelupisteet[0].otaJonosta();
 				if (a.hasMoreServices()) {
 					String nextService = a.getNextService();
 					switch (nextService) {
@@ -102,7 +107,7 @@ public class OmaMoottori extends Moottori{
 			case KAUPPA_P:
 			case RESEPTI_P:
 				int index = 0;
-				switch ((TapahtumanTyyppi)t.getTyyppi()) {
+				switch (t.getTyyppi()) {
 					case ASPA_P:
 						index = 1;
 						break;
@@ -113,7 +118,7 @@ public class OmaMoottori extends Moottori{
 						index = 3;
 						break;
 				}
-				a = (Asiakas)palvelupisteet[index].otaJonosta();
+				a = palvelupisteet[index].otaJonosta();
 				if (a.hasMoreServices()) {
 					String nextService = a.getNextService();
 					switch (nextService) {
@@ -128,7 +133,17 @@ public class OmaMoottori extends Moottori{
 							break;
 					}
 				} else {
-					palvelupisteet[4].lisaaJonoon(a);
+					if (a.getSpent() != 0 && !a.onlyAspa()) {
+						palvelupisteet[4].lisaaJonoon(a);
+					}
+					else {
+						a.usedOnlyAspa();
+						a.setPoistumisaika(Kello.getInstance().getAika());
+						a.setTyytyväisyys();
+						a.raportti();
+						System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
+						apteekki.customerOut();
+					}
 				}
 				break;
 
@@ -136,6 +151,7 @@ public class OmaMoottori extends Moottori{
 				a = (Asiakas)palvelupisteet[4].otaJonosta();
 
 				a.setPoistumisaika(Kello.getInstance().getAika());
+				a.setTyytyväisyys();
 				a.raportti();
 				System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 				apteekki.customerOut();
@@ -161,11 +177,16 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Tulokset ... puuttuvat vielä");
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
+		System.out.println(Asiakas.getUsedOnlyAspa() + " asiakasta kävi vain asiakaspalvelussa.");
+		System.out.println("dissatisfied customers: " + Asiakas.getDissatisfied() + ", satisfied customers: " + Asiakas.getSatisfied());
+		System.out.printf("Asiakastyytyväisyys: %.1f%%", ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+		System.out.println();
+		System.out.println("Asiakkaat kuluttivat: " + Asiakas.getTotalSpentAllCustomers() + " €");
 
 		// UUTTA graafista
 		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
 
 	}
 
-	
+
 }

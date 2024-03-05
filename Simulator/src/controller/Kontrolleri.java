@@ -3,7 +3,7 @@ package controller;
 import javafx.application.Platform;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
-import view.ISimulaattorinUI;
+import simu.view.ISimulaattorinUI;
 
 public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUSI
 	
@@ -20,7 +20,12 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 		
 	@Override
 	public void kaynnistaSimulointi() {
-		moottori = new OmaMoottori(this); // luodaan uusi moottorisäie jokaista simulointia varten
+		int a = (int) ui.getA_staff();
+		int h = (int) ui.getH_staff();
+		int r = (int) ui.getR_staff();
+		int k = (int) ui.getK_staff();
+
+		moottori = new OmaMoottori(this, a, h, r, k); // luodaan uusi moottorisäie jokaista simulointia varten
 		moottori.setSimulointiaika(ui.getAika());
 		moottori.setViive(ui.getViive());
 		ui.getVisualisointi().tyhjennaNaytto();

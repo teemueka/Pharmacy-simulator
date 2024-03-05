@@ -2,9 +2,8 @@
 <module version="4">
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$" dumb="true">
-      <sourceFolder url="file://$MODULE_DIR$/Simulator/test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/Simulator/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/Simulator/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/Simulator/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/Simulator/src" isTestSource="false" />
     </content>
   </component>
 </module>
