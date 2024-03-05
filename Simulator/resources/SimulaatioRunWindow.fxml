@@ -135,7 +135,7 @@
       <Circle fill="#1f98ff" layoutX="747.0" layoutY="488.0" radius="70.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle layoutX="721.0" layoutY="464.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle layoutX="771.0" layoutY="464.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="tyytyvProsentti" layoutX="533.0" layoutY="485.0" text="Label">
+      <Label fx:id="tyytyvProsentti" layoutX="533.0" layoutY="485.0" text="tyytyv%">
          <font>
             <Font size="20.0" />
          </font>
