@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.shape.Sphere;
 import javafx.util.Duration;
 
-public class SimulaatioRunWindowKontrolleri {
+public class SimulaatioRunWindowKontrolleri implements IKontrolleriForM {
     private RotateTransition rotate;
     @FXML
     private Sphere leftTopShape;
@@ -28,6 +28,11 @@ public class SimulaatioRunWindowKontrolleri {
 
 
     @Override
+    public void naytaLoppuaika(double aika) {
+
+    }
+
+    @Override
     public void naytaPalveltu(int servedCustomers) {
 
     }
@@ -36,6 +41,17 @@ public class SimulaatioRunWindowKontrolleri {
     public void naytaMenetetty(int missedCustomers) {
 
     }
+
+    @Override
+    public void visualisoiMenetettyAsiakas() {
+
+    }
+
+    @Override
+    public void visualisoiUusiAsiakas() {
+
+    }
+
     @FXML
     public void rotateKuviot() {
         rotate = new RotateTransition();
