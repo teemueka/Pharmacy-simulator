@@ -8,8 +8,13 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.QuadCurve;
+import javafx.scene.shape.Ellipse;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
 import simu.view.IVisualisointi;
@@ -40,6 +45,40 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 	@FXML
 	private Spinner<Integer> k_staff;
+
+	@FXML
+	private Line aulaJono;
+
+	@FXML
+	private ImageView aulaKuva;
+	@FXML
+	private Line hyllytJono;
+
+	@FXML
+	private ImageView hyllytKuva;
+
+	@FXML
+	private Line infoJono;
+
+	@FXML
+	private ImageView infoKuva;
+	@FXML
+	private Line kassaJono;
+
+	@FXML
+	private ImageView kassaKuva;
+
+	@FXML
+	private Ellipse naamaPallo;
+
+	@FXML
+	private ImageView reseptiKuva;
+	@FXML
+	private QuadCurve suuJokaLiikkuu;
+
+	@FXML
+	private Label tyytyvProsLuku;
+
 
 
 	MainApp mainApp;
