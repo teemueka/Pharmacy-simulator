@@ -20,5 +20,7 @@ public interface IKontrolleriForM {
 
     public void visualisoiUusiAsiakas();
 
+    public void updateTyytyvaisyys(double v);
+
 
 }

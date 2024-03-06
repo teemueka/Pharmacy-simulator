@@ -2,8 +2,6 @@ package controller;
 
 
 
-import controller.IKontrolleriForM;
-import controller.IKontrolleriForV;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -16,6 +14,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 import javafx.scene.shape.Ellipse;
 import simu.framework.IMoottori;
+import simu.model.Asiakas;
 import simu.model.OmaMoottori;
 import simu.view.IVisualisointi;
 import simu.view.MainApp;
@@ -108,8 +107,9 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		moottori.setViive(1);
 		((Thread) moottori).start();
 
-
 	}
+
+
 
 
 	public void setMainApp(MainApp mainApp) {
@@ -200,4 +200,17 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		});
 
 	}
+
+	@Override
+	public void updateTyytyvaisyys(double v) {
+		Platform.runLater(new Runnable() {
+			public void run() {
+				tyytyvProsLuku.setText(String.valueOf(v));
+			}
+		});
+
+
+
+	}
+
 }

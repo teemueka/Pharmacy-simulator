@@ -52,6 +52,11 @@ public class SimulaatioRunWindowKontrolleri implements IKontrolleriForM {
 
     }
 
+    @Override
+    public void updateTyytyvaisyys(double v) {
+
+    }
+
     @FXML
     public void rotateKuviot() {
         rotate = new RotateTransition();

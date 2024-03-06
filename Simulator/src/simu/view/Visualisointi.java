@@ -49,5 +49,6 @@ public class Visualisointi implements IVisualisointi{
 		i = 0;
 		j = 10;
 	}
+
 	
 }

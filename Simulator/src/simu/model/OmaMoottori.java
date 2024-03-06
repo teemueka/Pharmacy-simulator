@@ -1,5 +1,6 @@
 package simu.model;
 
+import controller.PaneelitController;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
@@ -10,6 +11,7 @@ public class OmaMoottori extends Moottori{
 	private Saapumisprosessi saapumisprosessi;
 	private Palvelupiste[] palvelupisteet;
 	Apteekki apteekki = new Apteekki();
+
 
 
 	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {
@@ -156,8 +158,10 @@ public class OmaMoottori extends Moottori{
 				System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 				apteekki.customerOut();
 
-					   //Päivittää palveltun asiakkaan määrän
-					   kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
+				//Päivittää palveltun asiakkaan määrän
+
+				kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
 
 		}
 	}
