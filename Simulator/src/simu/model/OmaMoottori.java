@@ -1,5 +1,6 @@
 package simu.model;
 
+import simu.dao.SimulationDao;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
@@ -10,10 +11,11 @@ public class OmaMoottori extends Moottori{
 	private final Saapumisprosessi saapumisprosessi;
 	private final Palvelupiste[] palvelupisteet;
 	Apteekki apteekki = new Apteekki();
-	private final int aspaTyontekijat;
-	private final int hyllyTyontekijat;
-	private final int reseptiTyontekijat;
-	private final int kassaTyontekijat;
+	public static int aspaTyontekijat = 0;
+	public static int hyllyTyontekijat = 0;
+	public static int reseptiTyontekijat = 0;
+	public static int kassaTyontekijat = 0;
+	SimulationDao simulationDao = new SimulationDao();
 
 
 	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {
@@ -21,10 +23,10 @@ public class OmaMoottori extends Moottori{
 		super(kontrolleri);
 
 		System.out.println(a_staff + " " + h_staff + " " + r_staff + " " + k_staff);
-		this.aspaTyontekijat = a_staff;
-		this.hyllyTyontekijat = h_staff;
-		this.reseptiTyontekijat = r_staff;
-		this.kassaTyontekijat = k_staff;
+		aspaTyontekijat = a_staff;
+		hyllyTyontekijat = h_staff;
+		reseptiTyontekijat = r_staff;
+		kassaTyontekijat = k_staff;
 
 		palvelupisteet = new Palvelupiste[5];
 
@@ -193,6 +195,7 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Asiakkaat kuluttivat: " + Asiakas.getTotalSpentAllCustomers() + " €");
 		System.out.println("Asiakkaiden keskiarvo kulutus: " + Asiakas.getTotalSpentAllCustomers() / Apteekki.getServedCustomers() + " €");
 		System.out.println("Menetetty tuotto: " + Apteekki.getLostRevenue() + " €");
+		simulationDao.saveResultsInDatabase();
 
 		// UUTTA graafista
 		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
