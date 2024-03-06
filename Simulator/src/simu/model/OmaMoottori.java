@@ -10,6 +10,10 @@ public class OmaMoottori extends Moottori{
 	private final Saapumisprosessi saapumisprosessi;
 	private final Palvelupiste[] palvelupisteet;
 	Apteekki apteekki = new Apteekki();
+	private final int aspaTyontekijat;
+	private final int hyllyTyontekijat;
+	private final int reseptiTyontekijat;
+	private final int kassaTyontekijat;
 
 
 	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {
@@ -17,6 +21,10 @@ public class OmaMoottori extends Moottori{
 		super(kontrolleri);
 
 		System.out.println(a_staff + " " + h_staff + " " + r_staff + " " + k_staff);
+		this.aspaTyontekijat = a_staff;
+		this.hyllyTyontekijat = h_staff;
+		this.reseptiTyontekijat = r_staff;
+		this.kassaTyontekijat = k_staff;
 
 		palvelupisteet = new Palvelupiste[5];
 
@@ -174,7 +182,8 @@ public class OmaMoottori extends Moottori{
 	@Override
 	protected void tulokset() {
 		System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
-		System.out.println("Tulokset ... puuttuvat vielä");
+		System.out.println("Simuloinnissa käytetty henkilökunnan määrä");
+		System.out.println("Aspa henkilökunta: " + aspaTyontekijat + ", Kauppa henkilökunta: " + hyllyTyontekijat + ", Resepti henkilökunta: " + reseptiTyontekijat + ", Kassa henkilökunta: " + kassaTyontekijat);
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
 		System.out.println(Asiakas.getUsedOnlyAspa() + " asiakasta kävi vain asiakaspalvelussa.");
