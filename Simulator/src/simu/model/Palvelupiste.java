@@ -157,18 +157,18 @@ public class Palvelupiste {
 	public void kassaCounter() {
 		kassaUsage++;
 	}
-	public int getKassaUsage() {
+	public static int getKassaUsage() {
 		return kassaUsage;
 	}
-	public int getAspaUsage() {
+	public static int getAspaUsage() {
 		return aspaUsage;
 	}
 
-	public int getKauppaUsage() {
+	public static int getKauppaUsage() {
 		return kauppaUsage;
 	}
 
-	public int getReseptiUsage() {
+	public static int getReseptiUsage() {
 		return reseptiUsage;
 	}
 	public int getAulaUsage() {
