@@ -23,6 +23,10 @@ public class Palvelupiste {
 	private static int reseptiUsage = 0;
 	private static int aspaUsage = 0;
 	private static int kassaUsage = 0;
+	private static double activeTimeAspa;
+	private static double activeTimeKauppa;
+	private static double activeTimeResepti;
+	private static double activeTimeKassa;
 
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
 	
@@ -106,15 +110,19 @@ public class Palvelupiste {
 				break;
 			case ASPA_P:
 				servicePoint = "Aspa";
+				setActiveTimeAspa(palveluaika);
 				break;
 			case KAUPPA_P:
 				servicePoint = "Kauppa";
+				setActiveTimeKauppa(palveluaika);
 				break;
 			case RESEPTI_P:
 				servicePoint = "Resepti";
+				setActiveTimeResepti(palveluaika);
 				break;
 			case KASSA_P:
 				servicePoint = "Kassa";
+				setActiveTimeKassa(palveluaika);
 				break;
 		}
 		//Set service time for the specific service point
@@ -171,12 +179,54 @@ public class Palvelupiste {
 	public static int getReseptiUsage() {
 		return reseptiUsage;
 	}
+	public void setActiveTimeAspa(double palveluaika) {
+		activeTimeAspa += palveluaika;
+	}
+	public void setActiveTimeKauppa(double palveluaika) {
+		activeTimeKauppa += palveluaika;
+	}
+	public void setActiveTimeResepti(double palveluaika) {
+		activeTimeResepti += palveluaika;
+	}
+	public void setActiveTimeKassa(double palveluaika) {
+		activeTimeKassa += palveluaika;
+	}
+	public double getActiveTimeAspa() {
+		return activeTimeAspa / OmaMoottori.aspaTyontekijat;
+	}
+	public double getActiveTimeKauppa() {
+		return activeTimeKauppa / OmaMoottori.hyllyTyontekijat;
+	}
+	public double getActiveTimeResepti() {
+		return activeTimeResepti / OmaMoottori.reseptiTyontekijat;
+	}
+	public double getActiveTimeKassa() {
+		return activeTimeKassa / OmaMoottori.kassaTyontekijat;
+	}
+	public double getAspaUtilization() {
+		return getActiveTimeAspa() / Kello.getInstance().getAika();
+	}
+	public double getKauppaUtilization() {
+		return getActiveTimeKauppa() / Kello.getInstance().getAika();
+	}
+	public double getReseptiUtilization() {
+		return getActiveTimeResepti() / Kello.getInstance().getAika();
+	}
+	public double getKassaUtilization() {
+		return getActiveTimeKassa() / Kello.getInstance().getAika();
+	}
 	public int getAulaUsage() {
 		return aulaUsage;
 	}
 	//this is just here to help us better understand the simulation during the run
 	public String displayServiceUsage() {
 		return "served customers at aula: " + getAulaUsage() + ", served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage() + ", served customers at kassa: " + getKassaUsage();
+	}
+	public String displayTimeSpentAtServicepoints() {
+		return "time spent at aspa: " + getActiveTimeAspa() + ", at kauppa: " + getActiveTimeKauppa() + " at resepti: " + getActiveTimeResepti() + " at kassa: " + getActiveTimeKassa();
+	}
+	public String displayUtilization() {
+		return "aspa util: " + getAspaUtilization() + " kauppa util: " + getKauppaUtilization() + " resepti util: " + getReseptiUtilization() + " kassa util: " + getKassaUtilization();
 	}
 
 }
