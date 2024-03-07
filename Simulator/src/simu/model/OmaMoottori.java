@@ -10,7 +10,7 @@ public class OmaMoottori extends Moottori{
 	
 	private final Saapumisprosessi saapumisprosessi;
 	private final Palvelupiste[] palvelupisteet;
-	Apteekki apteekki = new Apteekki();
+	Apteekki apteekki = new Apteekki(10);
 	public static int aspaTyontekijat = 0;
 	public static int hyllyTyontekijat = 0;
 	public static int reseptiTyontekijat = 0;
@@ -188,6 +188,8 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Aspa henkilökunta: " + aspaTyontekijat + ", Kauppa henkilökunta: " + hyllyTyontekijat + ", Resepti henkilökunta: " + reseptiTyontekijat + ", Kassa henkilökunta: " + kassaTyontekijat);
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
+		System.out.println(palvelupisteet[0].displayTimeSpentAtServicepoints());
+		System.out.println(palvelupisteet[0].displayUtilization());
 		System.out.println(Asiakas.getUsedOnlyAspa() + " asiakasta kävi vain asiakaspalvelussa.");
 		System.out.println("dissatisfied customers: " + Asiakas.getDissatisfied() + ", satisfied customers: " + Asiakas.getSatisfied());
 		System.out.printf("Asiakastyytyväisyys: %.1f%%", ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
