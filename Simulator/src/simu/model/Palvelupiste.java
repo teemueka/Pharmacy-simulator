@@ -191,29 +191,17 @@ public class Palvelupiste {
 	public void setActiveTimeKassa(double palveluaika) {
 		activeTimeKassa += palveluaika;
 	}
-	public double getActiveTimeAspa() {
-		return activeTimeAspa / OmaMoottori.aspaTyontekijat;
+	public static double getAspaUtilization() {
+		return (activeTimeAspa / OmaMoottori.aspaTyontekijat) / Kello.getInstance().getAika();
 	}
-	public double getActiveTimeKauppa() {
-		return activeTimeKauppa / OmaMoottori.hyllyTyontekijat;
+	public static double getKauppaUtilization() {
+		return (activeTimeKauppa / OmaMoottori.hyllyTyontekijat) / Kello.getInstance().getAika();
 	}
-	public double getActiveTimeResepti() {
-		return activeTimeResepti / OmaMoottori.reseptiTyontekijat;
+	public static double getReseptiUtilization() {
+		return (activeTimeKauppa / OmaMoottori.reseptiTyontekijat) / Kello.getInstance().getAika();
 	}
-	public double getActiveTimeKassa() {
-		return activeTimeKassa / OmaMoottori.kassaTyontekijat;
-	}
-	public double getAspaUtilization() {
-		return getActiveTimeAspa() / Kello.getInstance().getAika();
-	}
-	public double getKauppaUtilization() {
-		return getActiveTimeKauppa() / Kello.getInstance().getAika();
-	}
-	public double getReseptiUtilization() {
-		return getActiveTimeResepti() / Kello.getInstance().getAika();
-	}
-	public double getKassaUtilization() {
-		return getActiveTimeKassa() / Kello.getInstance().getAika();
+	public static double getKassaUtilization() {
+		return (activeTimeKauppa / OmaMoottori.kassaTyontekijat) / Kello.getInstance().getAika();
 	}
 	public int getAulaUsage() {
 		return aulaUsage;
@@ -222,9 +210,7 @@ public class Palvelupiste {
 	public String displayServiceUsage() {
 		return "served customers at aula: " + getAulaUsage() + ", served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage() + ", served customers at kassa: " + getKassaUsage();
 	}
-	public String displayTimeSpentAtServicepoints() {
-		return "time spent at aspa: " + getActiveTimeAspa() + ", at kauppa: " + getActiveTimeKauppa() + " at resepti: " + getActiveTimeResepti() + " at kassa: " + getActiveTimeKassa();
-	}
+
 	public String displayUtilization() {
 		return "aspa util: " + getAspaUtilization() + " kauppa util: " + getKauppaUtilization() + " resepti util: " + getReseptiUtilization() + " kassa util: " + getKassaUtilization();
 	}

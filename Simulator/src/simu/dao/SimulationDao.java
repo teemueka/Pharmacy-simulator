@@ -12,7 +12,7 @@ import java.sql.*;
 public class SimulationDao {
     public void saveResultsInDatabase() {
         Connection conn = MariaDbConnection.getConnection();
-        String sql = "INSERT INTO simulation_results (simulation_time, cs_staff, shop_staff, prescription_staff, cashier_staff, served_customers, lost_customers, served_at_cs, served_at_shop, served_at_prescription, served_at_cashier, satisfied_customers, dissatisfied_customers, overall_satisfaction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO simulation_results (simulation_time, cs_staff, shop_staff, prescription_staff, cashier_staff, served_customers, lost_customers, served_at_cs, served_at_shop, served_at_prescription, served_at_cashier, satisfied_customers, dissatisfied_customers, overall_satisfaction, cs_utilization, shop_utilization, prescription_utilization, cashier_utilization) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setDouble(1, Kello.getInstance().getAika());
@@ -29,6 +29,10 @@ public class SimulationDao {
             ps.setInt(12, Asiakas.getSatisfied());
             ps.setInt(13, Asiakas.getDissatisfied());
             ps.setDouble(14, ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+            ps.setDouble(15, Palvelupiste.getAspaUtilization());
+            ps.setDouble(16, Palvelupiste.getKauppaUtilization());
+            ps.setDouble(17, Palvelupiste.getReseptiUtilization());
+            ps.setDouble(18, Palvelupiste.getKassaUtilization());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -188,7 +188,6 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Aspa henkilökunta: " + aspaTyontekijat + ", Kauppa henkilökunta: " + hyllyTyontekijat + ", Resepti henkilökunta: " + reseptiTyontekijat + ", Kassa henkilökunta: " + kassaTyontekijat);
 		apteekki.displayResults();
 		System.out.println(palvelupisteet[0].displayServiceUsage());
-		System.out.println(palvelupisteet[0].displayTimeSpentAtServicepoints());
 		System.out.println(palvelupisteet[0].displayUtilization());
 		System.out.println(Asiakas.getUsedOnlyAspa() + " asiakasta kävi vain asiakaspalvelussa.");
 		System.out.println("dissatisfied customers: " + Asiakas.getDissatisfied() + ", satisfied customers: " + Asiakas.getSatisfied());
