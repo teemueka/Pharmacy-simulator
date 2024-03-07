@@ -29,10 +29,10 @@ public class SimulationDao {
             ps.setInt(12, Asiakas.getSatisfied());
             ps.setInt(13, Asiakas.getDissatisfied());
             ps.setDouble(14, ((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
-            ps.setDouble(15, Palvelupiste.getAspaUtilization());
-            ps.setDouble(16, Palvelupiste.getKauppaUtilization());
-            ps.setDouble(17, Palvelupiste.getReseptiUtilization());
-            ps.setDouble(18, Palvelupiste.getKassaUtilization());
+            ps.setDouble(15, Palvelupiste.getAspaUtilization() * 100);
+            ps.setDouble(16, Palvelupiste.getKauppaUtilization() * 100);
+            ps.setDouble(17, Palvelupiste.getReseptiUtilization() * 100);
+            ps.setDouble(18, Palvelupiste.getKassaUtilization() * 100);
 
             ps.executeUpdate();
         } catch (SQLException e) {
