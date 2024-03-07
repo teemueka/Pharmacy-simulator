@@ -161,6 +161,7 @@ public class OmaMoottori extends Moottori{
 				//Päivittää palveltun asiakkaan määrän
 
 				kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
 				kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
 
 		}

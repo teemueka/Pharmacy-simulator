@@ -104,7 +104,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 		moottori = new OmaMoottori(this, a, h, r, k); // luodaan uusi moottorisäie jokaista simulointia varten
 		moottori.setSimulointiaika(100000);
-		moottori.setViive(1);
+		moottori.setViive(10);
 		((Thread) moottori).start();
 
 	}
@@ -208,9 +208,12 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 				tyytyvProsLuku.setText(String.valueOf((int)v));
 			}
 		});
-
-
-
 	}
-
+	public void updateSuuJokaLiikkuu(double v){
+		Platform.runLater(new Runnable() {
+			public void run() {
+		suuJokaLiikkuu.setControlY(1.6 * v - 100);
+	}
+	});
+	}
 }

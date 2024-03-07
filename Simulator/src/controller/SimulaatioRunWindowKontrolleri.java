@@ -56,6 +56,10 @@ public class SimulaatioRunWindowKontrolleri implements IKontrolleriForM {
     public void updateTyytyvaisyys(double v) {
 
     }
+    @Override
+    public void updateSuuJokaLiikkuu(double v) {
+
+    }
 
     @FXML
     public void rotateKuviot() {

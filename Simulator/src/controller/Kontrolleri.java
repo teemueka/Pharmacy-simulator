@@ -86,6 +86,10 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 	public void updateTyytyvaisyys(double v) {
 
 	}
+	@Override
+	public void updateSuuJokaLiikkuu(double v) {
+
+	}
 
 
 }

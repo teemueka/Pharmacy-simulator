@@ -60,7 +60,7 @@
                   <Ellipse fx:id="naamaPallo" fill="DODGERBLUE" layoutX="359.0" layoutY="370.0" radiusX="70.0" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="oikeaSilma" layoutX="386.0" layoutY="347.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="vasenSilma" layoutX="328.0" layoutY="347.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-                  <QuadCurve fx:id="suuJokaLiikkuu" controlX="-5.74053955078125" controlY="-62.409271240234375" endX="36.20733642578125" endY="-19.02276611328125" fill="#1f67ab00" layoutX="364.0" layoutY="417.0" startX="-44.06634521484375" startY="-19.02276611328125" stroke="BLACK" strokeWidth="2.0" />
+                  <QuadCurve fx:id="suuJokaLiikkuu" controlX="-5.5" controlY="28.0" endX="36.20733642578125" endY="-19.02276611328125" fill="#1f67ab00" layoutX="362.0" layoutY="406.0" startX="-44.06634521484375" startY="-19.02276611328125" stroke="BLACK" strokeWidth="2.0" />
                   <Line fx:id="aulaJono" endX="-77.6729736328125" endY="-3.814697265625E-6" layoutX="118.0" layoutY="113.0" startX="-100.0" strokeWidth="10.0" />
                   <Line fx:id="hyllytJono" endX="-77.6729736328125" endY="-3.814697265625E-6" layoutX="250.0" layoutY="113.0" startX="-100.0" strokeWidth="10.0" />
                   <Line fx:id="reseptiJono" endX="-77.6729736328125" endY="-3.814697265625E-6" layoutX="252.0" layoutY="180.0" startX="-100.0" strokeWidth="10.0" />

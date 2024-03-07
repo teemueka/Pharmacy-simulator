@@ -22,5 +22,7 @@ public interface IKontrolleriForM {
 
     public void updateTyytyvaisyys(double v);
 
+    public void updateSuuJokaLiikkuu(double v);
+
 
 }
