@@ -198,10 +198,10 @@ public class Palvelupiste {
 		return (activeTimeKauppa / OmaMoottori.hyllyTyontekijat) / Kello.getInstance().getAika();
 	}
 	public static double getReseptiUtilization() {
-		return (activeTimeKauppa / OmaMoottori.reseptiTyontekijat) / Kello.getInstance().getAika();
+		return (activeTimeResepti / OmaMoottori.reseptiTyontekijat) / Kello.getInstance().getAika();
 	}
 	public static double getKassaUtilization() {
-		return (activeTimeKauppa / OmaMoottori.kassaTyontekijat) / Kello.getInstance().getAika();
+		return (activeTimeKassa / OmaMoottori.kassaTyontekijat) / Kello.getInstance().getAika();
 	}
 	public int getAulaUsage() {
 		return aulaUsage;
