@@ -18,15 +18,15 @@ public class Palvelupiste {
 
 	//added counters for every service, not sure if we use them yet for anything
 	//currently just incrementing every time customer enters service
-	private static int aulaUsage = 0;
-	private static int kauppaUsage = 0;
-	private static int reseptiUsage = 0;
-	private static int aspaUsage = 0;
-	private static int kassaUsage = 0;
-	private static double activeTimeAspa;
-	private static double activeTimeKauppa;
-	private static double activeTimeResepti;
-	private static double activeTimeKassa;
+	private int aulaUsage = 0;
+	private int kauppaUsage = 0;
+	private int reseptiUsage = 0;
+	private int aspaUsage = 0;
+	private int kassaUsage = 0;
+	private double activeTimeAspa;
+	private double activeTimeKauppa;
+	private double activeTimeResepti;
+	private double activeTimeKassa;
 
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
 	
@@ -165,20 +165,23 @@ public class Palvelupiste {
 	public void kassaCounter() {
 		kassaUsage++;
 	}
-	public static int getKassaUsage() {
+	public int getKassaUsage() {
 		return kassaUsage;
 	}
-	public static int getAspaUsage() {
+	public int getAspaUsage() {
 		return aspaUsage;
 	}
 
-	public static int getKauppaUsage() {
+	public int getKauppaUsage() {
 		return kauppaUsage;
 	}
-
-	public static int getReseptiUsage() {
+	public int getReseptiUsage() {
 		return reseptiUsage;
 	}
+	public int getAulaUsage() {
+		return aulaUsage;
+	}
+
 	public void setActiveTimeAspa(double palveluaika) {
 		activeTimeAspa += palveluaika;
 	}
@@ -191,28 +194,20 @@ public class Palvelupiste {
 	public void setActiveTimeKassa(double palveluaika) {
 		activeTimeKassa += palveluaika;
 	}
-	public static double getAspaUtilization() {
-		return (activeTimeAspa / OmaMoottori.aspaTyontekijat) / Kello.getInstance().getAika();
+	public double getAspaUtilization(int aspaTyontekijat) {
+		return (activeTimeAspa / aspaTyontekijat) / Kello.getInstance().getAika() * 100;
 	}
-	public static double getKauppaUtilization() {
-		return (activeTimeKauppa / OmaMoottori.hyllyTyontekijat) / Kello.getInstance().getAika();
+	public double getKauppaUtilization(int hyllyTyontekijat) {
+		return (activeTimeKauppa / hyllyTyontekijat) / Kello.getInstance().getAika() * 100;
 	}
-	public static double getReseptiUtilization() {
-		return (activeTimeResepti / OmaMoottori.reseptiTyontekijat) / Kello.getInstance().getAika();
+	public double getReseptiUtilization(int reseptiTyontekijat) {
+		return (activeTimeResepti / reseptiTyontekijat) / Kello.getInstance().getAika() * 100;
 	}
-	public static double getKassaUtilization() {
-		return (activeTimeKassa / OmaMoottori.kassaTyontekijat) / Kello.getInstance().getAika();
+	public double getKassaUtilization(int kassaTyontekijat) {
+		return (activeTimeKassa / kassaTyontekijat) / Kello.getInstance().getAika() * 100;
 	}
-	public int getAulaUsage() {
-		return aulaUsage;
-	}
-	//this is just here to help us better understand the simulation during the run
-	public String displayServiceUsage() {
-		return "served customers at aula: " + getAulaUsage() + ", served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage() + ", served customers at kassa: " + getKassaUsage();
-	}
-
-	public String displayUtilization() {
-		return "aspa util: " + getAspaUtilization() + " kauppa util: " + getKauppaUtilization() + " resepti util: " + getReseptiUtilization() + " kassa util: " + getKassaUtilization();
+	public String displayUtilization(int a, int h, int r, int k) {
+		return "aspa util: " + getAspaUtilization(a) + " %, kauppa util: " + getKauppaUtilization(h) * 100 + " %, resepti util: " + getReseptiUtilization(r) * 100 + " %, kassa util: " + getKassaUtilization(k) * 100 + " %";
 	}
 
 }
