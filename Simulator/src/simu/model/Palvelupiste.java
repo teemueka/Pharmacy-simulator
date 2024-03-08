@@ -13,11 +13,7 @@ public class Palvelupiste {
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
-	//this is not yet used for anything other than naming the services
 	private final String palvelupisteenNimi;
-
-	//added counters for every service, not sure if we use them yet for anything
-	//currently just incrementing every time customer enters service
 	private int aulaUsage = 0;
 	private int kauppaUsage = 0;
 	private int reseptiUsage = 0;
@@ -135,8 +131,6 @@ public class Palvelupiste {
 		return varattu;
 	}
 
-
-
 	public boolean onJonossa(){
 		return !jono.isEmpty();
 	}
@@ -205,9 +199,6 @@ public class Palvelupiste {
 	}
 	public double getKassaUtilization(int kassaTyontekijat) {
 		return (activeTimeKassa / kassaTyontekijat) / Kello.getInstance().getAika() * 100;
-	}
-	public String displayUtilization(int a, int h, int r, int k) {
-		return "aspa util: " + getAspaUtilization(a) + " %, kauppa util: " + getKauppaUtilization(h) * 100 + " %, resepti util: " + getReseptiUtilization(r) * 100 + " %, kassa util: " + getKassaUtilization(k) * 100 + " %";
 	}
 
 }

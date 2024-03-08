@@ -11,10 +11,10 @@ public class OmaMoottori extends Moottori{
 	private final Saapumisprosessi saapumisprosessi;
 	private final Palvelupiste[] palvelupisteet;
 	Apteekki apteekki = new Apteekki(10);
-	public int aspaTyontekijat = 0;
-	public int hyllyTyontekijat = 0;
-	public int reseptiTyontekijat = 0;
-	public int kassaTyontekijat = 0;
+	public int aspaTyontekijat;
+	public int hyllyTyontekijat;
+	public int reseptiTyontekijat;
+	public int kassaTyontekijat;
 	SimulationDao simulationDao = new SimulationDao();
 
 
@@ -158,7 +158,7 @@ public class OmaMoottori extends Moottori{
 				break;
 
 			case KASSA_P:
-				a = (Asiakas)palvelupisteet[4].otaJonosta();
+				a = palvelupisteet[4].otaJonosta();
 
 				a.setPoistumisaika(Kello.getInstance().getAika());
 				a.setTyytyvaisyys(apteekki);
