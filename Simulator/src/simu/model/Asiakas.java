@@ -90,13 +90,13 @@ public class Asiakas {
 	public void setKokonaisPalveluaika(double palveluaika) {
 		this.aikaPalveluissa += palveluaika;
 	}
-	public void setTyytyvaisyys() {
+	public void setTyytyvaisyys(Apteekki a) {
 		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > tavoiteJonotus) {
-			dissatisfied++;
-			customerAmount++;
+			a.addDissatisfiedCustomer();
+			//customeramount
 		} else {
-			satisfied++;
-			customerAmount++;
+			a.addSatisfiedCustomer();
+			//customeramount
 		}
 	}
 	public static int getCustomerAmount() {
@@ -212,7 +212,7 @@ public class Asiakas {
 		return totalSpentAllCustomers;
 	}
 
-	public void raportti(){
+	public void raportti(Apteekki apteekki){
 		Trace.out(Trace.Level.INFO, "\nAsiakas "+id+ " valmis! ");
 		Trace.out(Trace.Level.INFO, "Asiakas "+id+ " saapui: " +saapumisaika);
 		Trace.out(Trace.Level.INFO,"Asiakas "+id+ " poistui: " +poistumisaika);
@@ -228,7 +228,7 @@ public class Asiakas {
 		//added display for every customer to see functionality of booleans
 		Trace.out(Trace.Level.INFO, "Asiakas " + id + " " + displayUsedServices());
 		sum += (long) (poistumisaika-saapumisaika);
-		double keskiarvo = (double) sum / Apteekki.getServedCustomers();
+		double keskiarvo = (double) sum / apteekki.getServedCustomers();
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti "+ keskiarvo);
 	}
 
