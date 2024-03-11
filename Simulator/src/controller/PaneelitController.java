@@ -209,10 +209,12 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 			}
 		});
 	}
+	@Override
 	public void updateSuuJokaLiikkuu(double v){
 		Platform.runLater(new Runnable() {
 			public void run() {
 		suuJokaLiikkuu.setControlY(1.6 * v - 100);
+		naamaPallo.setFill(javafx.scene.paint.Color.rgb(255- (int) v, 31 + (int) v*2, 31));
 	}
 	});
 	}
