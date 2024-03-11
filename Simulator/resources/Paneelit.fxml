@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -52,11 +53,26 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="443.0" prefWidth="429.0">
                <children>
                   <Canvas fx:id="visu" height="426.0" layoutX="19.0" layoutY="13.0" width="400.0" />
-                  <ImageView fx:id="infoKuva" fitHeight="53.0" fitWidth="100.0" layoutX="171.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="hyllytKuva" fitHeight="53.0" fitWidth="100.0" layoutX="169.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="reseptiKuva" fitHeight="53.0" fitWidth="100.0" layoutX="168.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="aulaKuva" fitHeight="53.0" fitWidth="100.0" layoutX="38.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="kassaKuva" fitHeight="53.0" fitWidth="100.0" layoutX="319.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="infoKuva" fitHeight="53.0" fitWidth="100.0" layoutX="183.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Info.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="hyllytKuva" fitHeight="53.0" fitWidth="100.0" layoutX="181.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Shelves.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="reseptiKuva" fitHeight="53.0" fitWidth="100.0" layoutX="180.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Prescription.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="aulaKuva" fitHeight="53.0" fitWidth="100.0" layoutX="50.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Door.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="kassaKuva" fitHeight="53.0" fitWidth="100.0" layoutX="331.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Checkout.png" />
+                     </image></ImageView>
                   <Ellipse fx:id="naamaPallo" fill="DODGERBLUE" layoutX="359.0" layoutY="370.0" radiusX="70.0" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="oikeaSilma" layoutX="386.0" layoutY="347.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="vasenSilma" layoutX="328.0" layoutY="347.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
