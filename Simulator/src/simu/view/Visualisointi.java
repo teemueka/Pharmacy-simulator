@@ -24,7 +24,7 @@ public class Visualisointi implements IVisualisointi{
 	
 
 	public void tyhjennaNaytto() {
-		gc.setFill(Color.BLACK);
+		gc.setFill(Color.WHITE);
 		gc.fillRect(0, 0, cnv.getWidth(), cnv.getHeight());
 	}
 	
