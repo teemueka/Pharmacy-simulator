@@ -73,7 +73,7 @@
                      <image>
                         <Image url="@../Checkout.png" />
                      </image></ImageView>
-                  <Ellipse fx:id="naamaPallo" fill="DODGERBLUE" layoutX="359.0" layoutY="370.0" radiusX="70.0" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Ellipse fx:id="naamaPallo" fill="#34c90b" layoutX="359.0" layoutY="370.0" radiusX="70.0" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="oikeaSilma" layoutX="386.0" layoutY="347.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="vasenSilma" layoutX="328.0" layoutY="347.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
                   <QuadCurve fx:id="suuJokaLiikkuu" controlX="-5.5" controlY="28.0" endX="36.20733642578125" endY="-19.02276611328125" fill="#1f67ab00" layoutX="362.0" layoutY="406.0" startX="-44.06634521484375" startY="-19.02276611328125" stroke="BLACK" strokeWidth="2.0" />
