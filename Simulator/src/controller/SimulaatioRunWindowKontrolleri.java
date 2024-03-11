@@ -60,6 +60,31 @@ public class SimulaatioRunWindowKontrolleri implements IKontrolleriForM {
     public void updateSuuJokaLiikkuu(double v) {
 
     }
+    @Override
+    public void updateAulaJonoPituus(double aulaJonoPit) {
+
+    }
+
+    @Override
+    public void updateKassaJonoPituus(double kassaJonoPit) {
+
+    }
+
+    @Override
+    public void updateInfoJonoPituus(double infoJonoPit) {
+
+    }
+
+    @Override
+    public void updateHyllyJonoPituus(double hyllyJonoPit) {
+
+    }
+
+    @Override
+    public void updateReseptiJonoPituus(double reseptiJonoPit) {
+
+    }
+
 
     @FXML
     public void rotateKuviot() {

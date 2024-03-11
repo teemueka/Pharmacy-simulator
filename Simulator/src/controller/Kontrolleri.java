@@ -90,6 +90,27 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 	public void updateSuuJokaLiikkuu(double v) {
 
 	}
+	@Override
+	public void updateAulaJonoPituus(double aulaJonoPit){
+
+	}
+	@Override
+	public void updateKassaJonoPituus(double kassaJonoPit){
+
+	}
+	@Override
+	public void updateReseptiJonoPituus(double reseptiJonoPit){
+
+	}
+	@Override
+	public void updateInfoJonoPituus(double infoJonoPit){
+
+	}
+
+	@Override
+	public void updateHyllyJonoPituus(double hyllyJonoPit){
+
+	}
 
 
 }

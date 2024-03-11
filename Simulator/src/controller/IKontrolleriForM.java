@@ -24,5 +24,14 @@ public interface IKontrolleriForM {
 
     public void updateSuuJokaLiikkuu(double v);
 
+    public void updateAulaJonoPituus(double aulaJonoPit);
+
+    public void updateKassaJonoPituus(double kassaJonoPit);
+    public void updateReseptiJonoPituus(double reseptiJonoPit);
+
+    public void updateHyllyJonoPituus(double hyllyJonoPit);
+
+    public void updateInfoJonoPituus(double infoJonoPit);
+
 
 }

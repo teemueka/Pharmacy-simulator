@@ -72,6 +72,9 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 	@FXML
 	private ImageView reseptiKuva;
+
+	@FXML
+	private Line reseptiJono;
 	@FXML
 	private QuadCurve suuJokaLiikkuu;
 
@@ -217,5 +220,53 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		naamaPallo.setFill(javafx.scene.paint.Color.rgb(255- (int) v, 31 + (int) v*2, 31));
 	}
 	});
+	}
+	@Override
+	public void updateAulaJonoPituus(double aulaJonoPit){
+		Platform.runLater(new Runnable() {
+			public void run() {
+				aulaJono.setStartX(-85 - (aulaJonoPit)*50);
+				System.out.println("aulajono: " + aulaJonoPit);
+			}
+		});
+	}
+	@Override
+	public void updateKassaJonoPituus(double kassaJonoPit){
+		Platform.runLater(new Runnable() {
+			public void run() {
+				kassaJono.setStartX(-85 - (kassaJonoPit)*50);
+				System.out.println("aulajono: " + kassaJonoPit);
+			}
+		});
+	}
+
+	@Override
+	public void updateReseptiJonoPituus(double reseptiJonoPit){
+		Platform.runLater(new Runnable() {
+			public void run() {
+				reseptiJono.setStartX(-85 - (reseptiJonoPit)*50);
+				System.out.println("aulajono: " + reseptiJonoPit);
+			}
+		});
+	}
+
+	@Override
+	public void updateHyllyJonoPituus(double hyllyJonoPit){
+		Platform.runLater(new Runnable() {
+			public void run() {
+				hyllytJono.setStartX(-85 - (hyllyJonoPit)*50);
+				System.out.println("aulajono: " + hyllyJonoPit);
+			}
+		});
+	}
+
+	@Override
+	public void updateInfoJonoPituus(double infoJonoPit){
+		Platform.runLater(new Runnable() {
+			public void run() {
+				infoJono.setStartX(-85 - (infoJonoPit)*50);
+				System.out.println("aulajono: " + infoJonoPit);
+			}
+		});
 	}
 }

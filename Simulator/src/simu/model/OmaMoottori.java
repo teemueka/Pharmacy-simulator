@@ -159,10 +159,15 @@ public class OmaMoottori extends Moottori{
 				apteekki.customerOut();
 
 				//Päivittää palveltun asiakkaan määrän
+				kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
 
 				kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
 				kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
-				kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
+				kontrolleri.updateAulaJonoPituus((double)apteekki.displayApteekkijono());
+				kontrolleri.updateKassaJonoPituus((double)palvelupisteet[4].getJonoPituus());
+				kontrolleri.updateInfoJonoPituus((double)palvelupisteet[1].getJonoPituus());
+				kontrolleri.updateHyllyJonoPituus((double)palvelupisteet[2].getJonoPituus());
+				kontrolleri.updateReseptiJonoPituus((double)palvelupisteet[3].getJonoPituus());
 
 		}
 	}
