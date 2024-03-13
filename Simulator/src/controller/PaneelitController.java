@@ -19,7 +19,7 @@ import simu.model.Asiakas;
 import simu.model.OmaMoottori;
 import simu.view.IVisualisointi;
 import simu.view.MainApp;
-import simu.view.Visualisointi;
+
 
 public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
@@ -105,8 +105,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		int r = (int) getR_staff();
 		int k = (int) getK_staff();
 		System.out.println("Start");
-		visualisointi = new Visualisointi(visu);
-		visualisointi.tyhjennaNaytto();
+
 
 		moottori = new OmaMoottori(this, a, h, r, k, Integer.parseInt(customerntencityText.getText()), Integer.parseInt(storeCpacity.getText())); // luodaan uusi moottorisäie jokaista simulointia varten
 		moottori.setSimulointiaika(Double.parseDouble(timeText.getText()));
@@ -121,7 +120,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 	public void handleSimuloi() {
 		moottori.terminate();
-		visualisointi.tyhjennaNaytto();
+
 		simu.framework.Kello.getInstance().reset();
 		simu.model.Asiakas.reset();
 
