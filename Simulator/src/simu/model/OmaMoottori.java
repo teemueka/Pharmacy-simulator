@@ -6,15 +6,18 @@ import eduni.distributions.Normal;
 import controller.IKontrolleriForM;
 
 public class OmaMoottori extends Moottori{
-	
+
 	private Saapumisprosessi saapumisprosessi;
 	private Palvelupiste[] palvelupisteet;
-	Apteekki apteekki = new Apteekki();
+
+	Apteekki apteekki;
 
 
-	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {
+	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff, int intensity, int capacity) {
 
 		super(kontrolleri);
+
+		apteekki = new Apteekki(capacity);
 
 		System.out.println(a_staff + " " + h_staff + " " + r_staff + " " + k_staff);
 
@@ -29,7 +32,7 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(100, 50),	k_staff ,tapahtumalista, TapahtumanTyyppi.KASSA_P);
 
 
-		saapumisprosessi = new Saapumisprosessi(new Negexp(150,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+		saapumisprosessi = new Saapumisprosessi(new Negexp((intensity),intensity/10), tapahtumalista, TapahtumanTyyppi.AULA_S);
 
 
 	}
@@ -74,7 +77,7 @@ public class OmaMoottori extends Moottori{
 						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
 
 						kontrolleri.visualisoiMenetettyAsiakas();//Tämä lisää PUNAISEN visuaalisen pisteen asiakkaan poistuessa
-						kontrolleri.naytaMenetetty(Apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
+						kontrolleri.naytaMenetetty(apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
 						System.out.println("Asiakas, " + a.getId() + " päätti pysyä jonossa");
@@ -157,7 +160,7 @@ public class OmaMoottori extends Moottori{
 				apteekki.customerOut();
 
 					   //Päivittää palveltun asiakkaan määrän
-					   kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
+					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
 
 		}
 	}
@@ -185,8 +188,15 @@ public class OmaMoottori extends Moottori{
 
 		// UUTTA graafista
 		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
+		kontrolleri.simulationDone();
+
+
 
 	}
+
+
+
+
 
 
 }

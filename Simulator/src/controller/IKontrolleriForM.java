@@ -21,4 +21,5 @@ public interface IKontrolleriForM {
     public void visualisoiUusiAsiakas();
 
 
+    void simulationDone();
 }

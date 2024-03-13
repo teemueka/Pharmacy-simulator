@@ -25,7 +25,7 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 		int r = (int) ui.getR_staff();
 		int k = (int) ui.getK_staff();
 
-		moottori = new OmaMoottori(this, a, h, r, k); // luodaan uusi moottorisäie jokaista simulointia varten
+		moottori = new OmaMoottori(this, a, h, r, k, 150,10); // luodaan uusi moottorisäie jokaista simulointia varten
 		moottori.setSimulointiaika(ui.getAika());
 		moottori.setViive(ui.getViive());
 		ui.getVisualisointi().tyhjennaNaytto();
@@ -82,6 +82,10 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 		});
 	}
 
+	@Override
+	public void simulationDone() {
+
+	}
 
 
 }

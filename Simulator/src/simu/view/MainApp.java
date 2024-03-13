@@ -4,6 +4,7 @@ import controller.PaneelitController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -62,6 +63,9 @@ public class MainApp extends Application {
             // Give the controller access to the main app.
             PaneelitController controller = fxmlLoader.getController();
             controller.setMainApp(this);
+            Image image = new Image("file:Simulator/Logo.png");
+            primaryStage.getIcons().add(image);
+
             
             
         } catch (IOException e) {

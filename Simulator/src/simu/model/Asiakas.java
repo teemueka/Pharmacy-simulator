@@ -86,12 +86,11 @@ public class Asiakas {
 	public void setTyytyväisyys() {
 		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > 50) {
 			dissatisfied++;
-			customerAmount++;
-		} else {
+        } else {
 			satisfied++;
-			customerAmount++;
-		}
-	}
+        }
+        customerAmount++;
+    }
 	public static int getCustomerAmount() {
 		return customerAmount;
 	}
@@ -229,6 +228,16 @@ public class Asiakas {
 		sum += (poistumisaika-saapumisaika);
 		double keskiarvo = sum/id;
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti "+ keskiarvo);
+	}
+
+	public static void reset(){
+		i = 1;
+		sum = 0;
+		satisfied = 0;
+		dissatisfied = 0;
+		customerAmount = 0;
+		totalSpentAllCustomers = 0;
+		usedOnlyAspa = 0;
 	}
 
 }

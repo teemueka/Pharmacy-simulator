@@ -4,22 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI 2.0&#10;Scene builder implementation">
-      <change afterPath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" afterDir="false" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/resources/RootLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/RootLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/IKontrolleriForM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/IKontrolleriForM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/src/controller/Kontrolleri.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/Kontrolleri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/noGUI_run/TestiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/noGUI_run/TestiGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/framework/Trace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/framework/Trace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/ISimulaattorinUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/ISimulaattorinUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/IVisualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/IVisualisointi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/PaneelitController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/SimulaattorinGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/SimulaattorinGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/Visualisointi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/view/Visualisointi2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/Visualisointi2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/noGUI_run/TestiGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/noGUI_run/testMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/framework/IMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/framework/IMoottori.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/framework/Kello.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/framework/Kello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/framework/Moottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/framework/Moottori.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/Apteekki.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/Apteekki.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/Asiakas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/Asiakas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,36 +58,36 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.MainApp.executor": "Run",
-    "Application.Simulaattori.executor": "Run",
-    "Application.SimulaattorinGUI.executor": "Debug",
-    "Application.testMain.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "UI__2__0",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "two.files.diff.last.used.file": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Simulaattori.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SimulaattorinGUI.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.testMain.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;UI__2__0&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.42988506&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator" />
@@ -180,7 +181,10 @@
       <workItem from="1709031841976" duration="337000" />
       <workItem from="1709032191151" duration="705000" />
       <workItem from="1709032958994" duration="10764000" />
-      <workItem from="1709192984918" duration="17075000" />
+      <workItem from="1709192984918" duration="17203000" />
+      <workItem from="1709561809323" duration="12529000" />
+      <workItem from="1709659418166" duration="3027000" />
+      <workItem from="1709726540888" duration="20204000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -334,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709209143242</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd">
+      <option name="closed" value="true" />
+      <created>1709220473759</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1709220473759</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,18 +370,8 @@
     <MESSAGE value="Henkilökunta toimii???" />
     <MESSAGE value="-" />
     <MESSAGE value="UI 2.0&#10;Scene builder implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI 2.0&#10;Scene builder implementation" />
+    <MESSAGE value="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java</url>
-          <line>167</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
