@@ -10,6 +10,10 @@ public abstract class Moottori extends Thread implements IMoottori{  // UUDET M√
 
 	private Kello kello;
 
+	//made to check is simulation is done
+	private volatile boolean terminated = false;
+
+
 	protected Tapahtumalista tapahtumalista;
 
 	protected IKontrolleriForM kontrolleri; // UUSI
@@ -19,7 +23,7 @@ public abstract class Moottori extends Thread implements IMoottori{  // UUDET M√
 
 		this.kontrolleri = kontrolleri;  //UUSI
 
-		kello = Kello.getInstance(); // Otetaan kello muuttujaan yksinkertaistamaan koodia
+		kello = Kello.getInstance();// Otetaan kello muuttujaan yksinkertaistamaan koodia
 
 		tapahtumalista = new Tapahtumalista();
 
@@ -45,7 +49,10 @@ public abstract class Moottori extends Thread implements IMoottori{  // UUDET M√
 
 	@Override
 	public void run(){ // Entinen aja()
+
 		alustukset(); // luodaan mm. ensimm√§inen tapahtuma
+
+
 		while (simuloidaan()){
 			viive(); // UUSI
 			kello.setAika(nykyaika());
@@ -53,7 +60,6 @@ public abstract class Moottori extends Thread implements IMoottori{  // UUDET M√
 			yritaCTapahtumat();
 		}
 		tulokset();
-
 	}
 
 	private void suoritaBTapahtumat(){
@@ -71,7 +77,11 @@ public abstract class Moottori extends Thread implements IMoottori{  // UUDET M√
 
 	private boolean simuloidaan(){
 		Trace.out(Trace.Level.INFO, "Kello on: " + kello.getAika());
-		return kello.getAika() < simulointiaika;
+		return kello.getAika() < simulointiaika && !terminated();
+	}
+
+	private boolean terminated() {
+		return terminated;
 	}
 
 
@@ -83,6 +93,11 @@ public abstract class Moottori extends Thread implements IMoottori{  // UUDET M√
 			e.printStackTrace();
 		}
 	}
+
+	public void terminate() {
+		terminated = true;
+	}
+
 
 	protected abstract void alustukset(); // M√§√§ritell√§√§n simu.model-pakkauksessa Moottorin aliluokassa
 

@@ -13,22 +13,13 @@ public class Palvelupiste {
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
-	//this is not yet used for anything other than naming the services
 	private final String palvelupisteenNimi;
+	private double activeTime;
+	private int usage;
 
-	//added counters for every service, not sure if we use them yet for anything
-	//currently just incrementing every time customer enters service
-	private static int aulaUsage = 0;
-	private static int kauppaUsage = 0;
-	private static int reseptiUsage = 0;
-	private static int aspaUsage = 0;
-	private static int kassaUsage = 0;
-
-	//JonoStartegia strategia; //optio: asiakkaiden järjestys
-	
 	private boolean varattu = false;
 
-	private int staff;
+	private final int staff;
 	private int palveltavat = 0;
 
 	private double jonoPituus;
@@ -54,27 +45,23 @@ public class Palvelupiste {
 		palveltavat--;
 		varattu = false;
 		Asiakas asiakas = palvelussa.poll();
+		usage++;
 		//Determine the service point based on the event type
         switch (skeduloitavanTapahtumanTyyppi) {
 			case AULA_P:
-                aulaCounter();
 				break;
 			case ASPA_P:
-                aspaCounter();
-				asiakas.setAspaKäyty();
+				asiakas.setAspaKayty();
 				break;
 			case KAUPPA_P:
-                kauppaCounter();
-				asiakas.setKauppaKäyty();
+				asiakas.setKauppaKayty();
 				asiakas.setKauppaSpent();
 				break;
 			case RESEPTI_P:
-                reseptiCounter();
-				asiakas.setReseptiKäyty();
+				asiakas.setReseptiKayty();
 				asiakas.setReseptiSpent();
 				break;
 			case KASSA_P:
-                kassaCounter();
 				break;
 		}
 		return asiakas;
@@ -84,13 +71,14 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi " + getPalvelupisteenNimi() + " palvelu asiakkaalle " + jono.peek().getId());
+
 		palveltavat++;
 		if (palveltavat < staff){
 			varattu = false;
-
-		}else {
+		} else {
 			varattu = true;
 		}
+
 		Trace.out(Trace.Level.INFO, getPalvelupisteenNimi() + ", henkilökunnan määrä: " + getStaff() + " palvelussa tällä hetkellä: " + getPalveltavat());
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
@@ -98,6 +86,7 @@ public class Palvelupiste {
 		Asiakas asiakas = jono.peek();
 		jono.poll();
 		asiakas.setKokonaisPalveluaika(palveluaika);
+		setActiveTime(palveluaika);
 
 		//Set service time for the specific service point
 		String servicePoint = "";
@@ -128,8 +117,6 @@ public class Palvelupiste {
 		return varattu;
 	}
 
-
-
 	public boolean onJonossa(){
 		return !jono.isEmpty();
 	}
@@ -142,42 +129,15 @@ public class Palvelupiste {
 	public String getPalvelupisteenNimi() {
 		return palvelupisteenNimi;
 	}
-	//counters for all the services
-	public void aulaCounter() {
-		aulaUsage++;
-	}
-	public void aspaCounter() {
-		aspaUsage++;
-	}
-	public void kauppaCounter() {
-		kauppaUsage++;
-	}
-	public void reseptiCounter() {
-		reseptiUsage++;
-	}
-	public void kassaCounter() {
-		kassaUsage++;
-	}
-	public int getKassaUsage() {
-		return kassaUsage;
-	}
-	public int getAspaUsage() {
-		return aspaUsage;
-	}
 
-	public int getKauppaUsage() {
-		return kauppaUsage;
+	public int getUsage() {
+		return usage;
 	}
-
-	public int getReseptiUsage() {
-		return reseptiUsage;
+	public void setActiveTime(double palveluaika) {
+		activeTime += palveluaika;
 	}
-	public int getAulaUsage() {
-		return aulaUsage;
-	}
-	//this is just here to help us better understand the simulation during the run
-	public String displayServiceUsage() {
-		return "served customers at aula: " + getAulaUsage() + ", served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage() + ", served customers at kassa: " + getKassaUsage();
+	public double getUtilization() {
+		return (activeTime / staff) / Kello.getInstance().getAika() * 100;
 	}
 
 	public double getJonoPituus() {

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="jonojen visualisointia muokattu paremmaksi">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="AINT NO WAY, WE DID IT!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,13 +16,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/Aarni" />
+    <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -45,38 +43,44 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.MainApp.executor": "Run",
-    "Application.Simulaattori.executor": "Run",
-    "Application.SimulaattorinGUI.executor": "Debug",
-    "Application.testMain.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Heikin-branch",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "two.files.diff.last.used.file": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Simulaattori.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SimulaattorinGUI.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.testMain.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;UI__2__0&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.42988506&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\resources" />
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator" />
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\src" />
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\src\view" />
@@ -168,7 +172,12 @@
       <workItem from="1709031841976" duration="337000" />
       <workItem from="1709032191151" duration="705000" />
       <workItem from="1709032958994" duration="10764000" />
-      <workItem from="1709192984918" duration="17075000" />
+      <workItem from="1709192984918" duration="17203000" />
+      <workItem from="1709561809323" duration="12529000" />
+      <workItem from="1709659418166" duration="3027000" />
+      <workItem from="1709726540888" duration="20204000" />
+      <workItem from="1710327112995" duration="7880000" />
+      <workItem from="1710335447591" duration="545000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -322,172 +331,115 @@
       <option name="project" value="LOCAL" />
       <updated>1709209143242</updated>
     </task>
-    <task id="LOCAL−00020" summary="UI 2.0 mergetty ja scene builderilla tehty hahmotelmaa visualisointiin. fxml-tiedosto ja sen kontrolleri lisätty">
+    <task id="LOCAL-00020" summary="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd">
       <option name="closed" value="true" />
-      <created>1709659818447</created>
-      <option name="number" value="LOCAL−00020" />
-      <option name="presentableId" value="LOCAL−00020" />
-      <updated>1709659818447</updated>
+      <created>1709220473759</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1709220473759</updated>
     </task>
-    <task id="LOCAL−00021" summary="lisätty muotoja ja muokattu kontrolleriin ominaisuuksia">
+    <task id="LOCAL-00021" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
       <option name="closed" value="true" />
-      <created>1709663086511</created>
-      <option name="number" value="LOCAL−00021" />
-      <option name="presentableId" value="LOCAL−00021" />
-      <updated>1709663086511</updated>
+      <created>1710327359013</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710327359013</updated>
     </task>
-    <task id="LOCAL−00022" summary="lisätty interface ikontrolleriforM ja sen metodeja">
+    <task id="LOCAL-00022" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
       <option name="closed" value="true" />
-      <created>1709663398054</created>
-      <option name="number" value="LOCAL−00022" />
-      <option name="presentableId" value="LOCAL−00022" />
-      <updated>1709663398054</updated>
+      <created>1710327434743</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1710327434743</updated>
     </task>
-    <task id="LOCAL−00023" summary="pari tekstimuutosta">
+    <task id="LOCAL-00023" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
       <option name="closed" value="true" />
-      <created>1709663642039</created>
-      <option name="number" value="LOCAL−00023" />
-      <option name="presentableId" value="LOCAL−00023" />
-      <updated>1709663642039</updated>
+      <created>1710330561922</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1710330561922</updated>
     </task>
-    <task id="LOCAL−00024" summary="canvas muokattu naama, jonoviivat, kuvapohjat, tyytyväisyys">
+    <task id="LOCAL-00024" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
       <option name="closed" value="true" />
-      <created>1709732270603</created>
-      <option name="number" value="LOCAL−00024" />
-      <option name="presentableId" value="LOCAL−00024" />
-      <updated>1709732270603</updated>
+      <created>1710332025144</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710332025144</updated>
     </task>
-    <task id="LOCAL−00025" summary="saatu tyytyväisyysprosentti näkyviin new runnable metodilla (update tyytyväisyys)">
+    <task id="LOCAL-00025" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
       <option name="closed" value="true" />
-      <created>1709734015249</created>
-      <option name="number" value="LOCAL−00025" />
-      <option name="presentableId" value="LOCAL−00025" />
-      <updated>1709734015249</updated>
+      <created>1710332028996</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710332028996</updated>
     </task>
-    <task id="LOCAL−00026" summary="tyytväisyysprosentti kokonaisluvuksi">
+    <task id="LOCAL-00026" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
       <option name="closed" value="true" />
-      <created>1709734918583</created>
-      <option name="number" value="LOCAL−00026" />
-      <option name="presentableId" value="LOCAL−00026" />
-      <updated>1709734918583</updated>
+      <created>1710333166228</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710333166228</updated>
     </task>
-    <task id="LOCAL−00027" summary="suun liike toimii (updateSuuJokaLiikkuu)">
+    <task id="LOCAL-00027" summary="UI MIGRATED AND STUFF MUST WORK :D">
       <option name="closed" value="true" />
-      <created>1709809364903</created>
-      <option name="number" value="LOCAL−00027" />
-      <option name="presentableId" value="LOCAL−00027" />
-      <updated>1709809364903</updated>
+      <created>1710333985096</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710333985096</updated>
     </task>
-    <task id="LOCAL−00028" summary="kuvat lisätty, mutta ei näy">
+    <task id="LOCAL-00028" summary="UI MIGRATED AND STUFF MUST WORK :D">
       <option name="closed" value="true" />
-      <created>1710147969697</created>
-      <option name="number" value="LOCAL−00028" />
-      <option name="presentableId" value="LOCAL−00028" />
-      <updated>1710147969697</updated>
+      <created>1710335001118</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1710335001118</updated>
     </task>
-    <task id="LOCAL−00029" summary="vanhan visualin pallojen piirtäminen laitettu kommenteiksi">
+    <task id="LOCAL-00029" summary="AINT NO WAY, WE DID IT!">
       <option name="closed" value="true" />
-      <created>1710148813658</created>
-      <option name="number" value="LOCAL−00029" />
-      <option name="presentableId" value="LOCAL−00029" />
-      <updated>1710148813658</updated>
+      <created>1710335464678</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1710335464678</updated>
     </task>
-    <task id="LOCAL−00030" summary="taustaväsi mustasta valkoiseksi Visualisointi-tiedostoon(tyhjennänäyttö-metodi)">
-      <option name="closed" value="true" />
-      <created>1710149311120</created>
-      <option name="number" value="LOCAL−00030" />
-      <option name="presentableId" value="LOCAL−00030" />
-      <updated>1710149311120</updated>
-    </task>
-    <task id="LOCAL−00031" summary="naaman väri muuttuu myös toimivasti">
-      <option name="closed" value="true" />
-      <created>1710150811742</created>
-      <option name="number" value="LOCAL−00031" />
-      <option name="presentableId" value="LOCAL−00031" />
-      <updated>1710150811742</updated>
-    </task>
-    <task id="LOCAL−00032" summary="naaman väri muuttuu myös toimivasti">
-      <option name="closed" value="true" />
-      <created>1710150961912</created>
-      <option name="number" value="LOCAL−00032" />
-      <option name="presentableId" value="LOCAL−00032" />
-      <updated>1710150961912</updated>
-    </task>
-    <task id="LOCAL−00033" summary="jonojen viivojen pituudet päivittyy ajon aikana">
-      <option name="closed" value="true" />
-      <created>1710185161924</created>
-      <option name="number" value="LOCAL−00033" />
-      <option name="presentableId" value="LOCAL−00033" />
-      <updated>1710185161924</updated>
-    </task>
-    <task id="LOCAL−00034" summary="jonojen viivojen pituusmuutoksia vähän pienennetty">
-      <option name="closed" value="true" />
-      <created>1710185379855</created>
-      <option name="number" value="LOCAL−00034" />
-      <option name="presentableId" value="LOCAL−00034" />
-      <updated>1710185379855</updated>
-    </task>
-    <task id="LOCAL−00035" summary="jonojen viivojen pituusmuutoksia vähän pienennetty ja printit päivitetty">
-      <option name="closed" value="true" />
-      <created>1710327770201</created>
-      <option name="number" value="LOCAL−00035" />
-      <option name="presentableId" value="LOCAL−00035" />
-      <updated>1710327770201</updated>
-    </task>
-    <task id="LOCAL−00036" summary="tyytyväisyysteksti korjattu">
-      <option name="closed" value="true" />
-      <created>1710328043738</created>
-      <option name="number" value="LOCAL−00036" />
-      <option name="presentableId" value="LOCAL−00036" />
-      <updated>1710328043738</updated>
-    </task>
-    <task id="LOCAL−00037" summary="tyytyväisyysteksti englanniksi">
-      <option name="closed" value="true" />
-      <created>1710329366947</created>
-      <option name="number" value="LOCAL−00037" />
-      <option name="presentableId" value="LOCAL−00037" />
-      <updated>1710329366947</updated>
-    </task>
-    <task id="LOCAL−00038" summary="jonojen visualisointia muokattu paremmaksi">
-      <option name="closed" value="true" />
-      <created>1710332997727</created>
-      <option name="number" value="LOCAL−00038" />
-      <option name="presentableId" value="LOCAL−00038" />
-      <updated>1710332997727</updated>
-    </task>
-    <option name="localTasksCounter" value="39" />
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="com to pull" />
+    <MESSAGE value="Maven and JavaFx implementation.&#10;&#10;START CODE FROM src/view/Main.java" />
+    <MESSAGE value="Interface:&#10;IKontrolleriForM:&#10;visualisoiAsiakas oli jaettu kahteen metodiin. Menetetty ja Uusi. &#10;Lisätty 2 metodia tuloksia varten. näytäpalveltu ja menetetty.&#10;&#10;ISimulaattorinUI:&#10;setPalvelut ja menetetty. Asettaa ne valueet näytölle. &#10;&#10;IVisualisointi:&#10;Lisätty menetettyAsiakas.&#10;&#10;Classit:&#10;&#10;Kontrolleri:&#10;Eli tämän kautta ne visualiset arvot menee näytölle&#10;&#10;Lisätty: palveltu, menetetty. Annetaan arvot INT muodossa.&#10;Muutettu vosualisoiAsiakas -&gt; palveltu, menetetty. Pitää vain kutsua. &#10;&#10;OmaMoottori:&#10;Lisätty kontrollerin metodit. päivitääkseen UI&#10;&#10;&#10;SimulaattorinGUI:&#10;Lisätty uudet muuttujat. Laitettu tyylit ja lisätty gridiin.&#10;&#10;Visualisointi:&#10;Tämä on tää piste versio. &#10;Lisättiin UusAsiakas mikä generoi sinisen pisteen&#10;Lisättiin menetettyAsiakas mikä generoi punaisen pisteen&#10;&#10;Visualisointi2:&#10;teksti versio: Roskaa mutta myös hoidetu.&#10;&#10;&#10;Apteekki.java:&#10;Lisätty  getServedCustomers() ja getMissedCustomers() visualisointia varten," />
+    <MESSAGE value="cleanup" />
+    <MESSAGE value="Merge to main." />
+    <MESSAGE value="Test runMain&#10;was made to run code without visual element. Good for testing base stuff." />
+    <MESSAGE value="Henkilökunta (Staff)&#10;Henkilökunnan määarä palvelupisteellä vaikuttaa palvelupisteenpalveluaikaan. more = faster. &#10;for test. In TestGUI at row 88-92 you can increase staff amount, by changing &quot;i&quot; value from 1 to something else." />
+    <MESSAGE value="Nothing special&#10;&#10;JavaFX updated to from 20.0 to 21.0&#10;  security update" />
+    <MESSAGE value="Not sus logo" />
+    <MESSAGE value="JavaFX update to 21.0&#10;security update" />
+    <MESSAGE value="Merge Teemun-kikkailut" />
     <MESSAGE value="Merge Henkilökunta to main" />
     <MESSAGE value="Main returned" />
     <MESSAGE value="GitIgnore updated&#10;.idea is ignored :)" />
     <MESSAGE value="Henkilökunta toimii???" />
     <MESSAGE value="-" />
     <MESSAGE value="UI 2.0&#10;Scene builder implementation" />
-    <MESSAGE value="Asiakas-luokan testien tekemistä aloitettu" />
-    <MESSAGE value="UI 2.0 mergetty ja scene builderilla tehty hahmotelmaa visualisointiin. fxml-tiedosto ja sen kontrolleri lisätty" />
-    <MESSAGE value="lisätty muotoja ja muokattu kontrolleriin ominaisuuksia" />
-    <MESSAGE value="lisätty interface ikontrolleriforM ja sen metodeja" />
-    <MESSAGE value="pari tekstimuutosta" />
-    <MESSAGE value="canvas muokattu naama, jonoviivat, kuvapohjat, tyytyväisyys" />
-    <MESSAGE value="saatu tyytyväisyysprosentti näkyviin new runnable metodilla (update tyytyväisyys)" />
-    <MESSAGE value="tyytväisyysprosentti kokonaisluvuksi" />
-    <MESSAGE value="suun liike toimii (updateSuuJokaLiikkuu)" />
-    <MESSAGE value="kuvat lisätty, mutta ei näy" />
-    <MESSAGE value="vanhan visualin pallojen piirtäminen laitettu kommenteiksi" />
-    <MESSAGE value="taustaväsi mustasta valkoiseksi Visualisointi-tiedostoon(tyhjennänäyttö-metodi)" />
-    <MESSAGE value="naaman väri muuttuu myös toimivasti" />
-    <MESSAGE value="jonojen viivojen pituudet päivittyy ajon aikana" />
-    <MESSAGE value="jonojen viivojen pituusmuutoksia vähän pienennetty" />
-    <MESSAGE value="jonojen viivojen pituusmuutoksia vähän pienennetty ja printit päivitetty" />
-    <MESSAGE value="tyytyväisyysteksti korjattu" />
-    <MESSAGE value="tyytyväisyysteksti englanniksi" />
-    <MESSAGE value="jonojen visualisointia muokattu paremmaksi" />
-    <option name="LAST_COMMIT_MESSAGE" value="jonojen visualisointia muokattu paremmaksi" />
+    <MESSAGE value="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd" />
+    <MESSAGE value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
+    <MESSAGE value="UI MIGRATED AND STUFF MUST WORK :D" />
+    <MESSAGE value="AINT NO WAY, WE DID IT!" />
+    <option name="LAST_COMMIT_MESSAGE" value="AINT NO WAY, WE DID IT!" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

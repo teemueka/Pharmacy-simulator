@@ -11,14 +11,14 @@ public interface IKontrolleriForM {
 
     void naytaMenetetty(int missedCustomers);
 
+    void naytaTyytyvaisyys(double satisfaction);
+
+    void naytaAverage(double average);
 
 
 
 
-    //Näytöllä olevat osuudet
-    public void visualisoiMenetettyAsiakas();
 
-    public void visualisoiUusiAsiakas();
 
     public void updateTyytyvaisyys(double v);
 
@@ -34,4 +34,7 @@ public interface IKontrolleriForM {
     public void updateInfoJonoPituus(double infoJonoPit);
 
 
+    void simulationDone();
+
+    void updateUI(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int kauppaUsage, int reseptiUsage, int kassaUsage, int satisfiedCustomers, int dissatisfiedCustomers, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization);
 }

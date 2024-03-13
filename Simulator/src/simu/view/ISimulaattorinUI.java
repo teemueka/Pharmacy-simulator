@@ -11,6 +11,8 @@ public interface ISimulaattorinUI {
 
 	public void setPalveltu(int asiakas);
 	public void setMenetetty(int asiakas);
+	public void setTyytyvaisyys(double tyytyvaisyys);
+	public void setAverage(double aika);
 
 	public int getA_staff();
 	public int getH_staff();
