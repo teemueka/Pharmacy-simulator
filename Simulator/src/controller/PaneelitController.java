@@ -5,10 +5,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
 import simu.view.IVisualisointi;
@@ -22,6 +19,47 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	private Canvas visu;    // Käyttöliittymäkomponentti
 	private IVisualisointi visualisointi = null; // Työjuhta
 
+	@FXML
+	private Label averageTimeLabel;
+
+	@FXML
+	private Label checkoutUsageLabel;
+
+	@FXML
+	private Label checkoutUtilisationLabel;
+
+	@FXML
+	private Label dissatisfiedCustomersLabel;
+
+	@FXML
+	private Label infoUsageLabel;
+
+	@FXML
+	private Label infoUtilisationLabel;
+
+	@FXML
+	private Label missedCustomersLabel;
+
+	@FXML
+	private Label prescriptionUsageLabel;
+
+	@FXML
+	private Label prescriptionUtilisationLabel;
+
+	@FXML
+	private Label satisfiedCustomersLabel;
+
+	@FXML
+	private Label servedCustomersLabel;
+
+	@FXML
+	private Label shelvesUsageLabel;
+
+	@FXML
+	private Label shelvesUtilisationLabel;
+
+	@FXML
+	private Label simulationTimeLabel;
 
 	@FXML
 	private Button startButton;
@@ -183,6 +221,72 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	@Override
 	public void naytaMenetetty(int missedCustomers) {
 
+	}
+
+	@Override
+	public void naytaTyytyvaisyys(double satisfaction) {
+
+	}
+
+	@Override
+	public void naytaAverage(double average) {
+
+	}
+
+	public void setSimulationTimeLabel(String simulationTimeLabel) {
+		this.simulationTimeLabel.setText(simulationTimeLabel);
+	}
+
+	public void setAverageTimeLabel(String averageTimeLabel) {
+		this.averageTimeLabel.setText(averageTimeLabel);
+	}
+
+	public void setServedCustomersLabel(String servedCustomersLabel) {
+		this.servedCustomersLabel.setText(servedCustomersLabel);
+	}
+
+	public void setMissedCustomersLabel(String missedCustomersLabel) {
+		this.missedCustomersLabel.setText(missedCustomersLabel);
+	}
+
+	public void setSatisfiedCustomersLabel(String satisfiedCustomersLabel) {
+		this.satisfiedCustomersLabel.setText(satisfiedCustomersLabel);
+	}
+
+	public void setDissatisfiedCustomersLabel(String dissatisfiedCustomersLabel) {
+		this.dissatisfiedCustomersLabel.setText(dissatisfiedCustomersLabel);
+	}
+
+	public void setInfoUsageLabel(String infoUsageLabel) {
+		this.infoUsageLabel.setText(infoUsageLabel);
+	}
+
+	public void setInfoUtilisationLabel(String infoUtilisationLabel) {
+		this.infoUtilisationLabel.setText(infoUtilisationLabel);
+	}
+
+	public void setPrescriptionUsageLabel(String prescriptionUsageLabel) {
+		this.prescriptionUsageLabel.setText(prescriptionUsageLabel);
+	}
+
+	public void setPrescriptionUtilisationLabel(String prescriptionUtilisationLabel) {
+		this.prescriptionUtilisationLabel.setText(prescriptionUtilisationLabel);
+	}
+
+	public void setShelvesUsageLabel(String shelvesUsageLabel) {
+		this.shelvesUsageLabel.setText(shelvesUsageLabel);
+	}
+
+	public void setShelvesUtilisationLabel(String shelvesUtilisationLabel) {
+		this.shelvesUtilisationLabel.setText(shelvesUtilisationLabel);
+	}
+
+	public void setCheckoutUsageLabel(String checkoutUsageLabel) {
+		this.checkoutUsageLabel.setText(checkoutUsageLabel);
+	}
+
+	public void setCheckoutUtilisationLabel(String checkoutUtilisationLabel) {
+		this.checkoutUtilisationLabel.setText(checkoutUtilisationLabel);
 	}
 
 
