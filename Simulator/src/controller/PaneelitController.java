@@ -225,7 +225,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateAulaJonoPituus(double aulaJonoPit){
 		Platform.runLater(new Runnable() {
 			public void run() {
-				aulaJono.setStartX(-85 - (aulaJonoPit)*25);
+				aulaJono.setStartX(-85 - (aulaJonoPit)*15);
 				System.out.println("aulajono: " + aulaJonoPit);
 			}
 		});
@@ -234,8 +234,8 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateKassaJonoPituus(double kassaJonoPit){
 		Platform.runLater(new Runnable() {
 			public void run() {
-				kassaJono.setStartX(-85 - (kassaJonoPit)*25);
-				System.out.println("aulajono: " + kassaJonoPit);
+				kassaJono.setStartX(-85 - (kassaJonoPit)*15);
+				System.out.println("kassajono: " + kassaJonoPit);
 			}
 		});
 	}
@@ -244,8 +244,8 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateReseptiJonoPituus(double reseptiJonoPit){
 		Platform.runLater(new Runnable() {
 			public void run() {
-				reseptiJono.setStartX(-85 - (reseptiJonoPit)*25);
-				System.out.println("aulajono: " + reseptiJonoPit);
+				reseptiJono.setStartX(-85 - (reseptiJonoPit)*15);
+				System.out.println("reseptijono: " + reseptiJonoPit);
 			}
 		});
 	}
@@ -254,8 +254,8 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateHyllyJonoPituus(double hyllyJonoPit){
 		Platform.runLater(new Runnable() {
 			public void run() {
-				hyllytJono.setStartX(-85 - (hyllyJonoPit)*25);
-				System.out.println("aulajono: " + hyllyJonoPit);
+				hyllytJono.setStartX(-85 - (hyllyJonoPit)*15);
+				System.out.println("hyllyjono: " + hyllyJonoPit);
 			}
 		});
 	}
@@ -264,8 +264,8 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateInfoJonoPituus(double infoJonoPit){
 		Platform.runLater(new Runnable() {
 			public void run() {
-				infoJono.setStartX(-85 - (infoJonoPit)*25);
-				System.out.println("aulajono: " + infoJonoPit);
+				infoJono.setStartX(-85 - (infoJonoPit)*15);
+				System.out.println("infojono: " + infoJonoPit);
 			}
 		});
 	}
