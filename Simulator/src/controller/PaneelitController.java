@@ -24,7 +24,7 @@ import simu.view.Visualisointi;
 public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 
-    @FXML
+	@FXML
 	private Canvas visu;    // Käyttöliittymäkomponentti
 	private IVisualisointi visualisointi = null; // Työjuhta
 
@@ -94,7 +94,6 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	private Label tyytyvProsLuku;
 
 
-
 	MainApp mainApp;
 	IMoottori moottori;
 
@@ -126,17 +125,10 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		simu.framework.Kello.getInstance().reset();
 		simu.model.Asiakas.reset();
 
-		moottori = new OmaMoottori(this, a, h, r, k); // luodaan uusi moottorisäie jokaista simulointia varten
-		moottori.setSimulointiaika(100000);
-		moottori.setViive(10);
-		((Thread) moottori).start();
 
 		startButton.setDisable(false);
 		simuloiButton.setDisable(true);
 	}
-	}
-
-
 
 
 	public void setMainApp(MainApp mainApp) {
@@ -183,22 +175,10 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 	}
 
-	public void simulationDone(){
+	public void simulationDone() {
 		simuloiButton.setDisable(false);
 
 	}
-
-
-
-//	@Override
-//	public double getAika() {
-//		return Double.parseDouble(aika.getText());
-//	}
-//
-//	@Override
-//	public long getViive() {
-//		return Long.parseLong(viive.getText());
-//	}
 
 
 	public int getA_staff() {
@@ -273,63 +253,66 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateTyytyvaisyys(double v) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				tyytyvProsLuku.setText(String.valueOf((int)v));
+				tyytyvProsLuku.setText(String.valueOf((int) v));
 			}
 		});
 	}
+
 	@Override
-	public void updateSuuJokaLiikkuu(double v){
+	public void updateSuuJokaLiikkuu(double v) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-		suuJokaLiikkuu.setControlY(1.6 * v - 100);
-		naamaPallo.setFill(javafx.scene.paint.Color.rgb(255- (int) v, 31 + (int) v*2, 31));
+				suuJokaLiikkuu.setControlY(1.6 * v - 100);
+				naamaPallo.setFill(javafx.scene.paint.Color.rgb(255 - (int) v, 31 + (int) v * 2, 31));
+			}
+		});
 	}
-	});
-	}
+
 	@Override
-	public void updateAulaJonoPituus(double aulaJonoPit){
+	public void updateAulaJonoPituus(double aulaJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				aulaJono.setStartX(-85 - (aulaJonoPit)*15);
+				aulaJono.setStartX(-85 - (aulaJonoPit) * 15);
 				System.out.println("aulajono: " + aulaJonoPit);
 			}
 		});
 	}
+
 	@Override
-	public void updateKassaJonoPituus(double kassaJonoPit){
+	public void updateKassaJonoPituus(double kassaJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				kassaJono.setStartX(-85 - (kassaJonoPit)*15);
+				kassaJono.setStartX(-85 - (kassaJonoPit) * 15);
 				System.out.println("kassajono: " + kassaJonoPit);
 			}
 		});
 	}
 
 	@Override
-	public void updateReseptiJonoPituus(double reseptiJonoPit){
+	public void updateReseptiJonoPituus(double reseptiJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				reseptiJono.setStartX(-85 - (reseptiJonoPit)*15);
+				reseptiJono.setStartX(-85 - (reseptiJonoPit) * 15);
 				System.out.println("reseptijono: " + reseptiJonoPit);
 			}
 		});
 	}
 
 	@Override
-	public void updateHyllyJonoPituus(double hyllyJonoPit){
+	public void updateHyllyJonoPituus(double hyllyJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				hyllytJono.setStartX(-85 - (hyllyJonoPit)*15);
+				hyllytJono.setStartX(-85 - (hyllyJonoPit) * 15);
 				System.out.println("hyllyjono: " + hyllyJonoPit);
 			}
 		});
 	}
 
 	@Override
-	public void updateInfoJonoPituus(double infoJonoPit){
+	public void updateInfoJonoPituus(double infoJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				infoJono.setStartX(-85 - (infoJonoPit)*15);
+				infoJono.setStartX(-85 - (infoJonoPit) * 15);
 				System.out.println("infojono: " + infoJonoPit);
 			}
 		});
