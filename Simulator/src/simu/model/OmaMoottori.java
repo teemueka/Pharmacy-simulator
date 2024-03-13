@@ -11,7 +11,6 @@ public class OmaMoottori extends Moottori{
 	
 	private final Saapumisprosessi saapumisprosessi;
 	private final Palvelupiste[] palvelupisteet;
-	Apteekki apteekki = new Apteekki(10);
 	public int aspaTyontekijat;
 	public int hyllyTyontekijat;
 	public int reseptiTyontekijat;
@@ -175,8 +174,8 @@ public class OmaMoottori extends Moottori{
 					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
 
                        //TODO: FIX THE CUTOMERS!
-				kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
-				kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.updateTyytyvaisyys(((double)  apteekki.getSatisfiedCustomers() / apteekki.getServedCustomers()) * 100);
+				kontrolleri.updateSuuJokaLiikkuu(((double) apteekki.getSatisfiedCustomers() / apteekki.getServedCustomers()) * 100);
 				kontrolleri.updateAulaJonoPituus((double)apteekki.displayApteekkijono());
 				kontrolleri.updateKassaJonoPituus((double)palvelupisteet[4].getJonoPituus());
 				kontrolleri.updateInfoJonoPituus((double)palvelupisteet[1].getJonoPituus());
