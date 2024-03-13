@@ -63,6 +63,16 @@ public class Kontrolleri implements IKontrolleriForM, IKontrolleriForV{   // UUS
 		Platform.runLater(()->ui.setMenetetty(asiakas));
 	}
 
+	@Override
+	public void naytaTyytyvaisyys(double satisfaction) {
+		Platform.runLater(()->ui.setTyytyvaisyys(satisfaction));
+	}
+
+	@Override
+	public void naytaAverage(double average) {
+		Platform.runLater(()->ui.setAverage(average));
+	}
+
 
 	@Override
 	public void visualisoiMenetettyAsiakas() {

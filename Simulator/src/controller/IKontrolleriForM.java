@@ -11,6 +11,9 @@ public interface IKontrolleriForM {
 
     void naytaMenetetty(int missedCustomers);
 
+    void naytaTyytyvaisyys(double satisfaction);
+
+    void naytaAverage(double average);
 
 
 

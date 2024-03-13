@@ -267,8 +267,17 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
         this.menetetty.setText(Integer.toString(asiakas));
     }
 
+    @Override
+    public void setTyytyvaisyys(double tyytyvaisyys) {
+        DecimalFormat formatter = new DecimalFormat("#0.00");
+        this.tyytyvaisyys.setText(formatter.format(tyytyvaisyys));
+    }
 
-
+    @Override
+    public void setAverage(double aika) {
+        DecimalFormat formatter = new DecimalFormat("#0.00");
+        this.average.setText(formatter.format(aika));
+    }
 
 
     @Override
