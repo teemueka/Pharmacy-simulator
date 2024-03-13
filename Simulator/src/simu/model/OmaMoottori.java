@@ -1,14 +1,16 @@
 package simu.model;
 
+import controller.PaneelitController;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
 import controller.IKontrolleriForM;
 
 public class OmaMoottori extends Moottori{
-
+	
 	private Saapumisprosessi saapumisprosessi;
 	private Palvelupiste[] palvelupisteet;
+
 
 	Apteekki apteekki;
 
@@ -68,7 +70,7 @@ public class OmaMoottori extends Moottori{
 					palvelupisteet[0].lisaaJonoon(a);
 
 
-					kontrolleri.visualisoiUusiAsiakas(); // Tämä lisää SINISEN visuaalisen pisteen asiakkaan saapuessa
+					//kontrolleri.visualisoiUusiAsiakas(); // Tämä lisää SINISEN visuaalisen pisteen asiakkaan saapuessa
 
 					//jos ei, mahdollisuus poistua
 				} else {
@@ -76,8 +78,8 @@ public class OmaMoottori extends Moottori{
 						apteekki.addMissedCustomer();
 						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
 
-						kontrolleri.visualisoiMenetettyAsiakas();//Tämä lisää PUNAISEN visuaalisen pisteen asiakkaan poistuessa
-						kontrolleri.naytaMenetetty(apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
+						//kontrolleri.visualisoiMenetettyAsiakas();//Tämä lisää PUNAISEN visuaalisen pisteen asiakkaan poistuessa
+						kontrolleri.naytaMenetetty(Apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
 						System.out.println("Asiakas, " + a.getId() + " päätti pysyä jonossa");
@@ -159,8 +161,16 @@ public class OmaMoottori extends Moottori{
 				System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 				apteekki.customerOut();
 
-					   //Päivittää palveltun asiakkaan määrän
-					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
+				//Päivittää palveltun asiakkaan määrän
+				kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
+
+				kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.updateAulaJonoPituus((double)apteekki.displayApteekkijono());
+				kontrolleri.updateKassaJonoPituus((double)palvelupisteet[4].getJonoPituus());
+				kontrolleri.updateInfoJonoPituus((double)palvelupisteet[1].getJonoPituus());
+				kontrolleri.updateHyllyJonoPituus((double)palvelupisteet[2].getJonoPituus());
+				kontrolleri.updateReseptiJonoPituus((double)palvelupisteet[3].getJonoPituus());
 
 		}
 	}

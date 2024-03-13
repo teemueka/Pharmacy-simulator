@@ -31,6 +31,8 @@ public class Palvelupiste {
 	private int staff;
 	private int palveltavat = 0;
 
+	private double jonoPituus;
+
 
 
 	public Palvelupiste(String palvelupisteenNimi, ContinuousGenerator generator, int staff, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi){
@@ -176,6 +178,10 @@ public class Palvelupiste {
 	//this is just here to help us better understand the simulation during the run
 	public String displayServiceUsage() {
 		return "served customers at aula: " + getAulaUsage() + ", served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage() + ", served customers at kassa: " + getKassaUsage();
+	}
+
+	public double getJonoPituus() {
+		return jono.size();
 	}
 
 }
