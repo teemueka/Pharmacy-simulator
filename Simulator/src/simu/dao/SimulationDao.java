@@ -2,10 +2,6 @@ package simu.dao;
 
 import simu.datasource.MariaDbConnection;
 import simu.framework.Kello;
-import simu.model.Apteekki;
-import simu.model.Asiakas;
-import simu.model.OmaMoottori;
-import simu.model.Palvelupiste;
 
 import java.sql.*;
 

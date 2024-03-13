@@ -230,23 +230,8 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 	}
 
-	public void visualisoiMenetettyAsiakas() {
-		Platform.runLater(new Runnable() {
-			public void run() {
-				visualisointi.menetettyAsiakas();
-			}
-		});
-	}
 
-	@Override
-	public void visualisoiUusiAsiakas() {
-		Platform.runLater(new Runnable() {
-			public void run() {
-				visualisointi.uusiAsiakas();
-			}
-		});
 
-	}
 
 	@Override
 	public void updateTyytyvaisyys(double v) {

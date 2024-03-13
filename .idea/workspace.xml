@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
-      <change beforePath="$PROJECT_DIR$/Simulator/Checkout.png" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Checkout.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/Door.png" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Door.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/Info.png" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Info.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/Prescription.png" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Prescription.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/Shelves.png" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Shelves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/main" />
+    <option name="BRANCH" value="origin/Heikin-branch" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -47,36 +42,41 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Simulaattori.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SimulaattorinGUI.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.testMain.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UI__2__0&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.42988506&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainApp.executor": "Run",
+    "Application.Simulaattori.executor": "Run",
+    "Application.SimulaattorinGUI.executor": "Debug",
+    "Application.testMain.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "UI__2__0",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.42988506",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "two.files.diff.last.used.file": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\resources" />
@@ -175,7 +175,7 @@
       <workItem from="1709561809323" duration="12529000" />
       <workItem from="1709659418166" duration="3027000" />
       <workItem from="1709726540888" duration="20204000" />
-      <workItem from="1710327112995" duration="4812000" />
+      <workItem from="1710327112995" duration="6389000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -377,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710332028996</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
+      <option name="closed" value="true" />
+      <created>1710333166228</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710333166228</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
