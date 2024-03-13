@@ -18,10 +18,7 @@ public interface IKontrolleriForM {
 
 
 
-    //Näytöllä olevat osuudet
-    public void visualisoiMenetettyAsiakas();
 
-    public void visualisoiUusiAsiakas();
 
     public void updateTyytyvaisyys(double v);
 

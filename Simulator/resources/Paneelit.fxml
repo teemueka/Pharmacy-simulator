@@ -84,23 +84,23 @@
                   <Canvas fx:id="visu" height="426.0" layoutX="19.0" layoutY="13.0" width="400.0" />
                   <ImageView fx:id="infoKuva" fitHeight="64.0" fitWidth="64.0" layoutX="183.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:Simulator/Logo.png"/>
+                        <Image url="@/Info.png"/>
                      </image></ImageView>
                   <ImageView fx:id="hyllytKuva" fitHeight="64.0" fitWidth="64.0" layoutX="183.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Shelves.png" />
+                        <Image url="@Shelves.png" />
                      </image></ImageView>
                   <ImageView fx:id="reseptiKuva" fitHeight="64.0" fitWidth="64.0" layoutX="182.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Prescription.png" />
+                        <Image url="@Prescription.png" />
                      </image></ImageView>
                   <ImageView fx:id="aulaKuva" fitHeight="64.0" fitWidth="84.0" layoutX="48.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Door.png" />
+                        <Image url="@Door.png" />
                      </image></ImageView>
                   <ImageView fx:id="kassaKuva" fitHeight="64.0" fitWidth="64.0" layoutX="341.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Checkout.png" />
+                        <Image url="@Checkout.png" />
                      </image></ImageView>
                   <Ellipse fx:id="naamaPallo" fill="#34c90b" layoutX="359.0" layoutY="370.0" radiusX="70.0" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="oikeaSilma" layoutX="386.0" layoutY="347.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />

@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="Aarni's changes">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_13_14__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/IKontrolleriForM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/IKontrolleriForM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/main" />
+    <option name="BRANCH" value="origin/Heikin-branch" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -62,7 +55,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Aarni",
+    "git-widget-placeholder": "UI__2__0",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
@@ -77,10 +70,16 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "two.files.diff.last.used.file": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\resources" />
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator" />
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\src" />
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\src\view" />
@@ -176,7 +175,7 @@
       <workItem from="1709561809323" duration="12529000" />
       <workItem from="1709659418166" duration="3027000" />
       <workItem from="1709726540888" duration="20204000" />
-      <workItem from="1710327112995" duration="4235000" />
+      <workItem from="1710327112995" duration="6389000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -362,7 +361,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710330561922</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
+      <option name="closed" value="true" />
+      <created>1710332025144</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710332025144</updated>
+    </task>
+    <task id="LOCAL-00025" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
+      <option name="closed" value="true" />
+      <created>1710332028996</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710332028996</updated>
+    </task>
+    <task id="LOCAL-00026" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
+      <option name="closed" value="true" />
+      <created>1710333166228</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710333166228</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,8 +411,7 @@
     <MESSAGE value="UI 2.0&#10;Scene builder implementation" />
     <MESSAGE value="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd" />
     <MESSAGE value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
-    <MESSAGE value="Aarni's changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aarni's changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

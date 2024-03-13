@@ -88,7 +88,7 @@ public class OmaMoottori extends Moottori{
 						apteekki.addMissedCustomer();
 						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
 
-						kontrolleri.visualisoiMenetettyAsiakas();//Tämä lisää PUNAISEN visuaalisen pisteen asiakkaan poistuessa
+
 						kontrolleri.naytaMenetetty(apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
@@ -175,8 +175,8 @@ public class OmaMoottori extends Moottori{
 					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
 
                        //TODO: FIX THE CUTOMERS!
-				//kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
-				//kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.updateTyytyvaisyys(((double)  apteekki.getSatisfiedCustomers() / apteekki.getServedCustomers()) * 100);
+				kontrolleri.updateSuuJokaLiikkuu(((double) apteekki.getSatisfiedCustomers() / apteekki.getServedCustomers()) * 100);
 				kontrolleri.updateAulaJonoPituus((double)apteekki.displayApteekkijono());
 				kontrolleri.updateKassaJonoPituus((double)palvelupisteet[4].getJonoPituus());
 				kontrolleri.updateInfoJonoPituus((double)palvelupisteet[1].getJonoPituus());
