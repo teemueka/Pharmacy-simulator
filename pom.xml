@@ -36,7 +36,7 @@
             <version>4.0.15-alpha</version>
         </dependency>
         <dependency>
->>>>>>>>> Temporary merge branch 2
+
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>3.1.2</version>
@@ -82,12 +82,7 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.testfx</groupId>
-            <artifactId>testfx-core</artifactId>
-            <version>4.0.15-alpha</version>
-            <version>1.4.6</version>
-        </dependency>
+
     </dependencies>
 
     

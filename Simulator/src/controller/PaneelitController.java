@@ -16,6 +16,7 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import simu.framework.IMoottori;
+import simu.framework.Kello;
 import simu.model.Asiakas;
 import simu.model.OmaMoottori;
 import simu.view.IVisualisointi;
@@ -220,6 +221,29 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void simulationDone() {
 		simuloiButton.setDisable(false);
 
+	}
+
+	@Override
+	public void updateUI(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int kauppaUsage, int reseptiUsage, int kassaUsage, int satisfiedCustomers, int dissatisfiedCustomers, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization) {
+		Platform.runLater(new Runnable() {
+			public void run() {
+
+				setSimulationTimeLabel(String.valueOf(Kello.getInstance().getAika()));
+				setAverageTimeLabel("Jee");
+				setServedCustomersLabel(String.valueOf(servedCustomers));
+				setMissedCustomersLabel(String.valueOf(missedCustomers));
+				setSatisfiedCustomersLabel(String.valueOf(satisfiedCustomers));
+				setDissatisfiedCustomersLabel(String.valueOf(dissatisfiedCustomers));
+				setInfoUsageLabel(String.valueOf(aspaUsage));
+				setInfoUtilisationLabel(String.valueOf(aspaUtilization));
+				setPrescriptionUsageLabel(String.valueOf(kauppaUsage));
+				setPrescriptionUtilisationLabel(String.valueOf(kauppaUtilization));
+				setShelvesUsageLabel(String.valueOf(reseptiUsage));
+				setShelvesUtilisationLabel(String.valueOf(reseptiUtilization));
+				setCheckoutUsageLabel(String.valueOf(kassaUsage));
+				setCheckoutUtilisationLabel(String.valueOf(kassaUtilization));
+			}
+		});
 	}
 
 

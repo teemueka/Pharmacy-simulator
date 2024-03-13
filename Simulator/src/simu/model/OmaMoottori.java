@@ -11,7 +11,7 @@ public class OmaMoottori extends Moottori{
 	
 	private final Saapumisprosessi saapumisprosessi;
 	private final Palvelupiste[] palvelupisteet;
-	Apteekki apteekki = new Apteekki(10);
+
 	public int aspaTyontekijat;
 	public int hyllyTyontekijat;
 	public int reseptiTyontekijat;
@@ -175,13 +175,14 @@ public class OmaMoottori extends Moottori{
 					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
 
                        //TODO: FIX THE CUTOMERS!
-				kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
-				kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				//kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				//kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
 				kontrolleri.updateAulaJonoPituus((double)apteekki.displayApteekkijono());
 				kontrolleri.updateKassaJonoPituus((double)palvelupisteet[4].getJonoPituus());
 				kontrolleri.updateInfoJonoPituus((double)palvelupisteet[1].getJonoPituus());
 				kontrolleri.updateHyllyJonoPituus((double)palvelupisteet[2].getJonoPituus());
 				kontrolleri.updateReseptiJonoPituus((double)palvelupisteet[3].getJonoPituus());
+				kontrolleri.updateUI(aspaTyontekijat, hyllyTyontekijat, reseptiTyontekijat, kassaTyontekijat, apteekki.getServedCustomers(), apteekki.getMissedCustomers(), palvelupisteet[1].getAspaUsage(), palvelupisteet[2].getKauppaUsage(), palvelupisteet[3].getReseptiUsage(), palvelupisteet[4].getKassaUsage(), apteekki.getSatisfiedCustomers(), apteekki.getDissatisfiedCustomers(), apteekki.getOverallSatisfaction(), palvelupisteet[1].getAspaUtilization(aspaTyontekijat), palvelupisteet[2].getKauppaUtilization(hyllyTyontekijat), palvelupisteet[3].getReseptiUtilization(reseptiTyontekijat), palvelupisteet[4].getKassaUtilization(kassaTyontekijat));
 
 		}
 	}
