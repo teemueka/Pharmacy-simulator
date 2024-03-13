@@ -237,7 +237,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateTyytyvaisyys(double v) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				tyytyvProsLuku.setText(String.valueOf((int) v));
+				tyytyvProsLuku.setText((int) v +"%");
 			}
 		});
 	}

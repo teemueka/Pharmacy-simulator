@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" afterDir="false" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI MIGRATED AND STUFF MUST WORK :D">
+      <change beforePath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/resources/Paneelit.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +175,7 @@
       <workItem from="1709561809323" duration="12529000" />
       <workItem from="1709659418166" duration="3027000" />
       <workItem from="1709726540888" duration="20204000" />
-      <workItem from="1710327112995" duration="6389000" />
+      <workItem from="1710327112995" duration="7243000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -385,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710333166228</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="UI MIGRATED AND STUFF MUST WORK :D">
+      <option name="closed" value="true" />
+      <created>1710333985096</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710333985096</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +419,8 @@
     <MESSAGE value="UI 2.0&#10;Scene builder implementation" />
     <MESSAGE value="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd" />
     <MESSAGE value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
-    <option name="LAST_COMMIT_MESSAGE" value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
+    <MESSAGE value="UI MIGRATED AND STUFF MUST WORK :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI MIGRATED AND STUFF MUST WORK :D" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
