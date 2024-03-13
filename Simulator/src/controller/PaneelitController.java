@@ -227,7 +227,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		Platform.runLater(new Runnable() {
 			public void run() {
 
-				setSimulationTimeLabel(String.valueOf(Kello.getInstance().getAika()));
+				setSimulationTimeLabel(String.format(("%.1f"), Kello.getInstance().getAika()).replaceAll(",","."));
 				setAverageTimeLabel("Jee");
 				setServedCustomersLabel(String.valueOf(servedCustomers));
 				setMissedCustomersLabel(String.valueOf(missedCustomers));
