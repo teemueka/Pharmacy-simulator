@@ -13,22 +13,22 @@ public class Palvelupiste {
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
-	//this is not yet used for anything other than naming the services
 	private final String palvelupisteenNimi;
-
-	//added counters for every service, not sure if we use them yet for anything
-	//currently just incrementing every time customer enters service
-	private static int aulaUsage = 0;
-	private static int kauppaUsage = 0;
-	private static int reseptiUsage = 0;
-	private static int aspaUsage = 0;
-	private static int kassaUsage = 0;
+	private int aulaUsage = 0;
+	private int kauppaUsage = 0;
+	private int reseptiUsage = 0;
+	private int aspaUsage = 0;
+	private int kassaUsage = 0;
+	private double activeTimeAspa;
+	private double activeTimeKauppa;
+	private double activeTimeResepti;
+	private double activeTimeKassa;
 
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
 	
 	private boolean varattu = false;
 
-	private int staff;
+	private final int staff;
 	private int palveltavat = 0;
 
 	private double jonoPituus;
@@ -61,16 +61,16 @@ public class Palvelupiste {
 				break;
 			case ASPA_P:
                 aspaCounter();
-				asiakas.setAspaKäyty();
+				asiakas.setAspaKayty();
 				break;
 			case KAUPPA_P:
                 kauppaCounter();
-				asiakas.setKauppaKäyty();
+				asiakas.setKauppaKayty();
 				asiakas.setKauppaSpent();
 				break;
 			case RESEPTI_P:
                 reseptiCounter();
-				asiakas.setReseptiKäyty();
+				asiakas.setReseptiKayty();
 				asiakas.setReseptiSpent();
 				break;
 			case KASSA_P:
@@ -84,13 +84,14 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		Trace.out(Trace.Level.INFO, "Aloitetaan uusi " + getPalvelupisteenNimi() + " palvelu asiakkaalle " + jono.peek().getId());
+
 		palveltavat++;
 		if (palveltavat < staff){
 			varattu = false;
-
-		}else {
+		} else {
 			varattu = true;
 		}
+
 		Trace.out(Trace.Level.INFO, getPalvelupisteenNimi() + ", henkilökunnan määrä: " + getStaff() + " palvelussa tällä hetkellä: " + getPalveltavat());
 		double palveluaika = generator.sample();
 		//get the time the customer has been served
@@ -107,15 +108,19 @@ public class Palvelupiste {
 				break;
 			case ASPA_P:
 				servicePoint = "Aspa";
+				setActiveTimeAspa(palveluaika);
 				break;
 			case KAUPPA_P:
 				servicePoint = "Kauppa";
+				setActiveTimeKauppa(palveluaika);
 				break;
 			case RESEPTI_P:
 				servicePoint = "Resepti";
+				setActiveTimeResepti(palveluaika);
 				break;
 			case KASSA_P:
 				servicePoint = "Kassa";
+				setActiveTimeKassa(palveluaika);
 				break;
 		}
 		//Set service time for the specific service point
@@ -127,8 +132,6 @@ public class Palvelupiste {
 	public boolean onVarattu(){
 		return varattu;
 	}
-
-
 
 	public boolean onJonossa(){
 		return !jono.isEmpty();
@@ -168,16 +171,36 @@ public class Palvelupiste {
 	public int getKauppaUsage() {
 		return kauppaUsage;
 	}
-
 	public int getReseptiUsage() {
 		return reseptiUsage;
 	}
 	public int getAulaUsage() {
 		return aulaUsage;
 	}
-	//this is just here to help us better understand the simulation during the run
-	public String displayServiceUsage() {
-		return "served customers at aula: " + getAulaUsage() + ", served customers at aspa: " + getAspaUsage() + ", served customers at kauppa: " + getKauppaUsage() + ", served customers at resepti: " + getReseptiUsage() + ", served customers at kassa: " + getKassaUsage();
+
+	public void setActiveTimeAspa(double palveluaika) {
+		activeTimeAspa += palveluaika;
+	}
+	public void setActiveTimeKauppa(double palveluaika) {
+		activeTimeKauppa += palveluaika;
+	}
+	public void setActiveTimeResepti(double palveluaika) {
+		activeTimeResepti += palveluaika;
+	}
+	public void setActiveTimeKassa(double palveluaika) {
+		activeTimeKassa += palveluaika;
+	}
+	public double getAspaUtilization(int aspaTyontekijat) {
+		return (activeTimeAspa / aspaTyontekijat) / Kello.getInstance().getAika() * 100;
+	}
+	public double getKauppaUtilization(int hyllyTyontekijat) {
+		return (activeTimeKauppa / hyllyTyontekijat) / Kello.getInstance().getAika() * 100;
+	}
+	public double getReseptiUtilization(int reseptiTyontekijat) {
+		return (activeTimeResepti / reseptiTyontekijat) / Kello.getInstance().getAika() * 100;
+	}
+	public double getKassaUtilization(int kassaTyontekijat) {
+		return (activeTimeKassa / kassaTyontekijat) / Kello.getInstance().getAika() * 100;
 	}
 
 	public double getJonoPituus() {

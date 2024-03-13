@@ -5,10 +5,12 @@ import java.util.LinkedList;
 public class Apteekki {
     //Apteekin kapasiteetti, tätä käytetään ehtona pääseekä asiakas sisään apteekkiin vai jonottaako ulkona
     private final int capacity;
-    //tällä pidetään yllä ketkä ovat päässeet sisään, sisälle tultaessa ++ poistuessaan --
     private int current_customers = 0;
     private int missedCustomers = 0;
     private int servedCustomers = 0;
+    private int lostRevenue = 0;
+    private int satisfiedCustomers;
+    private int dissatisfiedCustomers;
     LinkedList<Asiakas> apteekkijono = new LinkedList<>();
 
     public Apteekki(int capacity) {
@@ -26,6 +28,21 @@ public class Apteekki {
     public int getMissedCustomers() {
         return missedCustomers;
     }
+    public void addSatisfiedCustomer() {
+        satisfiedCustomers++;
+    }
+    public void addDissatisfiedCustomer() {
+        dissatisfiedCustomers++;
+    }
+    public int getSatisfiedCustomers() {
+        return satisfiedCustomers;
+    }
+    public int getDissatisfiedCustomers() {
+        return dissatisfiedCustomers;
+    }
+    public double getOverallSatisfaction() {
+        return (double) satisfiedCustomers / servedCustomers * 100;
+    }
 
     public int getCapacity() {
         return capacity;
@@ -42,6 +59,10 @@ public class Apteekki {
     }
     public void addMissedCustomer() {
         missedCustomers++;
+        lostRevenue += 62; //62 is the average spending we got on a large sample size
+    }
+    public int getLostRevenue() {
+        return lostRevenue;
     }
     public int displayMissedCustomers() {
         return missedCustomers;
