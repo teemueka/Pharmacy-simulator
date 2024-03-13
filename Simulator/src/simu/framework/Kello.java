@@ -23,4 +23,12 @@ public class Kello {
 	public double getAika(){
 		return aika;
 	}
+
+	public void reset(){
+		aika = 0;
+	}
+
+
+
+
 }

@@ -1,4 +1,4 @@
-package view;
+package simu.view;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -46,6 +46,11 @@ public class Visualisointi2 extends Canvas implements IVisualisointi{
 		gc.setFont(new Font(20));
 		gc.fillText("Menetetty asiakas " + menetettyLkm, 200, 200);
 	}
-	
+
+	@Override
+	public void reset() {
+
+	}
+
 
 }

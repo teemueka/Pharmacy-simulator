@@ -16,6 +16,7 @@ public class Asiakas {
 	private static int i = 1;
 	private static long sum = 0;
 	//14/02 testaan toimiiko booleaneilla asiakkaiden käyttäytymisen määrittely
+	private int aulaKäyty = 0;
 	private boolean kauppaKäyty = false;
 	private boolean reseptiKäyty = false;
 	private boolean asiakaspalveluKäyty = false;
@@ -52,6 +53,10 @@ public class Asiakas {
 		Collections.shuffle(services);
 		//trim the list to the desired number of services
 		services = new ArrayList<>(services.subList(0, numOfServices));
+		Trace.out(Trace.Level.INFO, "Asiakas " + id + " aikoo käydä palveluissa: " + services);
+	}
+	public String nextService() {
+		return services.get(0);
 	}
 	public String getNextService() {
 		return services.remove(0);
@@ -81,12 +86,11 @@ public class Asiakas {
 	public void setTyytyväisyys() {
 		if (((poistumisaika-saapumisaika-aikaPalveluissa) / numOfServices) > 50) {
 			dissatisfied++;
-			customerAmount++;
-		} else {
+        } else {
 			satisfied++;
-			customerAmount++;
-		}
-	}
+        }
+        customerAmount++;
+    }
 	public static int getCustomerAmount() {
 		return customerAmount;
 	}
@@ -185,6 +189,12 @@ public class Asiakas {
 		this.totalSpent += save;
 		totalSpentAllCustomers += save;
 	}
+	public void setAulaState() {
+		this.aulaKäyty += 1;
+    }
+	public int getAulaState() {
+		return aulaKäyty;
+	}
 
 	public int getReseptiSpent() {
 		return reseptiSpent;
@@ -218,6 +228,16 @@ public class Asiakas {
 		sum += (poistumisaika-saapumisaika);
 		double keskiarvo = sum/id;
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti "+ keskiarvo);
+	}
+
+	public static void reset(){
+		i = 1;
+		sum = 0;
+		satisfied = 0;
+		dissatisfied = 0;
+		customerAmount = 0;
+		totalSpentAllCustomers = 0;
+		usedOnlyAspa = 0;
 	}
 
 }

@@ -6,49 +6,37 @@ import eduni.distributions.Normal;
 import controller.IKontrolleriForM;
 
 public class OmaMoottori extends Moottori{
-	
+
 	private Saapumisprosessi saapumisprosessi;
 	private Palvelupiste[] palvelupisteet;
-	Apteekki apteekki = new Apteekki();
+
+	Apteekki apteekki;
 
 
-	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {
+	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff, int intensity, int capacity) {
 
 		super(kontrolleri);
+
+		apteekki = new Apteekki(capacity);
 
 		System.out.println(a_staff + " " + h_staff + " " + r_staff + " " + k_staff);
 
 		palvelupisteet = new Palvelupiste[5];
 
-		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);
-		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal((int)(1000/a_staff),100), tapahtumalista, TapahtumanTyyppi.ASPA_P);
-		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal((int)(500/h_staff),300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
-		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal((int)(1000/r_staff), 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
-		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal((int)(1000/k_staff), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);
+		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1),1, tapahtumalista, TapahtumanTyyppi.AULA_P);
 
 
-		saapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal(100,10), a_staff, tapahtumalista, TapahtumanTyyppi.ASPA_P);
+		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal(50,30),	h_staff , tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
+		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal(100, 50),	r_staff ,tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
+		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(100, 50),	k_staff ,tapahtumalista, TapahtumanTyyppi.KASSA_P);
 
 
-	}
-
-	//Default konstruktori
-	public OmaMoottori(IKontrolleriForM kontrolleri) {
-		super(kontrolleri);
-
-		palvelupisteet = new Palvelupiste[5];
-
-		palvelupisteet[0]=new Palvelupiste("Sisäänkäynti", new Normal (0,1), tapahtumalista, TapahtumanTyyppi.AULA_P);
-		palvelupisteet[1]=new Palvelupiste("Asiakaspalvelu" , new Normal((1000),100), tapahtumalista, TapahtumanTyyppi.ASPA_P);
-		palvelupisteet[2]=new Palvelupiste("Hyllyt" , new Normal((500),300), tapahtumalista, TapahtumanTyyppi.KAUPPA_P);
-		palvelupisteet[3]=new Palvelupiste("Resepti", new Normal((1000), 500), tapahtumalista, TapahtumanTyyppi.RESEPTI_P);
-		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal((1000), 500), tapahtumalista, TapahtumanTyyppi.KASSA_P);
-
-
-		saapumisprosessi = new Saapumisprosessi(new Negexp(1500,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+		saapumisprosessi = new Saapumisprosessi(new Negexp((intensity),intensity/10), tapahtumalista, TapahtumanTyyppi.AULA_S);
 
 
 	}
+
 
 
 	@Override
@@ -60,7 +48,7 @@ public class OmaMoottori extends Moottori{
 	protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
 
 		Asiakas a;
-		switch ((TapahtumanTyyppi)t.getTyyppi()){
+		switch (t.getTyyppi()){
 
 
 			//asiakkaan saapuminen, generoi uuden saapumisen, katsoo onko tilaa apteekissa
@@ -89,7 +77,7 @@ public class OmaMoottori extends Moottori{
 						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
 
 						kontrolleri.visualisoiMenetettyAsiakas();//Tämä lisää PUNAISEN visuaalisen pisteen asiakkaan poistuessa
-						kontrolleri.naytaMenetetty(Apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
+						kontrolleri.naytaMenetetty(apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
 						System.out.println("Asiakas, " + a.getId() + " päätti pysyä jonossa");
@@ -99,7 +87,7 @@ public class OmaMoottori extends Moottori{
 
 
 			case AULA_P:
-				a = (Asiakas)palvelupisteet[0].otaJonosta();
+				a = palvelupisteet[0].otaJonosta();
 				if (a.hasMoreServices()) {
 					String nextService = a.getNextService();
 					switch (nextService) {
@@ -122,7 +110,7 @@ public class OmaMoottori extends Moottori{
 			case KAUPPA_P:
 			case RESEPTI_P:
 				int index = 0;
-				switch ((TapahtumanTyyppi)t.getTyyppi()) {
+				switch (t.getTyyppi()) {
 					case ASPA_P:
 						index = 1;
 						break;
@@ -133,7 +121,7 @@ public class OmaMoottori extends Moottori{
 						index = 3;
 						break;
 				}
-				a = (Asiakas)palvelupisteet[index].otaJonosta();
+				a = palvelupisteet[index].otaJonosta();
 				if (a.hasMoreServices()) {
 					String nextService = a.getNextService();
 					switch (nextService) {
@@ -172,7 +160,7 @@ public class OmaMoottori extends Moottori{
 				apteekki.customerOut();
 
 					   //Päivittää palveltun asiakkaan määrän
-					   kontrolleri.naytaPalveltu(Apteekki.getServedCustomers());
+					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
 
 		}
 	}
@@ -200,8 +188,15 @@ public class OmaMoottori extends Moottori{
 
 		// UUTTA graafista
 		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
+		kontrolleri.simulationDone();
+
+
 
 	}
+
+
+
+
 
 
 }
