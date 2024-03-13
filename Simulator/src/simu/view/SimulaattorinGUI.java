@@ -1,4 +1,4 @@
-package simu.view;
+package noGUI_run;
 
 
 import java.text.DecimalFormat;
@@ -19,6 +19,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
+import view.ISimulaattorinUI;
+import view.IVisualisointi;
+import view.Visualisointi;
 
 
 
@@ -28,7 +31,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
     private IKontrolleriForV kontrolleri;
 
     // Käyttöliittymäkomponentit:
-
     private Spinner a_staff;
     private Spinner h_staff;
     private Spinner r_staff;
@@ -96,7 +98,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
                 public void handle(ActionEvent event) {
                     kontrolleri.kaynnistaSimulointi();
                     kaynnistaButton.setDisable(true);
-
                 }
             });
 
@@ -104,7 +105,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             h_staff = new Spinner(1, 99, 1);
             r_staff = new Spinner(1, 99, 1);
             k_staff = new Spinner(1, 99, 1);
-
 
             hidastaButton = new Button();
             hidastaButton.setText("Hidasta");
@@ -116,7 +116,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
 
             aikaLabel = new Label("Simulointiaika:");
             aikaLabel.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-            aika = new TextField("Syötä aika");
+            aika = new TextField("10000");
             aika.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             aika.setPrefWidth(150);
 
@@ -206,7 +206,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             grid.add(nopeutaButton, 0, 10);   // sarake, rivi
             grid.add(hidastaButton, 1, 10);   // sarake, rivi
 
-
+            naytto = new Visualisointi(800, 400);
 
             // TÃ¤ytetÃ¤Ã¤n boxi:
             hBox.getChildren().addAll(staff_bar, grid, (Canvas) naytto);
