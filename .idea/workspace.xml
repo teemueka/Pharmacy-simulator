@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/SimulaatioRunWindowKontrolleri.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/Heikin-branch" />
+    <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -171,7 +169,7 @@
       <workItem from="1709561809323" duration="12529000" />
       <workItem from="1709659418166" duration="3027000" />
       <workItem from="1709726540888" duration="20204000" />
-      <workItem from="1710327112995" duration="3103000" />
+      <workItem from="1710327112995" duration="4235000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -349,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710327434743</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
+      <option name="closed" value="true" />
+      <created>1710330561922</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1710330561922</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -57,7 +57,7 @@
                   <Canvas fx:id="visu" height="426.0" layoutX="19.0" layoutY="13.0" width="400.0" />
                   <ImageView fx:id="infoKuva" fitHeight="64.0" fitWidth="64.0" layoutX="183.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Info.png" />
+                        <Image url="file:Simulator/Logo.png"/>
                      </image></ImageView>
                   <ImageView fx:id="hyllytKuva" fitHeight="64.0" fitWidth="64.0" layoutX="183.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                      <image>
