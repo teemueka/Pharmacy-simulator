@@ -11,6 +11,9 @@ public interface IKontrolleriForM {
 
     void naytaMenetetty(int missedCustomers);
 
+    void naytaTyytyvaisyys(double satisfaction);
+
+    void naytaAverage(double average);
 
 
 
@@ -32,4 +35,6 @@ public interface IKontrolleriForM {
 
 
     void simulationDone();
+
+    void updateUI(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int kauppaUsage, int reseptiUsage, int kassaUsage, int satisfiedCustomers, int dissatisfiedCustomers, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization);
 }

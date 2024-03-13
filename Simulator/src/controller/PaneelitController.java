@@ -14,7 +14,9 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import simu.framework.IMoottori;
+import simu.framework.Kello;
 import simu.model.Asiakas;
 import simu.model.OmaMoottori;
 import simu.view.IVisualisointi;
@@ -28,6 +30,47 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	private Canvas visu;    // Käyttöliittymäkomponentti
 	private IVisualisointi visualisointi = null; // Työjuhta
 
+	@FXML
+	private Label averageTimeLabel;
+
+	@FXML
+	private Label checkoutUsageLabel;
+
+	@FXML
+	private Label checkoutUtilisationLabel;
+
+	@FXML
+	private Label dissatisfiedCustomersLabel;
+
+	@FXML
+	private Label infoUsageLabel;
+
+	@FXML
+	private Label infoUtilisationLabel;
+
+	@FXML
+	private Label missedCustomersLabel;
+
+	@FXML
+	private Label prescriptionUsageLabel;
+
+	@FXML
+	private Label prescriptionUtilisationLabel;
+
+	@FXML
+	private Label satisfiedCustomersLabel;
+
+	@FXML
+	private Label servedCustomersLabel;
+
+	@FXML
+	private Label shelvesUsageLabel;
+
+	@FXML
+	private Label shelvesUtilisationLabel;
+
+	@FXML
+	private Label simulationTimeLabel;
 
 	@FXML
 	private Button startButton;
@@ -179,6 +222,29 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 
 	}
 
+	@Override
+	public void updateUI(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int kauppaUsage, int reseptiUsage, int kassaUsage, int satisfiedCustomers, int dissatisfiedCustomers, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization) {
+		Platform.runLater(new Runnable() {
+			public void run() {
+
+				setSimulationTimeLabel(String.valueOf(Kello.getInstance().getAika()));
+				setAverageTimeLabel("Jee");
+				setServedCustomersLabel(String.valueOf(servedCustomers));
+				setMissedCustomersLabel(String.valueOf(missedCustomers));
+				setSatisfiedCustomersLabel(String.valueOf(satisfiedCustomers));
+				setDissatisfiedCustomersLabel(String.valueOf(dissatisfiedCustomers));
+				setInfoUsageLabel(String.valueOf(aspaUsage));
+				setInfoUtilisationLabel(String.valueOf(aspaUtilization));
+				setPrescriptionUsageLabel(String.valueOf(kauppaUsage));
+				setPrescriptionUtilisationLabel(String.valueOf(kauppaUtilization));
+				setShelvesUsageLabel(String.valueOf(reseptiUsage));
+				setShelvesUtilisationLabel(String.valueOf(reseptiUtilization));
+				setCheckoutUsageLabel(String.valueOf(kassaUsage));
+				setCheckoutUtilisationLabel(String.valueOf(kassaUtilization));
+			}
+		});
+	}
+
 
 	public int getA_staff() {
 		return (int) a_staff.getValue();
@@ -212,6 +278,72 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	@Override
 	public void naytaMenetetty(int missedCustomers) {
 
+	}
+
+	@Override
+	public void naytaTyytyvaisyys(double satisfaction) {
+
+	}
+
+	@Override
+	public void naytaAverage(double average) {
+
+	}
+
+	public void setSimulationTimeLabel(String simulationTimeLabel) {
+		this.simulationTimeLabel.setText(simulationTimeLabel);
+	}
+
+	public void setAverageTimeLabel(String averageTimeLabel) {
+		this.averageTimeLabel.setText(averageTimeLabel);
+	}
+
+	public void setServedCustomersLabel(String servedCustomersLabel) {
+		this.servedCustomersLabel.setText(servedCustomersLabel);
+	}
+
+	public void setMissedCustomersLabel(String missedCustomersLabel) {
+		this.missedCustomersLabel.setText(missedCustomersLabel);
+	}
+
+	public void setSatisfiedCustomersLabel(String satisfiedCustomersLabel) {
+		this.satisfiedCustomersLabel.setText(satisfiedCustomersLabel);
+	}
+
+	public void setDissatisfiedCustomersLabel(String dissatisfiedCustomersLabel) {
+		this.dissatisfiedCustomersLabel.setText(dissatisfiedCustomersLabel);
+	}
+
+	public void setInfoUsageLabel(String infoUsageLabel) {
+		this.infoUsageLabel.setText(infoUsageLabel);
+	}
+
+	public void setInfoUtilisationLabel(String infoUtilisationLabel) {
+		this.infoUtilisationLabel.setText(infoUtilisationLabel);
+	}
+
+	public void setPrescriptionUsageLabel(String prescriptionUsageLabel) {
+		this.prescriptionUsageLabel.setText(prescriptionUsageLabel);
+	}
+
+	public void setPrescriptionUtilisationLabel(String prescriptionUtilisationLabel) {
+		this.prescriptionUtilisationLabel.setText(prescriptionUtilisationLabel);
+	}
+
+	public void setShelvesUsageLabel(String shelvesUsageLabel) {
+		this.shelvesUsageLabel.setText(shelvesUsageLabel);
+	}
+
+	public void setShelvesUtilisationLabel(String shelvesUtilisationLabel) {
+		this.shelvesUtilisationLabel.setText(shelvesUtilisationLabel);
+	}
+
+	public void setCheckoutUsageLabel(String checkoutUsageLabel) {
+		this.checkoutUsageLabel.setText(checkoutUsageLabel);
+	}
+
+	public void setCheckoutUtilisationLabel(String checkoutUtilisationLabel) {
+		this.checkoutUtilisationLabel.setText(checkoutUtilisationLabel);
 	}
 
 

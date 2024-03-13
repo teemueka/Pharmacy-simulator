@@ -126,7 +126,7 @@ public class Asiakas {
 	public void setSaapumisaika(double saapumisaika) {
 		this.saapumisaika = saapumisaika;
 	}
-	
+
 
 
 	public int getId() {
