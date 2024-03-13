@@ -31,6 +31,8 @@ public class Palvelupiste {
 	private final int staff;
 	private int palveltavat = 0;
 
+	private double jonoPituus;
+
 
 
 	public Palvelupiste(String palvelupisteenNimi, ContinuousGenerator generator, int staff, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi){
@@ -199,6 +201,10 @@ public class Palvelupiste {
 	}
 	public double getKassaUtilization(int kassaTyontekijat) {
 		return (activeTimeKassa / kassaTyontekijat) / Kello.getInstance().getAika() * 100;
+	}
+
+	public double getJonoPituus() {
+		return jono.size();
 	}
 
 }

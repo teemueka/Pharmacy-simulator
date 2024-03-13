@@ -1,6 +1,7 @@
 package simu.model;
 
 import simu.dao.SimulationDao;
+import controller.PaneelitController;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
@@ -17,10 +18,14 @@ public class OmaMoottori extends Moottori{
 	public int kassaTyontekijat;
 	SimulationDao simulationDao = new SimulationDao();
 
+	Apteekki apteekki;
 
-	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff) {
+
+	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff, int intensity, int capacity) {
 
 		super(kontrolleri);
+
+		apteekki = new Apteekki(capacity);
 
 		System.out.println(a_staff + " " + h_staff + " " + r_staff + " " + k_staff);
 		aspaTyontekijat = a_staff;
@@ -39,7 +44,7 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet[4]=new Palvelupiste("Kassa", new Normal(100, 50),	k_staff ,tapahtumalista, TapahtumanTyyppi.KASSA_P);
 
 
-		saapumisprosessi = new Saapumisprosessi(new Negexp(150,5), tapahtumalista, TapahtumanTyyppi.AULA_S);
+		saapumisprosessi = new Saapumisprosessi(new Negexp((intensity),intensity/10), tapahtumalista, TapahtumanTyyppi.AULA_S);
 
 
 	}
@@ -75,7 +80,7 @@ public class OmaMoottori extends Moottori{
 					palvelupisteet[0].lisaaJonoon(a);
 
 
-					kontrolleri.visualisoiUusiAsiakas(); // Tämä lisää SINISEN visuaalisen pisteen asiakkaan saapuessa
+
 
 					//jos ei, mahdollisuus poistua
 				} else {
@@ -169,6 +174,15 @@ public class OmaMoottori extends Moottori{
 					   //Päivittää palveltun asiakkaan määrän
 					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
 
+                       //TODO: FIX THE CUTOMERS!
+				kontrolleri.updateTyytyvaisyys(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.updateSuuJokaLiikkuu(((double) Asiakas.getSatisfied() / Asiakas.getCustomerAmount()) * 100);
+				kontrolleri.updateAulaJonoPituus((double)apteekki.displayApteekkijono());
+				kontrolleri.updateKassaJonoPituus((double)palvelupisteet[4].getJonoPituus());
+				kontrolleri.updateInfoJonoPituus((double)palvelupisteet[1].getJonoPituus());
+				kontrolleri.updateHyllyJonoPituus((double)palvelupisteet[2].getJonoPituus());
+				kontrolleri.updateReseptiJonoPituus((double)palvelupisteet[3].getJonoPituus());
+
 		}
 	}
 
@@ -205,6 +219,9 @@ public class OmaMoottori extends Moottori{
 
 		// UUTTA graafista
 		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
+		kontrolleri.simulationDone();
+
+
 
 	}
 

@@ -1,4 +1,4 @@
-package noGUI_run;
+package simu.view;
 
 
 import java.text.DecimalFormat;
@@ -19,9 +19,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
-import view.ISimulaattorinUI;
-import view.IVisualisointi;
-import view.Visualisointi;
+
 
 
 
@@ -98,6 +96,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
                 public void handle(ActionEvent event) {
                     kontrolleri.kaynnistaSimulointi();
                     kaynnistaButton.setDisable(true);
+
                 }
             });
 
@@ -105,6 +104,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             h_staff = new Spinner(1, 99, 1);
             r_staff = new Spinner(1, 99, 1);
             k_staff = new Spinner(1, 99, 1);
+
 
             hidastaButton = new Button();
             hidastaButton.setText("Hidasta");
@@ -206,7 +206,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
             grid.add(nopeutaButton, 0, 10);   // sarake, rivi
             grid.add(hidastaButton, 1, 10);   // sarake, rivi
 
-            naytto = new Visualisointi(800, 400);
+
 
             // TÃ¤ytetÃ¤Ã¤n boxi:
             hBox.getChildren().addAll(staff_bar, grid, (Canvas) naytto);
@@ -271,17 +271,8 @@ public class SimulaattorinGUI extends Application implements ISimulaattorinUI {
         this.menetetty.setText(Integer.toString(asiakas));
     }
 
-    @Override
-    public void setTyytyvaisyys(double tyytyvaisyys) {
-        DecimalFormat formatter = new DecimalFormat("#0.00");
-        this.tyytyvaisyys.setText(formatter.format(tyytyvaisyys));
-    }
 
-    @Override
-    public void setAverage(double aika) {
-        DecimalFormat formatter = new DecimalFormat("#0.00");
-        this.average.setText(formatter.format(aika));
-    }
+
 
 
     @Override

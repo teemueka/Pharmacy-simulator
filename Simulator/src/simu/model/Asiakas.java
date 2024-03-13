@@ -127,6 +127,8 @@ public class Asiakas {
 		this.saapumisaika = saapumisaika;
 	}
 
+
+
 	public int getId() {
 		return id;
 	}
@@ -188,6 +190,13 @@ public class Asiakas {
 		sum += (long) (poistumisaika-saapumisaika);
 		double keskiarvo = (double) sum / apteekki.getServedCustomers();
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti " + keskiarvo);
+	}
+
+	public static void reset(){
+		i = 1;
+		sum = 0;
+		totalSpentAllCustomers = 0;
+		usedOnlyAspa = 0;
 	}
 
 }
