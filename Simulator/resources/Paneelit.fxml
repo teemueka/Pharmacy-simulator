@@ -82,7 +82,7 @@
                   <Line fx:id="reseptiJono" endX="-77.6729736328125" endY="-3.814697265625E-6" layoutX="252.0" layoutY="186.0" startX="-100.0" stroke="#02b90e" strokeWidth="10.0" />
                   <Line fx:id="infoJono" endX="-77.6729736328125" endY="-3.814697265625E-6" layoutX="251.0" layoutY="52.0" startX="-100.0" stroke="#02b90e" strokeWidth="10.0" />
                   <Line fx:id="kassaJono" endX="-77.6729736328125" endY="-3.814697265625E-6" layoutX="406.0" layoutY="113.0" startX="-100.0" stroke="#02b90e" strokeWidth="10.0" />
-                  <Label fx:id="tyytyvLabel" layoutX="107.0" layoutY="298.0" text="Tyytyväisyy" />
+                  <Label fx:id="tyytyvLabel" layoutX="107.0" layoutY="298.0" text="Tyytyväisyys" />
                   <Label fx:id="tyytyvProsLuku" layoutX="104.0" layoutY="353.0" text="tyytyv-%">
                      <font>
                         <Font size="22.0" />
