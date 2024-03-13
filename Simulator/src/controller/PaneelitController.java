@@ -271,7 +271,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateAulaJonoPituus(double aulaJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				aulaJono.setStartX(-85 - (aulaJonoPit) * 15);
+				aulaJono.setStartX(aulaJono.getEndX() - (aulaJonoPit)*10);
 				System.out.println("aulajono: " + aulaJonoPit);
 			}
 		});
@@ -281,7 +281,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateKassaJonoPituus(double kassaJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				kassaJono.setStartX(-85 - (kassaJonoPit) * 15);
+				kassaJono.setStartX(kassaJono.getEndX() - (kassaJonoPit)*10);
 				System.out.println("kassajono: " + kassaJonoPit);
 			}
 		});
@@ -291,7 +291,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateReseptiJonoPituus(double reseptiJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				reseptiJono.setStartX(-85 - (reseptiJonoPit) * 15);
+				reseptiJono.setStartX(reseptiJono.getEndX() - (reseptiJonoPit)*10);
 				System.out.println("reseptijono: " + reseptiJonoPit);
 			}
 		});
@@ -301,7 +301,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateHyllyJonoPituus(double hyllyJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				hyllytJono.setStartX(-85 - (hyllyJonoPit) * 15);
+				hyllytJono.setStartX(hyllytJono.getEndX() - (hyllyJonoPit)*10);
 				System.out.println("hyllyjono: " + hyllyJonoPit);
 			}
 		});
@@ -311,7 +311,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	public void updateInfoJonoPituus(double infoJonoPit) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				infoJono.setStartX(-85 - (infoJonoPit) * 15);
+				infoJono.setStartX(infoJono.getEndX() - (infoJonoPit)*10);
 				System.out.println("infojono: " + infoJonoPit);
 			}
 		});
