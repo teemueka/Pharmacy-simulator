@@ -223,12 +223,12 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 	}
 
 	@Override
-	public void updateUI(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int kauppaUsage, int reseptiUsage, int kassaUsage, int satisfiedCustomers, int dissatisfiedCustomers, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization) {
+	public void updateUI(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int kauppaUsage, int reseptiUsage, int kassaUsage, int satisfiedCustomers, int dissatisfiedCustomers, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization, double keskiarvo) {
 		Platform.runLater(new Runnable() {
 			public void run() {
 
 				setSimulationTimeLabel(String.format(("%.1f"), Kello.getInstance().getAika()).replaceAll(",","."));
-				setAverageTimeLabel("Jee");
+				setAverageTimeLabel(String.format(("%.1f"), keskiarvo).replaceAll(",", "."));
 				setServedCustomersLabel(String.valueOf(servedCustomers));
 				setMissedCustomersLabel(String.valueOf(missedCustomers));
 				setSatisfiedCustomersLabel(String.valueOf(satisfiedCustomers));

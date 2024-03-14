@@ -173,7 +173,7 @@ public class OmaMoottori extends Moottori{
 				kontrolleri.updateInfoJonoPituus((double)palvelupisteet[1].getJonoPituus());
 				kontrolleri.updateHyllyJonoPituus((double)palvelupisteet[2].getJonoPituus());
 				kontrolleri.updateReseptiJonoPituus((double)palvelupisteet[3].getJonoPituus());
-				kontrolleri.updateUI(palvelupisteet[1].getStaff(), palvelupisteet[2].getStaff(), palvelupisteet[3].getStaff(), palvelupisteet[4].getStaff(), apteekki.getServedCustomers(), apteekki.getMissedCustomers(), palvelupisteet[1].getUsage(), palvelupisteet[2].getUsage(), palvelupisteet[3].getUsage(), palvelupisteet[4].getUsage(), apteekki.getSatisfiedCustomers(), apteekki.getDissatisfiedCustomers(), apteekki.getOverallSatisfaction(), palvelupisteet[1].getUtilization(), palvelupisteet[2].getUtilization(), palvelupisteet[3].getUtilization(), palvelupisteet[4].getUtilization());
+				kontrolleri.updateUI(palvelupisteet[1].getStaff(), palvelupisteet[2].getStaff(), palvelupisteet[3].getStaff(), palvelupisteet[4].getStaff(), apteekki.getServedCustomers(), apteekki.getMissedCustomers(), palvelupisteet[1].getUsage(), palvelupisteet[2].getUsage(), palvelupisteet[3].getUsage(), palvelupisteet[4].getUsage(), apteekki.getSatisfiedCustomers(), apteekki.getDissatisfiedCustomers(), apteekki.getOverallSatisfaction(), palvelupisteet[1].getUtilization(), palvelupisteet[2].getUtilization(), palvelupisteet[3].getUtilization(), palvelupisteet[4].getUtilization(), a.getKeskiarvo());
 		}
 	}
 
