@@ -1,5 +1,6 @@
 package simu.model;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,10 @@ class ApteekkiTest {
     @BeforeAll
     static void setUp() {
         System.out.println("Performing tests.");
+    }
+    @AfterAll
+    static void tearDown() {
+        System.out.println("All tests done.");
     }
     @Test
     void addDissatisfiedCustomer() {
