@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="AINT NO WAY, WE DID IT!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/Heikin-branch" />
+    <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -55,7 +53,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Aarni",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
@@ -175,7 +173,8 @@
       <workItem from="1709561809323" duration="12529000" />
       <workItem from="1709659418166" duration="3027000" />
       <workItem from="1709726540888" duration="20204000" />
-      <workItem from="1710327112995" duration="6389000" />
+      <workItem from="1710327112995" duration="7880000" />
+      <workItem from="1710335447591" duration="545000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -385,7 +384,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710333166228</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="UI MIGRATED AND STUFF MUST WORK :D">
+      <option name="closed" value="true" />
+      <created>1710333985096</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710333985096</updated>
+    </task>
+    <task id="LOCAL-00028" summary="UI MIGRATED AND STUFF MUST WORK :D">
+      <option name="closed" value="true" />
+      <created>1710335001118</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1710335001118</updated>
+    </task>
+    <task id="LOCAL-00029" summary="AINT NO WAY, WE DID IT!">
+      <option name="closed" value="true" />
+      <created>1710335464678</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1710335464678</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,6 +434,9 @@
     <MESSAGE value="UI 2.0&#10;Scene builder implementation" />
     <MESSAGE value="Jotain ihan hulluu säätöö. Mut PaneelitController on se paikka missä säädetään nää visuaali jutut xd" />
     <MESSAGE value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
+    <MESSAGE value="UI MIGRATED AND STUFF MUST WORK :D" />
+    <MESSAGE value="AINT NO WAY, WE DID IT!" />
+    <option name="LAST_COMMIT_MESSAGE" value="AINT NO WAY, WE DID IT!" />
     <option name="LAST_COMMIT_MESSAGE" value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
