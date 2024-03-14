@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti.">
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/dao/SimulationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "UI__2__0",
+    "git-widget-placeholder": "Aarni",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
