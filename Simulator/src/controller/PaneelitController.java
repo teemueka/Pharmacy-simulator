@@ -156,20 +156,36 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		((Thread) moottori).start();
 
 		startButton.setDisable(true);
+		simuloiButton.setText("Stop");
 		simuloiButton.setDisable(false);
 
 	}
 
-
+	int loop = 0;
 	public void handleSimuloi() {
-		moottori.terminate();
 
-		simu.framework.Kello.getInstance().reset();
-		simu.model.Asiakas.reset();
+		if (loop == 0){
+			simuloiButton.setText("Reset");
+			moottori.terminate();
+
+			loop = 1;
+		}else{
+			simu.framework.Kello.getInstance().reset();
+			simu.model.Asiakas.reset();
+			tyytyvProsLuku.setText("%");
+			suuJokaLiikkuu.setControlY(28);
+			naamaPallo.setFill(javafx.scene.paint.Color.rgb(52, 201,11 ));
+
+			updateUI(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+			loop = 0;
 
 
-		startButton.setDisable(false);
-		simuloiButton.setDisable(true);
+			startButton.setDisable(false);
+
+			simuloiButton.setDisable(true);
+
+		}
+
 	}
 
 
@@ -433,4 +449,10 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 			}
 		});
 	}
+
+
+	public void openHistory() {
+
+	}
+
 }
