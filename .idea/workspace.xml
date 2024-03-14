@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="AINT NO WAY, WE DID IT!" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="AINT NO WAY, WE DID IT!">
+      <change afterPath="$PROJECT_DIR$/Simulator/test/java/simu/model/ApteekkiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -48,14 +52,22 @@
     "Application.SimulaattorinGUI.executor": "Debug",
     "Application.testMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.ApteekkiTest.addDissatisfiedCustomer.executor": "Run",
+    "JUnit.ApteekkiTest.addMissedCustomer.executor": "Run",
+    "JUnit.ApteekkiTest.addToPharmacyque.executor": "Run",
+    "JUnit.ApteekkiTest.customerOut.executor": "Run",
+    "JUnit.ApteekkiTest.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Heikin-branch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/hsavo/IdeaProjects/G_6_Simulation_project/Simulator/test/java/simu/model",
     "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,64 +94,103 @@
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\src" />
       <recent name="C:\Users\joelp\IdeaProjects\G_6_Simulation_project\Simulator\src\view" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="simu.model" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="simu.view.Main" />
+  <component name="RunManager" selected="JUnit.ApteekkiTest.customerOut">
+    <configuration name="ApteekkiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="G_6_Simulation_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="simu.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="simu.model" />
+      <option name="MAIN_CLASS_NAME" value="simu.model.ApteekkiTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="simu.view.MainApp" />
+    <configuration name="ApteekkiTest.addDissatisfiedCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="G_6_Simulation_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="simu.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="simu.model" />
+      <option name="MAIN_CLASS_NAME" value="simu.model.ApteekkiTest" />
+      <option name="METHOD_NAME" value="addDissatisfiedCustomer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SimulaattorinGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="simu.view.SimulaattorinGUI" />
+    <configuration name="ApteekkiTest.addMissedCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="G_6_Simulation_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="simu.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="simu.model" />
+      <option name="MAIN_CLASS_NAME" value="simu.model.ApteekkiTest" />
+      <option name="METHOD_NAME" value="addMissedCustomer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="noGUI_run.testMain" />
+    <configuration name="ApteekkiTest.addToPharmacyque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="G_6_Simulation_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simu.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simu.model" />
+      <option name="MAIN_CLASS_NAME" value="simu.model.ApteekkiTest" />
+      <option name="METHOD_NAME" value="addToPharmacyque" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApteekkiTest.customerOut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="G_6_Simulation_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simu.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="simu.model" />
+      <option name="MAIN_CLASS_NAME" value="simu.model.ApteekkiTest" />
+      <option name="METHOD_NAME" value="customerOut" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainApp" />
-        <item itemvalue="Application.testMain" />
-        <item itemvalue="Application.SimulaattorinGUI" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ApteekkiTest.customerOut" />
+        <item itemvalue="JUnit.ApteekkiTest" />
+        <item itemvalue="JUnit.ApteekkiTest.addToPharmacyque" />
+        <item itemvalue="JUnit.ApteekkiTest.addMissedCustomer" />
+        <item itemvalue="JUnit.ApteekkiTest.addDissatisfiedCustomer" />
       </list>
     </recent_temporary>
   </component>
@@ -436,7 +487,8 @@
     <MESSAGE value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
     <MESSAGE value="UI MIGRATED AND STUFF MUST WORK :D" />
     <MESSAGE value="AINT NO WAY, WE DID IT!" />
-    <option name="LAST_COMMIT_MESSAGE" value="AINT NO WAY, WE DID IT!" />
+    <MESSAGE value="commit workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit workspace" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
