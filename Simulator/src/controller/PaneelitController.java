@@ -4,6 +4,9 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,12 +18,15 @@ import javafx.scene.shape.QuadCurve;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import simu.framework.IMoottori;
 import simu.framework.Kello;
 import simu.model.Asiakas;
 import simu.model.OmaMoottori;
 import simu.view.IVisualisointi;
 import simu.view.MainApp;
+
+import java.io.IOException;
 
 
 public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
@@ -176,7 +182,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 			suuJokaLiikkuu.setControlY(28);
 			naamaPallo.setFill(javafx.scene.paint.Color.rgb(52, 201,11 ));
 
-			updateUI(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+			updateUI(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0);
 			loop = 0;
 
 
@@ -450,9 +456,16 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		});
 	}
 
+	@FXML
+	public void openHistory() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/History.fxml"));
+		Parent newSceneRoot = loader.load();
 
-	public void openHistory() {
-
+		Scene newScene = new Scene(newSceneRoot);
+		Stage newStage = new Stage();
+		newStage.setTitle("History");
+		newStage.setScene(newScene);
+		newStage.showAndWait();
 	}
 
 }
