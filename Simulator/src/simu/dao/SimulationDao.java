@@ -5,7 +5,9 @@ import simu.framework.Kello;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SimulationDao {
     public void saveResultsInDatabase(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int hyllyUsage, int reseptiUsage, int kassaUsage, int satisfied, int dissatisfied, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization) {
@@ -54,6 +56,29 @@ public class SimulationDao {
             throw new RuntimeException(e);
         }
         return satisfaction;
+    }
+
+    public List<String> getBarData(int id) {
+        Connection conn = MariaDbConnection.getConnection();
+        String sql = "SELECT * FROM SIMULATION_RESULTS WHERE id = ?";
+        List<String> results = new ArrayList<>();
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                int combinedStaff = rs.getInt("cs_staff") + rs.getInt("shop_staff") + rs.getInt("prescription_staff") + rs.getInt("cashier_staff");
+                results.add("Simulation Time: " + rs.getDouble("simulation_time"));
+                results.add("Combined staff: " + combinedStaff);
+                results.add("Served Customers: " + rs.getInt("served_customers"));
+                results.add("Lost Customers: " + rs.getInt("lost_customers"));
+            }
+
+            return results;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

@@ -4,23 +4,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import simu.dao.SimulationDao;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class HistoryController implements Initializable {
     @FXML
     public BarChart<String, Double> historyChart;
-    @FXML
-    private Button optimalButton;
-    @FXML
-    private Button averageButton;
 
     SimulationDao simulationDao = new SimulationDao();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,7 +38,13 @@ public class HistoryController implements Initializable {
         for (XYChart.Series<String, Double> s : historyChart.getData()) {
             for (XYChart.Data<String, Double> d : s.getData()) {
                 d.getNode().setOnMouseEntered(event -> {
-                    Tooltip tooltip = new Tooltip("Satisfaction: " + d.getYValue().toString() + "%");
+                    String barData = simulationDao.getBarData(Integer.parseInt(d.getXValue()))
+                            .stream()
+                            .map(line -> line + "\n")
+                            .collect(Collectors.joining());
+                    System.out.println(d.getXValue());
+
+                    Tooltip tooltip = new Tooltip("Satisfaction: " + d.getYValue().toString() + "%\n" + barData);
                     tooltip.setShowDelay(javafx.util.Duration.millis(100));
                     Tooltip.install(d.getNode(), tooltip);
                 });
