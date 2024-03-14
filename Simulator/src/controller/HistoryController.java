@@ -41,7 +41,7 @@ public class HistoryController implements Initializable {
         for (XYChart.Series<String, Double> s : historyChart.getData()) {
             for (XYChart.Data<String, Double> d : s.getData()) {
                 d.getNode().setOnMouseEntered(event -> {
-                    Tooltip tooltip = new Tooltip("Satisfaction: " + d.getYValue().toString());
+                    Tooltip tooltip = new Tooltip("Satisfaction: " + d.getYValue().toString() + "%");
                     tooltip.setShowDelay(javafx.util.Duration.millis(100));
                     Tooltip.install(d.getNode(), tooltip);
                 });
