@@ -4,6 +4,8 @@ import simu.datasource.MariaDbConnection;
 import simu.framework.Kello;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimulationDao {
     public void saveResultsInDatabase(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int hyllyUsage, int reseptiUsage, int kassaUsage, int satisfied, int dissatisfied, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization) {
@@ -34,6 +36,24 @@ public class SimulationDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Double> getSatisfaction() {
+        Connection conn = MariaDbConnection.getConnection();
+        String sql = "SELECT overall_satisfaction FROM simulation_results";
+        List<Double> satisfaction = new ArrayList<>();
+        try {
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+                double sat = rs.getDouble(1);
+                satisfaction.add(sat);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return satisfaction;
     }
 }
 

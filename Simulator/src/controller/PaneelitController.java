@@ -465,7 +465,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 		Stage newStage = new Stage();
 		newStage.setTitle("History");
 		newStage.setScene(newScene);
-		newStage.showAndWait();
+		newStage.show();
 	}
 
 }
