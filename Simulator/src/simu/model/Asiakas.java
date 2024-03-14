@@ -32,6 +32,7 @@ public class Asiakas {
 	private int totalSpent;
 	private static int totalSpentAllCustomers;
     private List<String> services = Arrays.asList("Asiakaspalvelu", "Hyllyt", "Resepti");
+	private double keskiarvo;
 
 
 	public Asiakas(){
@@ -126,9 +127,12 @@ public class Asiakas {
 	public void setSaapumisaika(double saapumisaika) {
 		this.saapumisaika = saapumisaika;
 	}
-
-
-
+	public void setKeskiarvo(double keskiarvo) {
+		this.keskiarvo += keskiarvo;
+	}
+	public double getKeskiarvo() {
+		return keskiarvo;
+	}
 	public int getId() {
 		return id;
 	}
@@ -189,6 +193,7 @@ public class Asiakas {
 		Trace.out(Trace.Level.INFO, "Asiakas " + id + " " + displayUsedServices());
 		sum += (long) (poistumisaika-saapumisaika);
 		double keskiarvo = (double) sum / apteekki.getServedCustomers();
+		setKeskiarvo(keskiarvo);
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti " + keskiarvo);
 	}
 

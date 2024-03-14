@@ -22,8 +22,6 @@ public class Palvelupiste {
 	private final int staff;
 	private int palveltavat = 0;
 
-	private double jonoPituus;
-
 
 
 	public Palvelupiste(String palvelupisteenNimi, ContinuousGenerator generator, int staff, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi){
@@ -137,7 +135,8 @@ public class Palvelupiste {
 		activeTime += palveluaika;
 	}
 	public double getUtilization() {
-		return (activeTime / staff) / Kello.getInstance().getAika() * 100;
+		double utilization = (activeTime / staff) / Kello.getInstance().getAika() * 100;
+		return Double.parseDouble(String.format("%.1f", utilization).replace(",", "."));
 	}
 
 	public double getJonoPituus() {
