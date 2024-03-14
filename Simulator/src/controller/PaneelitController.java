@@ -176,7 +176,7 @@ public class PaneelitController implements IKontrolleriForV, IKontrolleriForM {
 			suuJokaLiikkuu.setControlY(28);
 			naamaPallo.setFill(javafx.scene.paint.Color.rgb(52, 201,11 ));
 
-			updateUI(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+			updateUI(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 			loop = 0;
 
 
