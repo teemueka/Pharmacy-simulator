@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="AINT NO WAY, WE DID IT!" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="AINT NO WAY, WE DID IT!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +55,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Aarni",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
@@ -436,7 +438,6 @@
     <MESSAGE value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
     <MESSAGE value="UI MIGRATED AND STUFF MUST WORK :D" />
     <MESSAGE value="AINT NO WAY, WE DID IT!" />
-    <option name="LAST_COMMIT_MESSAGE" value="AINT NO WAY, WE DID IT!" />
     <option name="LAST_COMMIT_MESSAGE" value="UI modificatiiot&#10;&#10;Simulaation resetointi ja abortti." />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
