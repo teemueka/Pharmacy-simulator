@@ -12,9 +12,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="optimalButton" layoutX="26.0" layoutY="69.0" mnemonicParsing="false" text="optimal" />
-      <Button fx:id="averageButton" layoutX="26.0" layoutY="101.0" mnemonicParsing="false" text="average" />
-      <BarChart fx:id="historyChart" animated="false" layoutX="100.0" layoutY="56.0" prefHeight="344.0" prefWidth="500.0">
+      <BarChart fx:id="historyChart" animated="false" layoutX="22.0" layoutY="49.0" prefHeight="344.0" prefWidth="556.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
