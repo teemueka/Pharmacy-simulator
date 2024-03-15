@@ -68,11 +68,25 @@ public class SimulationDao {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                int combinedStaff = rs.getInt("cs_staff") + rs.getInt("shop_staff") + rs.getInt("prescription_staff") + rs.getInt("cashier_staff");
+                results.add("ID: " + rs.getInt("id"));
                 results.add("Simulation Time: " + rs.getDouble("simulation_time"));
-                results.add("Combined staff: " + combinedStaff);
+                results.add("CS Staff: " + rs.getInt("cs_staff"));
+                results.add("Shop Staff: " + rs.getInt("shop_staff"));
+                results.add("Prescription Staff: " + rs.getInt("prescription_staff"));
+                results.add("Cashier Staff: " + rs.getInt("cashier_staff"));
                 results.add("Served Customers: " + rs.getInt("served_customers"));
                 results.add("Lost Customers: " + rs.getInt("lost_customers"));
+                results.add("Served at CS: " + rs.getInt("served_at_cs"));
+                results.add("Served at Shop: " + rs.getInt("served_at_shop"));
+                results.add("Served at Prescription: " + rs.getInt("served_at_prescription"));
+                results.add("Served at Cashier: " + rs.getInt("served_at_cashier"));
+                results.add("Satisfied Customers: " + rs.getInt("satisfied_customers"));
+                results.add("Dissatisfied Customers: " + rs.getInt("dissatisfied_customers"));
+                results.add("Overall Satisfaction: " + rs.getDouble("overall_satisfaction")+ "%");
+                results.add("CS Utilization: " + rs.getDouble("cs_utilization")+ "%");
+                results.add("Shop Utilization: " + rs.getDouble("shop_utilization")+ "%");
+                results.add("Prescription Utilization: " + rs.getDouble("prescription_utilization")+ "%");
+                results.add("Cashier Utilization: " + rs.getDouble("cashier_utilization")+ "%");
             }
 
             return results;

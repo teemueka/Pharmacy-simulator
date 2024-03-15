@@ -42,9 +42,8 @@ public class HistoryController implements Initializable {
                             .stream()
                             .map(line -> line + "\n")
                             .collect(Collectors.joining());
-                    System.out.println(d.getXValue());
 
-                    Tooltip tooltip = new Tooltip("Satisfaction: " + d.getYValue().toString() + "%\n" + barData);
+                    Tooltip tooltip = new Tooltip(barData);
                     tooltip.setShowDelay(javafx.util.Duration.millis(100));
                     Tooltip.install(d.getNode(), tooltip);
                 });
