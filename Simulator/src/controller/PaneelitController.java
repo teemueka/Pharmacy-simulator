@@ -291,9 +291,9 @@ public class PaneelitController implements IKontrolleriForM {
 				setInfoUsageLabel(String.valueOf(aspaUsage));
 				setInfoUtilisationLabel(String.valueOf(aspaUtilization)+"%");
 				setPrescriptionUsageLabel(String.valueOf(kauppaUsage));
-				setPrescriptionUtilisationLabel(String.valueOf(kauppaUtilization)+"%");
+				setPrescriptionUtilisationLabel(String.valueOf(reseptiUtilization)+"%");
 				setShelvesUsageLabel(String.valueOf(reseptiUsage));
-				setShelvesUtilisationLabel(String.valueOf(reseptiUtilization)+"%");
+				setShelvesUtilisationLabel(String.valueOf(kauppaUtilization)+"%");
 				setCheckoutUsageLabel(String.valueOf(kassaUsage));
 				setCheckoutUtilisationLabel(String.valueOf(kassaUtilization)+"%");
 			}
