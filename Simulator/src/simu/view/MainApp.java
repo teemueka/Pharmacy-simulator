@@ -11,13 +11,26 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Main class of the visual part of the application
+ */
 
 public class MainApp extends Application {
 
+    /**
+     * The main stage of the application
+     */
     private Stage primaryStage;
+    /**
+     * The root layout of the application
+     */
     private BorderPane root;
 
- 
+
+    /**
+     * Starts the application
+     * @param primaryStage the main stage of the application
+     */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -47,7 +60,9 @@ public class MainApp extends Application {
         }
     }
 
-    
+    /**
+     * Shows the paneelit inside the root layout.
+     */
     public void showPaneelit() {
         try {
             // Ladataan Paneelit
@@ -76,7 +91,7 @@ public class MainApp extends Application {
        
 	/**
 	 * Returns the main stage.
-	 * @return
+	 * @return the main stage
 	 */
 	public Stage getPrimaryStage() {
 		return primaryStage;

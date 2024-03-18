@@ -2,8 +2,10 @@ package simu.model;
 
 import simu.framework.ITapahtumanTyyppi;
 
-// TODO:
-// Tapahtumien tyypit määritellään simulointimallin vaatimusten perusteella
+/**
+ * Enumerated type for the different types of events in the simulation
+ * S= Arrival, P = Departure
+ */
 public enum TapahtumanTyyppi implements ITapahtumanTyyppi{
 
 	//S = Saapuminen, P = Poistuminen

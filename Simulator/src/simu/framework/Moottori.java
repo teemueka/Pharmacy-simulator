@@ -42,10 +42,6 @@ public abstract class Moottori extends Thread implements IMoottori{  // UUDET MÃ
 		this.viive = viive;
 	}
 
-	@Override // UUSI
-	public long getViive() {
-		return viive;
-	}
 
 	@Override
 	public void run(){ // Entinen aja()

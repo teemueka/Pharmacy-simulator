@@ -7,15 +7,41 @@ import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
 import controller.IKontrolleriForM;
 
+/**
+ * OmaMoottori-class is used to create the simulation engine
+ */
 public class OmaMoottori extends Moottori{
-	
+
+	/**
+	 * The arrival process
+	 */
 	private final Saapumisprosessi saapumisprosessi;
+
+	/**
+	 * The service points
+	 */
 	private final Palvelupiste[] palvelupisteet;
+
+	/**
+	 * Dao for saving results to database
+	 */
 	SimulationDao simulationDao = new SimulationDao();
 
+	/**
+	 * The pharmacy
+	 */
 	Apteekki apteekki;
 
-
+	/**
+	 * Constructor for the simulation engine
+	 * @param kontrolleri the controller of the model
+	 * @param a_staff the number of employees in the customer service
+	 * @param h_staff the number of employees in the shelves
+	 * @param r_staff the number of employees in the prescription
+	 * @param k_staff the number of employees in the cashier
+	 * @param intensity the intensity of the arrival process
+	 * @param capacity the capacity of the pharmacy
+	 */
 	public OmaMoottori(IKontrolleriForM kontrolleri, int a_staff, int h_staff, int r_staff, int k_staff, int intensity, int capacity) {
 
 		super(kontrolleri);
@@ -41,12 +67,19 @@ public class OmaMoottori extends Moottori{
 	}
 
 
-
+	/**
+	 * Creates the initial event
+	 */
 	@Override
 	protected void alustukset() {
 		saapumisprosessi.generoiSeuraava(); // Ensimmäinen saapuminen järjestelmään
 	}
 
+	/**
+	 * Executes the event
+	 * Contains the logic for sorting the customers to the service points
+	 * @param t the event to be executed
+	 */
 	@Override
 	protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
 
@@ -79,8 +112,6 @@ public class OmaMoottori extends Moottori{
 						apteekki.addMissedCustomer();
 						System.out.println("Asiakasta kiukutti jonotus liikaa, menetettyjä asiakkaita: " + apteekki.displayMissedCustomers());
 
-
-						kontrolleri.naytaMenetetty(apteekki.getMissedCustomers());//Tämä päivittää menetettyjen asiakkaiden määrän
 					} else {
 						//todistan että asiakas jää jonoon ja hänet palvellaan tilanteessa jossa if ehto ei toteudu
 						System.out.println("Asiakas, " + a.getId() + " päätti pysyä jonossa");
@@ -161,11 +192,6 @@ public class OmaMoottori extends Moottori{
 				a.raportti(apteekki);
 				System.out.println("Asiakas poistuu... asiakkaita sisällä: " + apteekki.getCurrent_customers());
 				apteekki.customerOut();
-
-					   //Päivittää palveltun asiakkaan määrän
-					   kontrolleri.naytaPalveltu(apteekki.getServedCustomers());
-
-                       //TODO: FIX THE CUTOMERS!
 				kontrolleri.updateTyytyvaisyys(((double)  apteekki.getSatisfiedCustomers() / apteekki.getServedCustomers()) * 100);
 				kontrolleri.updateSuuJokaLiikkuu(((double) apteekki.getSatisfiedCustomers() / apteekki.getServedCustomers()) * 100);
 				kontrolleri.updateAulaJonoPituus((double)apteekki.displayApteekkijono());
@@ -177,6 +203,10 @@ public class OmaMoottori extends Moottori{
 		}
 	}
 
+	/**
+	 * Tries to start the service
+	 * Checks if there are customers in the queue and if the service point is not reserved
+	 */
 	@Override
 	protected void yritaCTapahtumat(){
 		for (Palvelupiste p: palvelupisteet){
@@ -186,8 +216,13 @@ public class OmaMoottori extends Moottori{
 		}
 	}
 
+	/**
+	 * Results of the simulation
+	 * Prints the results of the simulation and saves them to the database
+	 */
 	@Override
 	protected void tulokset() {
+
 		System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
 		System.out.println("Simuloinnissa käytetty henkilökunnan määrä");
 		System.out.println("Aspa henkilökunta: " + palvelupisteet[1].getStaff() + ", Kauppa henkilökunta: " + palvelupisteet[2].getStaff() + ", Resepti henkilökunta: " + palvelupisteet[3].getStaff() + ", Kassa henkilökunta: " + palvelupisteet[4].getStaff());
@@ -209,12 +244,6 @@ public class OmaMoottori extends Moottori{
 		simulationDao.saveResultsInDatabase(palvelupisteet[1].getStaff(), palvelupisteet[2].getStaff(), palvelupisteet[3].getStaff(), palvelupisteet[4].getStaff(), apteekki.getServedCustomers(), apteekki.getMissedCustomers(), palvelupisteet[1].getUsage(), palvelupisteet[2].getUsage(), palvelupisteet[3].getUsage(), palvelupisteet[4].getUsage(), apteekki.getSatisfiedCustomers(), apteekki.getDissatisfiedCustomers(), apteekki.getOverallSatisfaction(), palvelupisteet[1].getUtilization(), palvelupisteet[2].getUtilization(), palvelupisteet[3].getUtilization(), palvelupisteet[4].getUtilization());
 
 		// UUTTA graafista
-		kontrolleri.naytaLoppuaika(Kello.getInstance().getAika());
 		kontrolleri.simulationDone();
-
-
-
 	}
-
-
 }
