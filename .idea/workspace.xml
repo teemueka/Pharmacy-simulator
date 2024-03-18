@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI changes&#10;Reset Fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/IKontrolleriForM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/IKontrolleriForM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/IKontrolleriForV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/framework/IMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/framework/IMoottori.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/OmaMoottori.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/Palvelupiste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/Palvelupiste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/model/TapahtumanTyyppi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/model/TapahtumanTyyppi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/view/ISimulaattorinUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/view/IVisualisointi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/simu/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/simu/view/MainApp.java" afterDir="false" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="JDoc">
+      <change beforePath="$PROJECT_DIR$/Simulator/test/java/simu/model/ApteekkiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/test/java/simu/model/ApteekkiTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +208,7 @@
       <workItem from="1710751938363" duration="133000" />
       <workItem from="1710752084525" duration="284000" />
       <workItem from="1710752523732" duration="1207000" />
-      <workItem from="1710767127256" duration="5799000" />
+      <workItem from="1710767127256" duration="6589000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -477,7 +466,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710416016145</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="JDoc">
+      <option name="closed" value="true" />
+      <created>1710773501639</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1710773501639</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +514,8 @@
     <MESSAGE value="UI MIGRATED AND STUFF MUST WORK :D" />
     <MESSAGE value="AINT NO WAY, WE DID IT!" />
     <MESSAGE value="UI changes&#10;Reset Fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI changes&#10;Reset Fixed" />
+    <MESSAGE value="JDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="JDoc" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
