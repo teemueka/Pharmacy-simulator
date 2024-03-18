@@ -4,12 +4,35 @@ import simu.datasource.MariaDbConnection;
 import simu.framework.Kello;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+/**
+ * The SimulationDao class provides methods for interacting with the simulation database.
+ */
 
 public class SimulationDao {
+
+    /**
+     * Saves simulation results into the database.
+     *
+     * @param aspaTyontekijat        Number of customer service staff.
+     * @param hyllyTyontekijat       Number of shelf staff.
+     * @param reseptiTyontekijat     Number of prescription staff.
+     * @param kassaTyontekijat       Number of cashier staff.
+     * @param servedCustomers        Number of served customers.
+     * @param missedCustomers        Number of missed customers.
+     * @param aspaUsage              Number of customers served by customer service.
+     * @param hyllyUsage             Number of customers served by shelf staff.
+     * @param reseptiUsage           Number of customers served by prescription staff.
+     * @param kassaUsage             Number of customers served by cashier.
+     * @param satisfied              Number of satisfied customers.
+     * @param dissatisfied           Number of dissatisfied customers.
+     * @param overallSatisfaction    Overall satisfaction percentage.
+     * @param aspaUtilization        Customer service utilization percentage.
+     * @param kauppaUtilization      Shop utilization percentage.
+     * @param reseptiUtilization     Prescription utilization percentage.
+     * @param kassaUtilization       Cashier utilization percentage.
+     */
     public void saveResultsInDatabase(int aspaTyontekijat, int hyllyTyontekijat, int reseptiTyontekijat, int kassaTyontekijat, int servedCustomers, int missedCustomers, int aspaUsage, int hyllyUsage, int reseptiUsage, int kassaUsage, int satisfied, int dissatisfied, double overallSatisfaction, double aspaUtilization, double kauppaUtilization, double reseptiUtilization, double kassaUtilization) {
         Connection conn = MariaDbConnection.getConnection();
         String sql = "INSERT INTO simulation_results (simulation_time, cs_staff, shop_staff, prescription_staff, cashier_staff, served_customers, lost_customers, served_at_cs, served_at_shop, served_at_prescription, served_at_cashier, satisfied_customers, dissatisfied_customers, overall_satisfaction, cs_utilization, shop_utilization, prescription_utilization, cashier_utilization) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
@@ -40,6 +63,12 @@ public class SimulationDao {
         }
     }
 
+    /**
+     * Retrieves a list of satisfaction percentages from the database.
+     * Satisfaction percentages are used to determine the height of the barchart in history.
+     *
+     * @return A list of satisfaction percentages.
+     */
     public List<Double> getSatisfaction() {
         Connection conn = MariaDbConnection.getConnection();
         String sql = "SELECT overall_satisfaction FROM simulation_results";
@@ -58,6 +87,12 @@ public class SimulationDao {
         return satisfaction;
     }
 
+    /**
+     * Retrieves simulation data for a specific ID from the database.
+     *
+     * @param id The ID of the simulation data to retrieve.
+     * @return A list containing details of the simulation data.
+     */
     public List<String> getBarData(int id) {
         Connection conn = MariaDbConnection.getConnection();
         String sql = "SELECT * FROM SIMULATION_RESULTS WHERE id = ?";

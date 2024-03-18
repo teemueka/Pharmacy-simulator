@@ -12,11 +12,22 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+/**
+ * HistoryController is responsible for initializing barchart and event handling for tooltips
+ */
+
 public class HistoryController implements Initializable {
     @FXML
     public BarChart<String, Double> historyChart;
 
     SimulationDao simulationDao = new SimulationDao();
+
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
 
 
     @Override

@@ -199,7 +199,6 @@ public class OmaMoottori extends Moottori{
 				palvelupisteet[3].getUtilization(),
 				palvelupisteet[4].getUtilization());
 		System.out.println();
-		System.out.println(Asiakas.getUsedOnlyAspa() + " asiakasta kävi vain asiakaspalvelussa.");
 		System.out.println("dissatisfied customers: " + apteekki.getDissatisfiedCustomers() + ", satisfied customers: " + apteekki.getSatisfiedCustomers());
 		System.out.printf("Asiakastyytyväisyys: %.1f%%", apteekki.getOverallSatisfaction());
 		System.out.println();
