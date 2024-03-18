@@ -6,9 +6,5 @@ public interface IMoottori { // UUSI
 	
 	public void setSimulointiaika(double aika);
 	public void setViive(long aika);
-	public long getViive();
-
-    Thread.State getState();
-
 	void terminate();
 }

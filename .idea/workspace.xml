@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="UI changes&#10;Reset Fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/src/controller/PaneelitController.java" afterDir="false" />
+    <list default="true" id="7c90d8dd-f90d-40e3-b302-c0d83fb8996c" name="Changes" comment="JDoc">
+      <change beforePath="$PROJECT_DIR$/Simulator/test/java/simu/model/ApteekkiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/test/java/simu/model/ApteekkiTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "AppMap",
+    "Application.Main.executor": "Run",
     "Application.MainApp.executor": "Run",
     "Application.Simulaattori.executor": "Run",
     "Application.SimulaattorinGUI.executor": "Debug",
@@ -73,10 +72,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.42988506",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "two.files.diff.last.used.file": "C:/Users/joelp/Downloads/scenebuilderanimointi/main/java/view/Visualisointi.java",
     "vue.rearranger.settings.migration": "true"
   },
@@ -97,7 +96,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ApteekkiTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="simu.view.Main" />
       <module name="G_6_Simulation_project" />
@@ -161,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ApteekkiTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainApp" />
+        <item itemvalue="JUnit.ApteekkiTest" />
         <item itemvalue="Application.testMain" />
         <item itemvalue="Application.SimulaattorinGUI" />
+        <item itemvalue="Application.MainApp" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +201,14 @@
       <workItem from="1710327112995" duration="7880000" />
       <workItem from="1710335447591" duration="545000" />
       <workItem from="1710343498199" duration="438000" />
-      <workItem from="1710408017845" duration="5432000" />
+      <workItem from="1710408017845" duration="6114000" />
+      <workItem from="1710588567255" duration="272000" />
+      <workItem from="1710588856577" duration="2016000" />
+      <workItem from="1710750169220" duration="1728000" />
+      <workItem from="1710751938363" duration="133000" />
+      <workItem from="1710752084525" duration="284000" />
+      <workItem from="1710752523732" duration="1207000" />
+      <workItem from="1710767127256" duration="6589000" />
     </task>
     <task id="LOCAL-00001" summary="com to pull">
       <option name="closed" value="true" />
@@ -452,7 +458,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710410633744</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="UI changes&#10;Reset Fixed">
+      <option name="closed" value="true" />
+      <created>1710416016145</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1710416016145</updated>
+    </task>
+    <task id="LOCAL-00033" summary="JDoc">
+      <option name="closed" value="true" />
+      <created>1710773501639</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1710773501639</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,8 +514,19 @@
     <MESSAGE value="UI MIGRATED AND STUFF MUST WORK :D" />
     <MESSAGE value="AINT NO WAY, WE DID IT!" />
     <MESSAGE value="UI changes&#10;Reset Fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI changes&#10;Reset Fixed" />
+    <MESSAGE value="JDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="JDoc" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
